@@ -35,21 +35,21 @@ void keyPressed() {
         //jump();
       }
       if (key == 'a') {
-        (charList.get(0)).position.add(new PVector(-1, 0));
+        (charList.get(0)).position.add(new PVector(-4, 0));
       }
       if (key == 'd') {
-        (charList.get(0)).position.add(new PVector(1, 0));
+        (charList.get(0)).position.add(new PVector(4, 0));
       }
     
       if (key == CODED) {
-        if (key == UP) {
+        if (keyCode == UP) {
           //jump();
         }
-        if (key == LEFT) {
-          (charList.get(1)).position.add(new PVector(-1, 0));
+        if (keyCode == LEFT) {
+          (charList.get(1)).position.add(new PVector(-4, 0));
         }
-        if (key == RIGHT) {
-          (charList.get(1)).position.add(new PVector(1, 0));
+        if (keyCode == RIGHT) {
+          (charList.get(1)).position.add(new PVector(4, 0));
         }
       }
 }
