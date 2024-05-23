@@ -7,7 +7,7 @@ void setup() {
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
-  center = new Character(1200/2, 900/2, 0, 0, 15, 100, color(0), "Center");
+  center = new Character(1200/2, 100*height, 0, 0, 80, 500000000, color(0), "Center");
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
