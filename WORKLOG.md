@@ -1,10 +1,14 @@
 # Work Log
 
-## GROUP MEMBER 1
+## Jack Cheng
 
-### date x
+### 05/23/24
 
-info
+The first and most important step in creating Fireboy and Watergirl is gravity and movement
+Imported gravity from the orb classwork, and reorganized class names/functionality
+Started 'w', 'a', and 'd' movements for fireboy, UP, LEFT, and RIGHT movements for watergirl via keypressed in the Game class
+Moved a lot of the movement mechanics into the Character class as opposed to keeping it in Game, but setup remains in the Game class
+Movement is not working exactly yet
 
 ### date y
 
