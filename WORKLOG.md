@@ -9,7 +9,7 @@ Imported gravity from the orb classwork, and reorganized class names/functionali
 Started 'w', 'a', and 'd' movements for fireboy, UP, LEFT, and RIGHT movements for watergirl via keypressed in the Game class
 Moved a lot of the movement mechanics into the Character class as opposed to keeping it in Game, but setup remains in the Game class
 Movement horizontally working
-Started working with gravity, working oddly
+Started working with gravity; works good
 
 ### date y
 
