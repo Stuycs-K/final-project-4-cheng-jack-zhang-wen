@@ -11,8 +11,8 @@ void setup() {
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(10, 10, 0, 0, 20, 10, color(255, 0, 0), "Fire"));
-  charList.add(new Character(10, 10, 0, 0, 20, 10, color(0, 0, 255), "Water"));
+  charList.add(new Character(100, 100, 0, 0, 20, 10, color(255, 0, 0), "Fire"));
+  charList.add(new Character(100, 100, 0, 0, 20, 10, color(0, 0, 255), "Water"));
 }
 
 /*
@@ -27,6 +27,7 @@ void draw() {
   for (Character c : charList) {
     c.move();
     c.display();
+    c.applyForce(c.attractTo(center));
   }
 }
 
