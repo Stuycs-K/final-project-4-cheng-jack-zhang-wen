@@ -29,6 +29,7 @@ public class Character {
     //bounce on earth mode
     bounce();
   }
+  
 
 
   /**

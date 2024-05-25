@@ -33,7 +33,7 @@ void draw() {
 
 void keyPressed() {
       if (key == 'w') {
-        //jump();
+        charList.get(0).applyForce(new PVector(0, 4));
       }
       if (key == 'a') {
         (charList.get(0)).position.add(new PVector(-4, 0));
@@ -44,7 +44,7 @@ void keyPressed() {
     
       if (key == CODED) {
         if (keyCode == UP) {
-          //jump();
+          charList.get(1).applyForce(new PVector(0, 4));
         }
         if (keyCode == LEFT) {
           (charList.get(1)).position.add(new PVector(-4, 0));
