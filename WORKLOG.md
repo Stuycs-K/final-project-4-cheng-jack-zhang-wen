@@ -11,9 +11,11 @@ Moved a lot of the movement mechanics into the Character class as opposed to kee
 Movement horizontally working
 Started working with gravity; works good
 
-### date y
+### 05/24/24
 
-info
+Started methodology of jump (just applyForce with a force vector up)
+Jump should have higher y-component
+Need to prevent characters from sinking straight down
 
 
 ## GROUP MEMBER 2
