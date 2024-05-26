@@ -2,6 +2,7 @@
 
 ## Jack Cheng
 
+
 ### 5/23/24
 
 The first and most important step in creating
@@ -33,7 +34,7 @@ Left-right movements induce a larger position change
 
 No sinking after the jump from gravity interference (a continued force for even just a frame)
 
-### 05/25/24
+### 05/26/24
 
 Redesigned the center Character such that left-right drift is barely noticable (since it WILL alter gameplay)
 
