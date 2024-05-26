@@ -23,6 +23,10 @@ Jump should have higher y-component
 
 Need to prevent characters from sinking straight down
 
+### 05/25/24
+
+Working on preventing sinking
+
 
 ## Wen Zhang
 
