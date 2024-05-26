@@ -30,6 +30,9 @@ void draw() {
     if (c.position.y < height-c.radius) {
       c.applyForce(c.attractTo(center));
     }
+    else {
+      c.position.y = height-c.radius;
+    }
   }
 }
 
@@ -38,10 +41,10 @@ void keyPressed() {
         charList.get(0).applyForce(new PVector(0, -200));
       }
       if (key == 'a') {
-        (charList.get(0)).position.add(new PVector(-4, 0));
+        (charList.get(0)).position.add(new PVector(-10, 0));
       }
       if (key == 'd') {
-        (charList.get(0)).position.add(new PVector(4, 0));
+        (charList.get(0)).position.add(new PVector(10, 0));
       }
     
       if (key == CODED) {
@@ -49,10 +52,10 @@ void keyPressed() {
           charList.get(1).applyForce(new PVector(0, -200));
         }
         if (keyCode == LEFT) {
-          (charList.get(1)).position.add(new PVector(-4, 0));
+          (charList.get(1)).position.add(new PVector(-10, 0));
         }
         if (keyCode == RIGHT) {
-          (charList.get(1)).position.add(new PVector(4, 0));
+          (charList.get(1)).position.add(new PVector(10, 0));
         }
       }
 }
