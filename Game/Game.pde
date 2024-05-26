@@ -1,9 +1,14 @@
 ArrayList<Character>charList;
+ArrayList<Platform> platforms;
+int mapNumber = 1;
+Map map;
 Character center;
 static double G = 60000;
 
 void setup() {
   size(1200, 900);
+  map = new Map();
+  platforms = map.generateMap(mapNumber);
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
@@ -33,6 +38,10 @@ void draw() {
     else {
       c.position.y = height-c.radius;
     }
+  }
+  
+  for(Platform p : platforms){
+    p.display(); 
   }
 }
 
