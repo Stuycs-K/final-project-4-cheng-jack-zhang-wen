@@ -27,13 +27,15 @@ void draw() {
   for (Character c : charList) {
     c.move();
     c.display();
-    c.applyForce(c.attractTo(center));
+    if (c.position.y < height-c.radius) {
+      c.applyForce(c.attractTo(center));
+    }
   }
 }
 
 void keyPressed() {
       if (key == 'w') {
-        charList.get(0).applyForce(new PVector(0, 4));
+        charList.get(0).applyForce(new PVector(0, -200));
       }
       if (key == 'a') {
         (charList.get(0)).position.add(new PVector(-4, 0));
@@ -44,7 +46,7 @@ void keyPressed() {
     
       if (key == CODED) {
         if (keyCode == UP) {
-          charList.get(1).applyForce(new PVector(0, 4));
+          charList.get(1).applyForce(new PVector(0, -200));
         }
         if (keyCode == LEFT) {
           (charList.get(1)).position.add(new PVector(-4, 0));

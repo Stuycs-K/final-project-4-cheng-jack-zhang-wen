@@ -3,14 +3,6 @@ public class Character {
   float radius, mass;
   color c;
   String type;
-  /**
-   *IN THIS TAB MODIFY:
-   *move()
-   *attractTo()
-   *applyForce()
-   */
-
-
 
   void move() {
     velocity.add(acceleration);
@@ -80,7 +72,7 @@ public class Character {
     if (position.x > width-radius) //on right edge
       velocity.x = -1*abs(velocity.x);
     if (position.y < radius) { //try to avoid sinking down
-      velocity.y = -1*abs(velocity.y);
+      velocity.y = abs(velocity.y);
     }
     if (position.y > height-radius)
       velocity.y = 0;
