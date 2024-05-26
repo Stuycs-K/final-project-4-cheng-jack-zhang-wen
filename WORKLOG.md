@@ -33,6 +33,11 @@ Left-right movements induce a larger position change
 
 No sinking after the jump from gravity interference (a continued force for even just a frame)
 
+### 05/25/24
+
+Redesigned the center Character such that left-right drift is barely noticable (since it WILL alter gameplay)
+
+
 ## Wen Zhang
 
 ### 5/23/2024 
