@@ -1,13 +1,13 @@
 ArrayList<Character>charList;
 Character center;
-static double G = 20;
+static double G = 60000;
 
 void setup() {
   size(1200, 900);
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
-  center = new Character(1200/2, 100*height, 0, 0, 80, 500000000, color(0), "Center");
+  center = new Character(1200/2, 10000*height, 0, 0, 80, 500000000, color(0), "Center");
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
@@ -38,7 +38,7 @@ void draw() {
 
 void keyPressed() {
       if (key == 'w') {
-        charList.get(0).applyForce(new PVector(0, -200));
+        charList.get(0).applyForce(new PVector(0, -150));
       }
       if (key == 'a') {
         (charList.get(0)).position.add(new PVector(-10, 0));
@@ -49,7 +49,7 @@ void keyPressed() {
     
       if (key == CODED) {
         if (keyCode == UP) {
-          charList.get(1).applyForce(new PVector(0, -200));
+          charList.get(1).applyForce(new PVector(0, -150));
         }
         if (keyCode == LEFT) {
           (charList.get(1)).position.add(new PVector(-10, 0));

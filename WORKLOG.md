@@ -2,27 +2,48 @@
 
 ## Jack Cheng
 
-### 05/23/24
 
-The first and most important step in creating Fireboy and Watergirl is gravity and movement
-Imported gravity from the orb classwork, and reorganized class names/functionality
-Started 'w', 'a', and 'd' movements for fireboy, UP, LEFT, and RIGHT movements for watergirl via keypressed in the Game class
+### 5/23/24
+
+The first and most important step in creating
+
+Fireboy and Watergirl is gravity and movement
+
+Imported gravity from the orb classwork, and reorganized class names/functionality Started 'w', 'a', and 'd' movements for fireboy, UP, LEFT, and RIGHT movements for watergirl via keypressed in the Game class
+
 Moved a lot of the movement mechanics into the Character class as opposed to keeping it in Game, but setup remains in the Game class
-Movement horizontally working
-Started working with gravity; works good
+
+Movement horizontally working Started working with gravity; works good
+
 
 ### 05/24/24
 
-Started methodology of jump (just applyForce with a force vector up)
+Started methodology of jump (just applyForce with a force vector up) 
+
 Jump should have higher y-component
+
 Need to prevent characters from sinking straight down
 
+### 05/25/24
 
-## GROUP MEMBER 2
+Prevented sinking via the Game class
 
-### date x
+Jump is a lot nicer (works in the correct direction, and actually feels like a jump with a higher y-component magnitude for the force)
 
-info
+Left-right movements induce a larger position change
+
+No sinking after the jump from gravity interference (a continued force for even just a frame)
+
+### 05/26/24
+
+Redesigned the center Character such that left-right drift is barely noticable (since it WILL alter gameplay)
+
+
+## Wen Zhang
+
+### 5/23/2024 
+
+Created a basic setup that generated a border for a template map and created template files with all the instance variables and methods for the map related class like platform and door.
 
 ### date y
 
