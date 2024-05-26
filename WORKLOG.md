@@ -25,7 +25,11 @@ Need to prevent characters from sinking straight down
 
 ### 05/25/24
 
-Working on preventing sinking
+Prevented sinking via the Game class
+
+Jump is a lot nicer
+
+New small issue: Character gets stuck a bit below the floor because gravity is still being applied -- can fix with setting velocity vector to zero when at height-radius
 
 
 ## Wen Zhang
