@@ -27,10 +27,11 @@ Need to prevent characters from sinking straight down
 
 Prevented sinking via the Game class
 
-Jump is a lot nicer
+Jump is a lot nicer (works in the correct direction, and actually feels like a jump with a higher y-component magnitude for the force)
 
-New small issue: Character gets stuck a bit below the floor because gravity is still being applied -- can fix with setting velocity vector to zero when at height-radius
+Left-right movements induce a larger position change
 
+No sinking after the jump from gravity interference (a continued force for even just a frame)
 
 ## Wen Zhang
 
