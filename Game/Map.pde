@@ -23,6 +23,7 @@ public class Map{
       doors = new ArrayList<Door>();
       lavas = new ArrayList<Lava>();
       pools = new ArrayList<Pool>();
+      toxics = new ArrayList<Toxic>();
     }
     
     public ArrayList<Platform> MapOnePlatforms(){
