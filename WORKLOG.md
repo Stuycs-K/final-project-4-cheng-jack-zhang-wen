@@ -45,6 +45,14 @@ Redesigned the center Character such that left-right drift is barely noticable (
 
 Created a basic setup that generated a border for a template map and created template files with all the instance variables and methods for the map related class like platform and door.
 
-### date y
+### 5/25/2024
 
-info
+Finished Map#1 design with different borders and color
+
+Need to create more maps and incorporate other designs on the map such as lava, pool, and other puzzle parts
+
+### 5/26/2024
+
+Added lava, pool, and green puddles to Map1
+
+Need to add more maps 
