@@ -12,7 +12,7 @@ static double G = 60000;
 void setup() {
   size(1200, 900);
   map = new Map();
-  platforms = map.MapOnePlatforms();
+  platforms = map.MapTwoPlatforms();
   doors = map.MapOneDoors();
   pools = map.MapOnePools();
   lavas = map.MapOneLavas();
@@ -34,7 +34,14 @@ void mouseClicked() {
   //orbList.add(new Orb(mouseX, mouseY, 0, 0, 20, 10));
 }
 */
-
+    void clearMap(){
+      platforms = new ArrayList<Platform>();
+      doors = new ArrayList<Door>();
+      lavas = new ArrayList<Lava>();
+      pools = new ArrayList<Pool>();
+      toxics = new ArrayList<Toxic>();
+    }
+    
 void draw() {
   background(255);
   for (Character c : charList) {
@@ -51,7 +58,7 @@ void draw() {
   for(Platform p : platforms){
     p.display(); 
   }
-  
+  /*
   for(Door d: doors){
     d.display(); 
   }
@@ -67,9 +74,14 @@ void draw() {
   for(Toxic t: toxics){
     t.display(); 
   }
+  */
 }
 
 void keyPressed() {
+  if(key == 'b'){
+    mapNumber++;
+    changeMap(mapNumber);
+  }
       if (key == 'w') {
         charList.get(0).applyForce(new PVector(0, -150));
       }
@@ -91,4 +103,8 @@ void keyPressed() {
           (charList.get(1)).position.add(new PVector(10, 0));
         }
       }
+}
+
+void changeMap(int mapNum){
+   
 }

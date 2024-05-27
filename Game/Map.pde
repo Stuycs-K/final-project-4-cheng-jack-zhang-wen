@@ -18,7 +18,7 @@ public class Map{
       toxics = new ArrayList<Toxic>();
     }
     
-    public void clearMap(){
+    void clearMap(){
       platforms = new ArrayList<Platform>();
       doors = new ArrayList<Door>();
       lavas = new ArrayList<Lava>();
@@ -80,5 +80,42 @@ public class Map{
     public ArrayList<Toxic> MapOneToxics(){
       toxics.add(new Toxic(750, 720, 100, 15));
       return toxics;    
+    }
+    
+    
+    // Map #2
+    public ArrayList<Platform> MapTwoPlatforms(){
+      clearMap();
+      // Border
+      platforms.add(new Platform(0, 0, width, 30, brown));
+      platforms.add(new Platform(0, 0, 30, height, brown));
+      platforms.add(new Platform(0, 870, width, 30, brown));
+      platforms.add(new Platform(1170, 0, 30, height, brown));
+      
+      //Bottom Layer
+      platforms.add(new Platform(250, 760, 220, 30, brown));
+      platforms.add(new Platform(700, 760, 220, 30, brown));
+      platforms.add(new Platform(1070, 790, 130, 120, brown));
+      platforms.add(new Platform(1120, 740, 50, 120, brown));
+      
+      
+      //Second Layer
+      platforms.add(new Platform(30, 640, 1000, 40, brown));
+      platforms.add(new Platform(30, 540, 100, 100, brown));
+      
+      //Third Layer
+      platforms.add(new Platform(240, 480, 1000, 30, brown));
+      platforms.add(new Platform(540, 450, 150, 30, brown));
+      platforms.add(new Platform(1025, 400, 200, 100, brown));
+      platforms.add(new Platform(1100, 320, 100, 100, brown));
+      
+      
+      //Fourth Layer
+      platforms.add(new Platform(30, 170, 510, 35, brown));
+      platforms.add(new Platform(690, 170, 300, 35, brown));
+      platforms.add(new Platform(920, 205, 90, 35, brown));
+      platforms.add(new Platform(940, 240, 110, 35, brown));
+      
+      return platforms;
     }
  }
