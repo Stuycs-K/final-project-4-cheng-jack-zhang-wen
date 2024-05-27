@@ -56,3 +56,11 @@ Need to create more maps and incorporate other designs on the map such as lava, 
 Added lava, pool, and green puddles to Map1
 
 Need to add more maps 
+
+### 5/27/2024
+
+Made lava, pool, green puddles, platforms, doors all under one subclass to make it easier to display and change
+
+Finished Map#2 layout
+
+Need to do collisions
