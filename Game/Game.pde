@@ -1,5 +1,9 @@
 ArrayList<Character>charList;
 ArrayList<Platform> platforms;
+ArrayList<Door> doors;
+ArrayList<Lava> lavas;
+ArrayList<Pool> pools;
+ArrayList<Toxic> toxics;
 int mapNumber = 1;
 Map map;
 Character center;
@@ -8,7 +12,11 @@ static double G = 60000;
 void setup() {
   size(1200, 900);
   map = new Map();
-  platforms = map.generateMap(mapNumber);
+  platforms = map.MapOnePlatforms();
+  doors = map.MapOneDoors();
+  pools = map.MapOnePools();
+  lavas = map.MapOneLavas();
+  toxics = map.MapOneToxics();
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
@@ -42,6 +50,22 @@ void draw() {
   
   for(Platform p : platforms){
     p.display(); 
+  }
+  
+  for(Door d: doors){
+    d.display(); 
+  }
+  
+  for(Pool p: pools){
+    p.display(); 
+  }
+  
+  for(Lava l: lavas){
+    l.display();    
+  }
+  
+  for(Toxic t: toxics){
+    t.display(); 
   }
 }
 

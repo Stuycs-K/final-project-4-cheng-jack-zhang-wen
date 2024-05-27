@@ -11,9 +11,6 @@ public class Platform{
     c = Color;
   }
   
-  color getC(){
-     return c; 
-  }
   void display(){
     fill(c);
     rect(x, y, w, h);
@@ -21,6 +18,22 @@ public class Platform{
   
   boolean checkCollision(){
     return true;
+  }
+  
+  float getX(){
+    return x; 
+  }
+  
+  float getY(){
+    return y; 
+  }
+  
+  float getWidth(){
+    return w; 
+  }
+  
+  float getHeight(){
+    return h; 
   }
   
 }
