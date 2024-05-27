@@ -1,9 +1,5 @@
 ArrayList<Character>charList;
-ArrayList<Platform> platforms;
-ArrayList<Door> doors;
-ArrayList<Lava> lavas;
-ArrayList<Pool> pools;
-ArrayList<Toxic> toxics;
+ArrayList<Block> blocks;
 int mapNumber = 1;
 Map map;
 Character center;
@@ -12,11 +8,7 @@ static double G = 60000;
 void setup() {
   size(1200, 900);
   map = new Map();
-  platforms = map.MapTwoPlatforms();
-  doors = map.MapOneDoors();
-  pools = map.MapOnePools();
-  lavas = map.MapOneLavas();
-  toxics = map.MapOneToxics();
+  blocks = map.MapOneBlocks();
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
@@ -34,13 +26,9 @@ void mouseClicked() {
   //orbList.add(new Orb(mouseX, mouseY, 0, 0, 20, 10));
 }
 */
-    void clearMap(){
-      platforms = new ArrayList<Platform>();
-      doors = new ArrayList<Door>();
-      lavas = new ArrayList<Lava>();
-      pools = new ArrayList<Pool>();
-      toxics = new ArrayList<Toxic>();
-    }
+void clearMap(){
+  blocks = new ArrayList<Block>();
+}
     
 void draw() {
   background(255);
@@ -55,26 +43,10 @@ void draw() {
     }
   }
   
-  for(Platform p : platforms){
-    p.display(); 
-  }
-  /*
-  for(Door d: doors){
-    d.display(); 
+  for(Block b : blocks){
+    b.display(); 
   }
   
-  for(Pool p: pools){
-    p.display(); 
-  }
-  
-  for(Lava l: lavas){
-    l.display();    
-  }
-  
-  for(Toxic t: toxics){
-    t.display(); 
-  }
-  */
 }
 
 void keyPressed() {

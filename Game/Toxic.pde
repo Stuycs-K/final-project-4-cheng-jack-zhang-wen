@@ -1,42 +1,5 @@
-public class Toxic{
- float x, y, w, h;
- color c;
- 
+public class Toxic extends Block{
  public Toxic(float startX, float startY, float W, float H){
-    x = startX;
-    y = startY;
-    w = W;
-    h = H;
-    c = color(0, 255, 0);
+    super(startX, startY, W, H, color(0, 255, 0), "Toxic");
  }
- 
- void display(){
-    fill(c);
-    rect(x, y, w, h);
-  }
-  
-  boolean checkCollision(){
-    return true;
-  }
- 
- float getX(){
-    return x; 
-  }
-  
-  float getY(){
-    return y; 
-  }
-  
-  float getWidth(){
-    return w; 
-  }
-  
-  float getHeight(){
-    return h; 
-  }
- 
-  String getType(){
-    return ""; 
-  }
-  
 }
