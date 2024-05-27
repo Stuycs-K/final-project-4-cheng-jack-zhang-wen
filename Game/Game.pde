@@ -7,6 +7,7 @@ static double G = 60000;
 
 void setup() {
   size(1200, 900);
+  clearMap();
   map = new Map();
   blocks = map.MapOneBlocks();
   //CHANGE THIS
@@ -51,7 +52,7 @@ void draw() {
 
 void keyPressed() {
   if(key == 'b'){
-    mapNumber++;
+    mapNumber = (mapNumber + 1) % 4;
     changeMap(mapNumber);
   }
       if (key == 'w') {
@@ -78,5 +79,12 @@ void keyPressed() {
 }
 
 void changeMap(int mapNum){
-   
+   clearMap();
+   if(mapNum == 1){
+     blocks = map.MapOneBlocks();
+   } else if(mapNum == 2){
+     blocks = map.MapTwoBlocks(); 
+   } else if(mapNum == 3){
+     blocks = map.MapThreeBlocks(); 
+   }
 }

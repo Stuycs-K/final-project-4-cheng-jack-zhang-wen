@@ -65,7 +65,7 @@ public class Map{
     
     
     // Map #2
-    public ArrayList<Block> MapTwoblocks(){
+    public ArrayList<Block> MapTwoBlocks(){
       clearMap();
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown));
@@ -90,12 +90,41 @@ public class Map{
       blocks.add(new Platform(1025, 400, 200, 100, brown));
       blocks.add(new Platform(1100, 320, 100, 100, brown));
       
+      blocks.add(new Platform(350, 400, 100, 20, brown));
+      blocks.add(new Platform(780, 400, 100, 20, brown));
       
       //Fourth Layer
       blocks.add(new Platform(30, 170, 510, 35, brown));
       blocks.add(new Platform(690, 170, 300, 35, brown));
       blocks.add(new Platform(920, 205, 90, 35, brown));
       blocks.add(new Platform(940, 240, 110, 35, brown));
+      
+      //Pools
+      blocks.add(new Pool(260, 760, 200, 15));
+      blocks.add(new Pool(710, 870, 200, 15));
+      
+      //Lavas
+      blocks.add(new Lava(260, 870, 200, 15));
+      blocks.add(new Lava(710, 760, 200, 15));
+      
+      //Green Puddles
+      blocks.add(new Toxic(280, 480, 260, 15));
+      blocks.add(new Toxic(690, 480, 260, 15));
+      
+      //Doors
+      blocks.add(new Door(35, 90, 60, 80, RED, "fireDoor"));
+      blocks.add(new Door(110, 90, 60, 80, BLUE, "waterDoor"));
+      
+      return blocks;
+    }
+    
+    public ArrayList<Block> MapThreeBlocks(){
+      clearMap(); 
+      // Border
+      blocks.add(new Platform(0, 0, width, 30, brown));
+      blocks.add(new Platform(0, 0, 30, height, brown));
+      blocks.add(new Platform(0, 870, width, 30, brown));
+      blocks.add(new Platform(1170, 0, 30, height, brown));
       
       return blocks;
     }
