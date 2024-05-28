@@ -63,8 +63,10 @@ Need to add more maps
 
 ### 5/27/2024
 
-Made lava, pool, green puddles, platforms, doors all under one subclass to make it easier to display and change
+Made lava, pool, green puddles, platforms, and doors all under one subclass to make it easier to display and change
 
 Finished Map#2 layout
+
+Added a button to cycle between map
 
 Need to do collisions
