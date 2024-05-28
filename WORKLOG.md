@@ -42,6 +42,11 @@ Redesigned the center Character such that left-right drift is barely noticable (
 
 Added checkCollisionTop which works theoretically, but not working in game
 
+### 05/28/24
+
+Moved checkCollisionTop to Block class
+
+Not working properly because of bounds (frame rate and float values prevent c.position.y to be exactly equal to edge of block)
 
 ## Wen Zhang
 
