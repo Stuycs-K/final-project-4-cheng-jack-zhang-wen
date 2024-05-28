@@ -19,6 +19,7 @@ public class Block{
   
   //Need to do this
   public boolean checkCollision(){
+    
     return true;
   }
   

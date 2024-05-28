@@ -42,12 +42,41 @@ void draw() {
     else {
       c.position.y = height-c.radius;
     }
+    
+    for (Block b : blocks) {
+      if (checkCollisionTop(c, b)) {
+        c.position.y = b.y - b.h/2 - c.radius;
+      }
+    }
   }
   
-  for(Block b : blocks){
-    b.display(); 
+  for(Block b : blocks){ 
+    b.display();
   }
   
+}
+
+boolean checkCollisionTop(Character ch, Block bl) {
+  //float distX = (ch.position.x + bl.w/2) - (bl.x + ch.radius/2);
+  if (ch.position.y + ch.radius == bl.y - bl.h/2) {
+    return true;
+  }
+  return false;
+  /*
+  float distY = (ch.position.y + bl.h/2) - (bl.y + ch.radius/2);
+  
+  //float halfW = ch.radius/2 + bl.w/2;
+  float halfH = ch.radius/2 + bl.h/2;
+  
+  //if (abs(distX) < halfW) {
+    //and...
+    if (abs(distY) < halfH) {
+      return true;
+    }
+  //}
+  
+  return false;
+  */
 }
 
 void keyPressed() {
