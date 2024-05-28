@@ -126,6 +126,43 @@ public class Map{
       blocks.add(new Platform(0, 870, width, 30, brown));
       blocks.add(new Platform(1170, 0, 30, height, brown));
       
+      //First layer
+      blocks.add(new Platform(400, 830, 400, 40, brown));
+      blocks.add(new Platform(450, 790, 300, 40, brown));
+      blocks.add(new Platform(500, 750, 200, 40, brown));
+      
+      //Second Layer
+      blocks.add(new Platform(30, 680, 400, 30, brown));
+      blocks.add(new Platform(770, 680, 400, 30, brown));
+      blocks.add(new Platform(30, 610, 70, 70, brown));
+      blocks.add(new Platform(1100, 610, 70, 70, brown));
+      
+      //Upper Layer
+      blocks.add(new Platform(170, 540, 860, 40, brown));
+      blocks.add(new Platform(30, 420, 170, 30, brown));
+      blocks.add(new Platform(1000, 420, 170, 30, brown));
+      blocks.add(new Platform(280, 150, 30, 410, brown));
+      blocks.add(new Platform(890, 150, 30, 410, brown));
+      blocks.add(new Platform(150, 110, 370, 40, brown));
+      blocks.add(new Platform(680, 110, 370, 40, brown));
+      
+      blocks.add(new Platform(310, 380, 150, 30, brown));
+      blocks.add(new Platform(740, 380, 150, 30, brown));
+      blocks.add(new Platform(570, 230, 60, 320, brown));
+      blocks.add(new Platform(540, 260, 120, 40, brown));
+      blocks.add(new Platform(510, 290, 180, 40, brown));
+      blocks.add(new Platform(540, 320, 120, 40, brown));
+      
+      //Pools
+      blocks.add(new Pool(800, 870, 200, 15));
+      blocks.add(new Pool(200, 680, 200, 15));
+      blocks.add(new Pool(740, 380, 150, 15));
+      
+      //Lavas
+      blocks.add(new Lava(200, 870, 200, 15));
+      blocks.add(new Lava(800, 680, 200, 15));
+      blocks.add(new Lava(310, 380, 150, 15));
+      
       return blocks;
     }
  }

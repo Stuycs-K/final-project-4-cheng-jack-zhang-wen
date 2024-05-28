@@ -9,7 +9,7 @@ void setup() {
   size(1200, 900);
   clearMap();
   map = new Map();
-  blocks = map.MapOneBlocks();
+  blocks = map.MapThreeBlocks();
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
