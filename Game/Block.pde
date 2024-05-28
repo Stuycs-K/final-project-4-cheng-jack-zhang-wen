@@ -18,9 +18,11 @@ public class Block{
   }
   
   //Need to do this
-  public boolean checkCollision(){
-    
+  public boolean checkCollisionTop(Character ch){ //set BOUND
+   if (ch.position.y + ch.radius - (this.getY() - this.getHeight()/2) <= 0.4) {
     return true;
+   }
+   return false;
   }
   
   public float getX(){

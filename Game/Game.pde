@@ -43,41 +43,33 @@ void draw() {
       c.position.y = height-c.radius;
     }
     
+    if (c.velocity.x >= 10) {
+      c.velocity.x = 10;
+    }
+    if (c.velocity.x <= -10) {
+      c.velocity.x = -10;
+    }
+    
     for (Block b : blocks) {
-      if (checkCollisionTop(c, b)) {
-        c.position.y = b.y - b.h/2 - c.radius;
+      b.display();
+      if ((c.position.x - c.radius/2 < b.getX() + b.getWidth()/2) && (c.position.x + c.radius/2 > b.getX() - b.getWidth()/2)) { //within block bounds
+        if (b.checkCollisionTop(c)) {
+          //System.out.println("y");
+          c.position.y = b.getY() - b.getHeight()/2 - c.radius;
+        }
       }
     }
   }
-  
-  for(Block b : blocks){ 
-    b.display();
-  }
-  
 }
 
+/*
 boolean checkCollisionTop(Character ch, Block bl) {
-  //float distX = (ch.position.x + bl.w/2) - (bl.x + ch.radius/2);
-  if (ch.position.y + ch.radius == bl.y - bl.h/2) {
+  if (ch.position.y + ch.radius == bl.getY() - bl.getHeight()/2) {
     return true;
   }
   return false;
-  /*
-  float distY = (ch.position.y + bl.h/2) - (bl.y + ch.radius/2);
-  
-  //float halfW = ch.radius/2 + bl.w/2;
-  float halfH = ch.radius/2 + bl.h/2;
-  
-  //if (abs(distX) < halfW) {
-    //and...
-    if (abs(distY) < halfH) {
-      return true;
-    }
-  //}
-  
-  return false;
-  */
 }
+*/
 
 void keyPressed() {
   if(key == 'b'){
@@ -88,10 +80,14 @@ void keyPressed() {
         charList.get(0).applyForce(new PVector(0, -150));
       }
       if (key == 'a') {
-        (charList.get(0)).position.add(new PVector(-10, 0));
+        if (charList.get(0).velocity.x < 10) {
+          (charList.get(0)).velocity.add(new PVector(-3, 0));
+        }
       }
       if (key == 'd') {
-        (charList.get(0)).position.add(new PVector(10, 0));
+        if (charList.get(0).velocity.x < 10) {
+          (charList.get(0)).velocity.add(new PVector(3, 0));
+        }
       }
     
       if (key == CODED) {
@@ -99,10 +95,14 @@ void keyPressed() {
           charList.get(1).applyForce(new PVector(0, -150));
         }
         if (keyCode == LEFT) {
-          (charList.get(1)).position.add(new PVector(-10, 0));
+          if (charList.get(1).velocity.x < 10) {
+            (charList.get(1)).velocity.add(new PVector(-3, 0));
+          }
         }
         if (keyCode == RIGHT) {
-          (charList.get(1)).position.add(new PVector(10, 0));
+          if (charList.get(1).velocity.x < 10) {
+            (charList.get(1)).velocity.add(new PVector(3, 0));
+          }
         }
       }
 }
