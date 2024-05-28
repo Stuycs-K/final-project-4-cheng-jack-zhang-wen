@@ -38,6 +38,10 @@ No sinking after the jump from gravity interference (a continued force for even 
 
 Redesigned the center Character such that left-right drift is barely noticable (since it WILL alter gameplay)
 
+### 05/27/24
+
+Added checkCollisionTop which works theoretically, but not working in game
+
 
 ## Wen Zhang
 
