@@ -19,10 +19,14 @@ public class Block{
   
   //Need to do this
   public boolean checkCollisionTop(Character ch){ //set BOUND
-   if ((int)(ch.position.y + ch.radius) - (int)(this.getY() - this.getHeight()/2) <= 0.3) {
-    return true;
-   }
-   return false;
+    int chBound = floor(ch.position.y + ch.radius)/10;
+    chBound *= 10;
+    int blBound = floor(this.getY() - this.getHeight()/2);
+    blBound *= 10;
+    if (chBound == blBound) {
+      return true;
+    }
+    return false;
   }
   
   public float getX(){
