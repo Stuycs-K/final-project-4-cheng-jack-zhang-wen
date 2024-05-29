@@ -42,6 +42,12 @@ Redesigned the center Character such that left-right drift is barely noticable (
 
 Added checkCollisionTop which works theoretically, but not working in game
 
+### 05/28/24
+
+Moved checkCollisionTop to the Block class; now added a bound to ensure that an equivalent value could be found (floats with discrete frame updates prevented the == method from working)
+
+Need to remove <= to another ==
+
 
 ## Wen Zhang
 
