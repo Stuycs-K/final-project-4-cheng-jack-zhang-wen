@@ -156,12 +156,17 @@ public class Map{
       //Pools
       blocks.add(new Pool(800, 870, 200, 15));
       blocks.add(new Pool(200, 680, 200, 15));
-      blocks.add(new Pool(740, 380, 150, 15));
+      blocks.add(new Pool(745, 380, 145, 15));
       
       //Lavas
       blocks.add(new Lava(200, 870, 200, 15));
       blocks.add(new Lava(800, 680, 200, 15));
-      blocks.add(new Lava(310, 380, 150, 15));
+      blocks.add(new Lava(310, 380, 145, 15));
+      
+      // Doors
+      blocks.add(new Door(350, 460, 60, 80, RED, "fireDoor"));
+      blocks.add(new Door(790, 460, 60, 80, BLUE, "waterDoor"));
+      
       
       return blocks;
     }
