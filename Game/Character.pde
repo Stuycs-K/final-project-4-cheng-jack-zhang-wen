@@ -64,6 +64,24 @@ public class Character {
     noStroke();
     circle(position.x, position.y, (float)radius*2);
   }
+  
+  public void xBounce() {
+    for (Block b : blocks) {
+      if ((this.position.y - this.radius/2 > b.getY() - b.getHeight()/2) && (this.position.y + this.radius/2 < b.getY() + b.getHeight()/2)) {
+        int chBoundLeft = int(this.position.x + this.radius);
+        int blBoundLeft = int(b.getX() - b.getWidth()/2);
+        int chBoundRight = int(this.position.x - this.radius);
+        int blBoundRight = int(b.getX() + b.getWidth()/2);
+        if (chBoundLeft == blBoundLeft || chBoundRight == blBoundRight) {    
+          velocity.x = 0;
+        }
+      }
+    }
+  }
+  
+  public void yBounce() {
+    velocity.y = 0;
+  }
 
 
   public void bounce() {
@@ -72,7 +90,7 @@ public class Character {
     if (position.x > width-radius) //on right edge
       velocity.x = -1*abs(velocity.x);
     if (position.y < radius) { //try to avoid sinking down
-      velocity.y = abs(velocity.y);
+      velocity.y = 0;
     }
     if (position.y > height-radius)
       velocity.y = 0;

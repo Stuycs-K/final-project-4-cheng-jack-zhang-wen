@@ -52,11 +52,16 @@ void draw() {
     
     for (Block b : blocks) {
       b.display();
-      if ((c.position.x - c.radius/2 < b.getX() + b.getWidth()/2) && (c.position.x + c.radius/2 > b.getX() - b.getWidth()/2)) { //within block bounds
+      if ((c.position.y - c.radius/2 > b.getY() - b.getHeight()/2) && (c.position.y + c.radius/2 < b.getY() + b.getHeight()/2)) { //within block bounds Y
+        if (b.checkCollisionSide(c)) {
+          c.xBounce();
+        }
+      }
+      if ((c.position.x - c.radius/2 < b.getX() + b.getWidth()/2) && (c.position.x + c.radius/2 > b.getX() - b.getWidth()/2)) { //within block bounds X
           //System.out.println((int)(c.position.y + c.radius));
           //System.out.println((int)(b.getY() - b.getHeight()/2));
         if (b.checkCollisionTop(c)) {
-          c.position.y = b.getY() - b.getHeight()/2 - c.radius;
+          c.position.y = b.getY() - /*b.getHeight()/2 -*/ c.radius;
         }
       }
     }
@@ -90,6 +95,9 @@ void keyPressed() {
           (charList.get(0)).velocity.add(new PVector(3, 0));
         }
       }
+      if (key == 's') {
+        (charList.get(0)).velocity.x = 0;
+      }
     
       if (key == CODED) {
         if (keyCode == UP) {
@@ -104,6 +112,9 @@ void keyPressed() {
           if (charList.get(1).velocity.x < 10) {
             (charList.get(1)).velocity.add(new PVector(3, 0));
           }
+        }
+        if (keyCode == DOWN) {
+          (charList.get(1)).velocity.x = 0;
         }
       }
 }
