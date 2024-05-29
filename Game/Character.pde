@@ -1,6 +1,6 @@
 public class Character {
   PVector position, velocity, acceleration;
-  float radius, mass;
+  float h, w, mass;
   color c;
   String type;
 
@@ -10,6 +10,7 @@ public class Character {
     acceleration = new PVector();
 
     bounce();
+    xBounce();
   }
   
 
@@ -48,12 +49,13 @@ public class Character {
     acceleration = acceleration.add(PVector.div(f, this.mass));
   }
 
-  public Character(float x, float y, float xSpeed, float ySpeed, float radius_, float mass_, color color_, String type_) {
+  public Character(float x, float y, float xSpeed, float ySpeed, float ht, float wi, float mass_, color color_, String type_) {
     position = new PVector(x, y);
     velocity = new PVector(xSpeed, ySpeed);
     acceleration = new PVector(0, 0);
     mass = mass_;
-    radius = radius_;
+    h = ht;
+    w = wi;
     c = color_;
     type = type_;
   }
@@ -62,7 +64,7 @@ public class Character {
   void display() {
     fill(c);
     noStroke();
-    circle(position.x, position.y, (float)radius*2);
+    rect(position.x, position.y, ht, wi);
   }
   
   public void xBounce() {

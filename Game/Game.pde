@@ -13,12 +13,12 @@ void setup() {
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
-  center = new Character(1200/2, 10000*height, 0, 0, 80, 500000000, color(0), "Center");
+  center = new Character(1200/2, 10000*height, 0, 0, 0, 80, 500000000, color(0), "Center");
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(100, 100, 0, 0, 20, 10, color(255, 0, 0), "Fire"));
-  charList.add(new Character(100, 100, 0, 0, 20, 10, color(0, 0, 255), "Water"));
+  charList.add(new Character(100, 100, 0, 0, 10, 10, 10, color(255, 0, 0), "Fire"));
+  charList.add(new Character(100, 100, 0, 0, 10, 10, 10, color(0, 0, 255), "Water"));
 }
 
 /*
@@ -52,6 +52,7 @@ void draw() {
     
     for (Block b : blocks) {
       b.display();
+      /*
       if ((c.position.y - c.radius/2 > b.getY() - b.getHeight()/2) && (c.position.y + c.radius/2 < b.getY() + b.getHeight()/2)) { //within block bounds Y
         if (b.checkCollisionSide(c)) {
           c.xBounce();
@@ -61,9 +62,11 @@ void draw() {
           //System.out.println((int)(c.position.y + c.radius));
           //System.out.println((int)(b.getY() - b.getHeight()/2));
         if (b.checkCollisionTop(c)) {
-          c.position.y = b.getY() - /*b.getHeight()/2 -*/ c.radius;
+          c.position.y = b.getY() - b.getHeight()/2 - c.radius;
         }
       }
+      */
+      //c.xBounce();
     }
   }
 }
