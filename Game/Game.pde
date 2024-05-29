@@ -53,8 +53,9 @@ void draw() {
     for (Block b : blocks) {
       b.display();
       if ((c.position.x - c.radius/2 < b.getX() + b.getWidth()/2) && (c.position.x + c.radius/2 > b.getX() - b.getWidth()/2)) { //within block bounds
+          //System.out.println((int)(c.position.y + c.radius));
+          //System.out.println((int)(b.getY() - b.getHeight()/2));
         if (b.checkCollisionTop(c)) {
-          //System.out.println("y");
           c.position.y = b.getY() - b.getHeight()/2 - c.radius;
         }
       }
