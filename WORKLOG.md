@@ -46,7 +46,7 @@ Added checkCollisionTop which works theoretically, but not working in game
 
 Moved checkCollisionTop to the Block class; now added a bound to ensure that an equivalent value could be found (floats with discrete frame updates prevented the == method from working)
 
-Need to remove <= to another ==
+Something wrong with the round to ten -- fix other time
 
 
 ## Wen Zhang
