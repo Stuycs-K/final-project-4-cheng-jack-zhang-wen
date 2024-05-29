@@ -48,6 +48,12 @@ Moved checkCollisionTop to the Block class; now added a bound to ensure that an 
 
 Something wrong with the round to ten -- fix other time
 
+### 05/29/24
+
+Trying new methodologies for collision (on sides, bottom, velocity x and y set to 0, respectively)
+
+Maybe change Character to square
+
 
 ## Wen Zhang
 
