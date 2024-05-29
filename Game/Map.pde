@@ -59,6 +59,9 @@ public class Map{
       //Toxic
       blocks.add(new Toxic(750, 720, 100, 15));
       
+      //Gems
+      blocks.add(new Gem(700, 830, "redGem"));
+      
       return blocks;
     }
     
