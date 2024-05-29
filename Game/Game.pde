@@ -79,9 +79,11 @@ boolean checkCollisionTop(Character ch, Block bl) {
   */
 }
 
+
+
 void keyPressed() {
   if(key == 'b'){
-    mapNumber = (mapNumber + 1) % 4;
+    mapNumber = (mapNumber + 1) % 3;
     changeMap(mapNumber);
   }
       if (key == 'w') {
@@ -109,11 +111,11 @@ void keyPressed() {
 
 void changeMap(int mapNum){
    clearMap();
-   if(mapNum == 1){
+   if(mapNum == 0){
      blocks = map.MapOneBlocks();
-   } else if(mapNum == 2){
+   } else if(mapNum == 1){
      blocks = map.MapTwoBlocks(); 
-   } else if(mapNum == 3){
+   } else if(mapNum == 2){
      blocks = map.MapThreeBlocks(); 
    }
 }

@@ -82,3 +82,13 @@ Finished Map#2 layout
 Added a button to cycle between map
 
 Need to do collisions
+
+### 5/28/2024
+
+Almost done with map3 during class
+
+Finished map3 at home
+
+### 5/29/2024
+
+Added a new gem class for gem collections
