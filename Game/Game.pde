@@ -36,12 +36,16 @@ void draw() {
   for (Character c : charList) {
     c.move();
     c.display();
-    if (c.position.y < height-c.h) {
-      c.applyForce(c.attractTo(center));
+    for (Block b : blocks) {
+      if (b.checkCollisionTop(c)) {
+        c.position.y = b.y - c.h;
+      }
     }
-    else {
-      c.position.y = height-c.h;
+
+    if (c.position.y >= height-c.h) {
+      c.position.y = height - c.h;
     }
+
     
     if (c.velocity.x >= 10) {
       c.velocity.x = 10;

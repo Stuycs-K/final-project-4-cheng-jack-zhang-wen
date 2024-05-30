@@ -8,9 +8,12 @@ public class Character {
     velocity.add(acceleration);
     position.add(velocity);
     acceleration = new PVector();
+    applyForce(this.attractTo(center));
     
     for (Block b : blocks) {
       if (b.checkCollisionTop(this)) {
+        this.acceleration.y = 0;
+        this.velocity.y = 0;
         this.position.y = b.y - this.h;
       }
       if (b.checkCollisionSide(this)) {
@@ -58,10 +61,6 @@ public class Character {
     fill(c);
     noStroke();
     rect(position.x, position.y, h, w);
-  }
-  
-  public void yBounce() {
-    velocity.y = 0;
   }
 
 

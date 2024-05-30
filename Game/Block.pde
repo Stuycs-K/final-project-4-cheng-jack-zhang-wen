@@ -18,7 +18,7 @@ public class Block{
   }
   
   public boolean checkCollisionTop(Character ch) {
-    if (ch.position.x >= this.x && ch.position.x+ch.w < this.x+this.w) {
+    if (ch.position.x >= this.x && ch.position.x+ch.w <= this.x+this.w) {
       int chBound = int(ch.position.y + ch.h);
       int blBound = int(this.y);
       if (chBound == blBound) {
@@ -42,7 +42,7 @@ public class Block{
   }
   
   public boolean checkCollisionBottom(Character ch) {
-    if (ch.position.x >= this.x && ch.position.x+ch.w < this.x+this.w) {
+    if (ch.position.x >= this.x && ch.position.x+ch.w <= this.x+this.w) {
       int chBound = int(ch.position.y);
       int blBound = int(this.y + this.h);
       if (chBound == blBound) {
