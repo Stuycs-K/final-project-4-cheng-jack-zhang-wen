@@ -17,47 +17,41 @@ public class Block{
     rect(x, y, w, h);
   }
   
-  //Need to do this
-  public boolean checkCollisionTop(Character ch){ //set BOUND
-    int chBound = int(ch.position.y + ch.radius)/10;
-    chBound *= 10;
-    //System.out.println(chBound);
-    int blBound = int(this.getY() - this.getHeight()/2)/10;
-    blBound *= 10;
-    //System.out.println(blBound);
-    if (chBound == blBound) {
-      return true;
+  public boolean checkCollisionTop(Character ch) {
+    if (ch.position.x >= this.x && ch.position.x+ch.w < this.x+this.w) {
+      int chBound = int(ch.position.y + ch.h);
+      int blBound = int(this.y);
+      if (chBound == blBound) {
+        return true;
+      }
     }
     return false;
   }
   
   public boolean checkCollisionSide(Character ch) {
-    int chBoundLeft = int(ch.position.x + ch.radius);
-    int blBoundLeft = int(this.getX() - this.getWidth()/2);
-    int chBoundRight = int(ch.position.x - ch.radius);
-    int blBoundRight = int(this.getX() + this.getWidth()/2);
-    if (chBoundLeft == blBoundLeft || chBoundRight == blBoundRight) {
-      return true;
+    if (ch.position.y + ch.h >= this.y && ch.position.y <= this.y + this.h) {
+      int chBoundLeft = int(ch.position.x + ch.w);
+      int blBoundLeft = int(this.x);
+      int chBoundRight = int(ch.position.x);
+      int blBoundRight = int(this.x + this.w);
+      if (chBoundLeft == blBoundLeft || chBoundRight == blBoundRight) {
+        return true;
+      }
     }
     return false;
   }
   
-  public float getX(){
-    return x; 
+  public boolean checkCollisionBottom(Character ch) {
+    if (ch.position.x >= this.x && ch.position.x+ch.w < this.x+this.w) {
+      int chBound = int(ch.position.y);
+      int blBound = int(this.y + this.h);
+      if (chBound == blBound) {
+        return true;
+      }
+    }
+    return false;
   }
-  
-  public float getY(){
-    return y; 
-  }
-  
-  public float getWidth(){
-    return w; 
-  }
-  
-  public float getHeight(){
-    return h; 
-  }
-  
+
   public String getType(){
     return type; 
   }

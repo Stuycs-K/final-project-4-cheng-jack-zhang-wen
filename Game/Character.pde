@@ -8,36 +8,29 @@ public class Character {
     velocity.add(acceleration);
     position.add(velocity);
     acceleration = new PVector();
+    
+    for (Block b : blocks) {
+      if (b.checkCollisionTop(this)) {
+        this.position.y = b.y - this.h;
+      }
+      if (b.checkCollisionSide(this)) {
+        this.velocity.x = 0;
+      }
+      if (b.checkCollisionBottom(this)) {
+        this.velocity.y = 0;
+      }
+    }
 
     bounce();
-    xBounce();
   }
   
-
-
-  /**
-   *Calculate the force between this orb and the other orb.
-   *Return a PVector with the correct magnitude and direction
-   */
   PVector attractTo(Character other) {    
     float distance = PVector.sub((other.position), (this.position)).mag();
-
-    //this code prevents small distances creating problems (overlapping orbs with 0 dist)
     distance = max(15.0, distance);
-
-    //calculate the magnitude of the force g using the formula g = G*M1*M2/dist^2
     double mag = G*(this.mass*other.mass)/(distance*distance);
-
-    //calculate the direction of the force
     PVector force = PVector.sub((other.position), (this.position));
-
-    //normalize the force
     force = force.normalize();
-
-    //now you have a unit vector, and a magnitude.
-    //Make your force vector have the correct magnitude before returning it.
     force = force.mult((float)mag);
-
     return force;
   }
 
@@ -64,21 +57,7 @@ public class Character {
   void display() {
     fill(c);
     noStroke();
-    rect(position.x, position.y, ht, wi);
-  }
-  
-  public void xBounce() {
-    for (Block b : blocks) {
-      if ((this.position.y - this.radius/2 > b.getY() - b.getHeight()/2) && (this.position.y + this.radius/2 < b.getY() + b.getHeight()/2)) {
-        int chBoundLeft = int(this.position.x + this.radius);
-        int blBoundLeft = int(b.getX() - b.getWidth()/2);
-        int chBoundRight = int(this.position.x - this.radius);
-        int blBoundRight = int(b.getX() + b.getWidth()/2);
-        if (chBoundLeft == blBoundLeft || chBoundRight == blBoundRight) {    
-          velocity.x = 0;
-        }
-      }
-    }
+    rect(position.x, position.y, h, w);
   }
   
   public void yBounce() {
@@ -87,14 +66,14 @@ public class Character {
 
 
   public void bounce() {
-    if (position.x < radius) //on left edge
+    if (position.x < 0) //on left edge... < 0 because top-left corner position is a float, and may not be exactly 0.0
       velocity.x = abs(velocity.x);
-    if (position.x > width-radius) //on right edge
+    if (position.x > width-w) //on right edge
       velocity.x = -1*abs(velocity.x);
-    if (position.y < radius) { //try to avoid sinking down
+    if (position.y < 0) { //try to avoid sinking down
       velocity.y = 0;
     }
-    if (position.y > height-radius)
+    if (position.y > height-h)
       velocity.y = 0;
       //position.y = height-radius;
   }

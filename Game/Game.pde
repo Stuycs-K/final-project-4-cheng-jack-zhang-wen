@@ -1,4 +1,4 @@
-ArrayList<Character>charList;
+ArrayList<Character> charList;
 ArrayList<Block> blocks;
 int mapNumber = 1;
 Map map;
@@ -17,8 +17,8 @@ void setup() {
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(100, 100, 0, 0, 10, 10, 10, color(255, 0, 0), "Fire"));
-  charList.add(new Character(100, 100, 0, 0, 10, 10, 10, color(0, 0, 255), "Water"));
+  charList.add(new Character(100, 100, 0, 0, 35, 35, 10, color(255, 0, 0), "Fire"));
+  charList.add(new Character(100, 100, 0, 0, 35, 35, 10, color(0, 0, 255), "Water"));
 }
 
 /*
@@ -36,11 +36,11 @@ void draw() {
   for (Character c : charList) {
     c.move();
     c.display();
-    if (c.position.y < height-c.radius) {
+    if (c.position.y < height-c.h) {
       c.applyForce(c.attractTo(center));
     }
     else {
-      c.position.y = height-c.radius;
+      c.position.y = height-c.h;
     }
     
     if (c.velocity.x >= 10) {
