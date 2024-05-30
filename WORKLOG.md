@@ -48,6 +48,12 @@ Moved checkCollisionTop to Block class
 
 Not working properly because of bounds (frame rate and float values prevent c.position.y to be exactly equal to edge of block)
 
+## 05/30/24
+
+Next: restore worklog
+
+Next: make a temporary velocity set to zero
+
 ## Wen Zhang
 
 ### 5/23/2024 
