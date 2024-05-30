@@ -92,3 +92,7 @@ Finished map3 at home
 ### 5/29/2024
 
 Added a new gem class for gem collections
+
+Added gems to map 1-3
+
+Need to create a button and wind class
