@@ -60,6 +60,8 @@ Characters as squares
 
 Redefined methods for collision -- rounding error and maybe some other error is interfering, but working much better than yesterday
 
+Issue with gravity mechanic
+
 
 ## Wen Zhang
 
