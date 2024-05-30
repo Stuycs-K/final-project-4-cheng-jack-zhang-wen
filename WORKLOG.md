@@ -15,7 +15,6 @@ Moved a lot of the movement mechanics into the Character class as opposed to kee
 
 Movement horizontally working Started working with gravity; works good
 
-
 ### 05/24/24
 
 Started methodology of jump (just applyForce with a force vector up) 
@@ -44,15 +43,29 @@ Added checkCollisionTop which works theoretically, but not working in game
 
 ### 05/28/24
 
-Moved checkCollisionTop to Block class
+Moved checkCollisionTop to the Block class; now added a bound to ensure that an equivalent value could be found (floats with discrete frame updates prevented the == method from working)
 
-Not working properly because of bounds (frame rate and float values prevent c.position.y to be exactly equal to edge of block)
+Something wrong with the round to ten -- fix other time
 
-## 05/30/24
+### 05/29/24
 
-Next: restore worklog
+Trying new methodologies for collision (on sides, bottom, velocity x and y set to 0, respectively)
 
-Next: make a temporary velocity set to zero
+Maybe change Character to square
+
+### 05/30/24
+
+Characters as squares
+
+Redefined methods for collision -- working much better than yesterday
+
+Issue with gravity mechanic is mostly fixed (no more center Character object)
+
+Need to adjust rounding and methodology slightly, but idea works
+
+Collisions mostly work, but updates per frame still interfering
+
+
 
 ## Wen Zhang
 
