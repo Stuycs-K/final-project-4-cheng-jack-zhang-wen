@@ -9,7 +9,7 @@ void setup() {
   size(1200, 900);
   clearMap();
   map = new Map();
-  blocks = map.MapOneBlocks();
+  blocks = map.MapThreeBlocks();
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
@@ -21,12 +21,6 @@ void setup() {
   charList.add(new Character(100, 100, 0, 0, 35, 35, 10, color(0, 0, 255), "Water"));
 }
 
-/*
-void mouseClicked() {
-  orbList.add(new Orb(mouseX, mouseY, 3, 0, 20, 10));
-  //orbList.add(new Orb(mouseX, mouseY, 0, 0, 20, 10));
-}
-*/
 void clearMap(){
   blocks = new ArrayList<Block>();
 }
@@ -56,37 +50,15 @@ void draw() {
     
     for (Block b : blocks) {
       b.display();
-      /*
-      if ((c.position.y - c.radius/2 > b.getY() - b.getHeight()/2) && (c.position.y + c.radius/2 < b.getY() + b.getHeight()/2)) { //within block bounds Y
-        if (b.checkCollisionSide(c)) {
-          c.xBounce();
-        }
-      }
-      if ((c.position.x - c.radius/2 < b.getX() + b.getWidth()/2) && (c.position.x + c.radius/2 > b.getX() - b.getWidth()/2)) { //within block bounds X
-          //System.out.println((int)(c.position.y + c.radius));
-          //System.out.println((int)(b.getY() - b.getHeight()/2));
-        if (b.checkCollisionTop(c)) {
-          c.position.y = b.getY() - b.getHeight()/2 - c.radius;
-        }
-      }
-      */
-      //c.xBounce();
+
     }
   }
 }
 
-/*
-boolean checkCollisionTop(Character ch, Block bl) {
-  if (ch.position.y + ch.radius == bl.getY() - bl.getHeight()/2) {
-    return true;
-  }
-  return false;
-}
-*/
 
 void keyPressed() {
   if(key == 'b'){
-    mapNumber = (mapNumber + 1) % 4;
+    mapNumber = (mapNumber + 1) % 3;
     changeMap(mapNumber);
   }
       if (key == 'w') {
@@ -128,11 +100,11 @@ void keyPressed() {
 
 void changeMap(int mapNum){
    clearMap();
-   if(mapNum == 1){
+   if(mapNum == 0){
      blocks = map.MapOneBlocks();
-   } else if(mapNum == 2){
+   } else if(mapNum == 1){
      blocks = map.MapTwoBlocks(); 
-   } else if(mapNum == 3){
+   } else if(mapNum == 2){
      blocks = map.MapThreeBlocks(); 
    }
 }
