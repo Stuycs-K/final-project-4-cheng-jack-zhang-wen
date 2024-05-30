@@ -54,6 +54,12 @@ Trying new methodologies for collision (on sides, bottom, velocity x and y set t
 
 Maybe change Character to square
 
+### 05/29/24
+
+Characters as squares
+
+Redefined methods for collision -- rounding error and maybe some other error is interfering, but working much better than yesterday
+
 
 ## Wen Zhang
 
