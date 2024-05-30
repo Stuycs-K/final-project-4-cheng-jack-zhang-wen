@@ -4,6 +4,7 @@ public class Map{
     color GREEN = color(0, 255, 0);
     color BLUE = color(0, 0, 255);
     color brown = color(114,104,52);
+    color purple = color(138,43,226);
     
     
     public Map(){
@@ -69,6 +70,12 @@ public class Map{
       blocks.add(new Gem(700, 130, "blueGem"));
       blocks.add(new Gem(45, 210, "blueGem"));
       
+      //Buttons
+      blocks.add(new Button(450, 482, 0, 0, 100, 20, BLUE));
+      blocks.add(new Button(920, 342, 0, 0, 100, 20, BLUE));
+      
+      blocks.add(new Button(200, 612, 0, 0, 100, 20, purple));
+      blocks.add(new Button(280, 482, 0, 0, 100, 20, purple));
       
       return blocks;
     }
