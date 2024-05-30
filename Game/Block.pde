@@ -30,17 +30,26 @@ public class Block{
     return false;
   }
   
-  public boolean checkCollisionSide(Character ch) {
+  public boolean checkCollisionLeft(Character ch) {
     if (ch.position.y + ch.h >= this.y && ch.position.y <= this.y + this.h) {
       int chBoundLeft = int(ch.position.x + ch.w)/10;
       int blBoundLeft = int(this.x)/10;
-      int chBoundRight = int(ch.position.x)/10;
-      int blBoundRight = int(this.x + this.w)/10;
       chBoundLeft *= 10;
       blBoundLeft *= 10;
+      if (chBoundLeft == blBoundLeft) {
+        return true;
+      }
+    }
+    return false;
+  }
+  
+  public boolean checkCollisionRight(Character ch) {
+    if (ch.position.y + ch.h >= this.y && ch.position.y <= this.y + this.h) {
+      int chBoundRight = int(ch.position.x)/10;
+      int blBoundRight = int(this.x + this.w)/10;
       chBoundRight *= 10;
       blBoundRight *= 10;
-      if (chBoundLeft == blBoundLeft || chBoundRight == blBoundRight) {
+      if (chBoundRight == blBoundRight) {
         return true;
       }
     }
