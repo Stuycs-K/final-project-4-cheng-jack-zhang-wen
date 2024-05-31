@@ -1,6 +1,6 @@
 public class Character {
   PVector position, velocity, acceleration;
-  float h, w, mass;
+  int h, w;
   color c;
   String type;
 
@@ -8,48 +8,47 @@ public class Character {
     velocity.add(acceleration);
     position.add(velocity);
     acceleration = new PVector();
-    applyForce(this.attractTo(center));
+    applyForce();
+    boolean dropL = false;
+    boolean dropR = false;
+    boolean dropB = false;
     
     for (Block b : blocks) {
-      if (b.checkCollisionTop(this)) {
+      
+      
+      if (b.checkCollisionTop(this, 20)) {
         this.acceleration.y = 0;
         this.velocity.y = 0;
         this.position.y = b.y - this.h;
       }
-      if (b.checkCollisionSide(this)) {
+      if (b.checkCollisionLeft(this, 10) && !dropL) {
         this.velocity.x = 0;
+        this.position.x = b.x - this.w;
+        dropL = true;
       }
-      if (b.checkCollisionBottom(this)) {
+      if (b.checkCollisionRight(this, 10) && !dropR) {
+        this.velocity.x = 0;
+        this.position.x = b.x + b.w;
+        dropR = true;
+      }
+      if (b.checkCollisionBottom(this, 20) && !dropB) {
+        this.position.y = b.y + b.h;
         this.velocity.y = 0;
+        dropB = true;
       }
     }
 
     bounce();
   }
   
-  PVector attractTo(Character other) {    
-    float distance = PVector.sub((other.position), (this.position)).mag();
-    distance = max(15.0, distance);
-    double mag = G*(this.mass*other.mass)/(distance*distance);
-    PVector force = PVector.sub((other.position), (this.position));
-    force = force.normalize();
-    force = force.mult((float)mag);
-    return force;
+  void applyForce() {
+    acceleration = acceleration.add(new PVector(0, 1));
   }
 
-  /*Apply a force to the current orb by changing the acceleration.*/
-  void applyForce(PVector f) {
-    //knowing that f = ma, you can rearrange the formula to see how you want to manipulate acceleration:
-    //a = f / m
-    //add  force/mass to the acceleration to apply the force.
-    acceleration = acceleration.add(PVector.div(f, this.mass));
-  }
-
-  public Character(float x, float y, float xSpeed, float ySpeed, float ht, float wi, float mass_, color color_, String type_) {
+  public Character(float x, float y, int ht, int wi, color color_, String type_) {
     position = new PVector(x, y);
-    velocity = new PVector(xSpeed, ySpeed);
+    velocity = new PVector(0, 0);
     acceleration = new PVector(0, 0);
-    mass = mass_;
     h = ht;
     w = wi;
     c = color_;
