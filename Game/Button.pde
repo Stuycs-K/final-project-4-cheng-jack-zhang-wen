@@ -17,7 +17,7 @@ public class Button extends Block{
     return attached;
   }
   
-  boolean buttonCollision(Character c){
-    return true;
+  public boolean buttonCollision(Character c){
+    return(c.position.y + c.h < this.y && c.position.y + c.h > this.y);
   }
 }

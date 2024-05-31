@@ -17,6 +17,7 @@ public class Block{
     rect(x, y, w, h);
   }
   
+  
   public boolean checkCollisionTop(Character ch) {
     if (ch.position.x >= this.x && ch.position.x+ch.w <= this.x+this.w) {
       int chBound = int(ch.position.y + ch.h)/10;

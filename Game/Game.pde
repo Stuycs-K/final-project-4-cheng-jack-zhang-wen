@@ -1,5 +1,6 @@
 ArrayList<Character> charList;
 ArrayList<Block> blocks;
+ArrayList<Block> buttonBlocks;
 int mapNumber = 1;
 Map map;
 Character center;
@@ -10,6 +11,7 @@ void setup() {
   clearMap();
   map = new Map();
   blocks = map.MapOneBlocks();
+  buttonBlocks = new ArrayList<Block>();
   //CHANGE THIS
   //make an orb at the center of the screen with a mass of 100.
   //note: Orb Constructor parameters: x,y,xSpeed,ySpeed,radius,mass
@@ -36,11 +38,12 @@ void draw() {
       }
       if(b.getType().equals("Button")){
          Button button = (Button) b;
+         Platform attachedPlatform = button.getPlatform();
          if(button.buttonCollision(c)){
-           Platform attachedPlatform = button.getPlatform();
-           attachedPlatform.display();
+           System.out.println("Collided");
+           buttonBlocks.add(attachedPlatform);
          } else {
-            
+           buttonBlocks.remove(attachedPlatform);
          }
       }
     }
@@ -59,7 +62,10 @@ void draw() {
     
     for (Block b : blocks) {
       b.display();
-
+    }
+    
+    for(Block b : buttonBlocks){
+      b.display(); 
     }
   }
 }
