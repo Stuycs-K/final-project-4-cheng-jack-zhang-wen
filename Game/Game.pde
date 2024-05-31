@@ -33,11 +33,39 @@ void draw() {
         c.position.y = b.y - c.h;
       }
     }
-
-    if (c.position.y >= height-c.h) {
-      c.position.y = height - c.h;
+    
+    
+    //top
+    if (c.position.y >= height + blocks.get(0).h) {
+      c.position.y = height - blocks.get(0).h;
+      if (c.velocity.y < 0) {
+        c.velocity.y = 0;
+      }
     }
-
+    
+    //left
+    if (c.position.y >= height + blocks.get(0).h) {
+      c.position.y = height - blocks.get(0).h;
+      if (c.velocity.y < 0) {
+        c.velocity.y = 0;
+      }
+    }
+    
+    //bottom
+    if (c.position.y >= height + blocks.get(0).h) {
+      c.position.y = height - blocks.get(0).h;
+      if (c.velocity.y < 0) {
+        c.velocity.y = 0;
+      }
+    }
+    
+    //right
+    if (c.position.y >= height + blocks.get(0).h) {
+      c.position.y = height - blocks.get(0).h;
+      if (c.velocity.y < 0) {
+        c.velocity.y = 0;
+      }
+    }
     
     if (c.velocity.x >= 10) {
       c.velocity.x = 10;

@@ -19,6 +19,7 @@ public class Character {
       dropR = false;
       dropB = false;
     }
+    
     for (Block b : blocks) {
       if (b.checkCollisionTop(this, 20)) {
         this.acceleration.y = 0;
