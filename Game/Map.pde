@@ -16,6 +16,7 @@ public class Map{
     }
     
     public ArrayList<Block> MapOneBlocks(){
+      clearMap();
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown));
       blocks.add(new Platform(0, 0, 30, height, brown));

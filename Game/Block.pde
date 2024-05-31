@@ -17,12 +17,22 @@ public class Block{
     rect(x, y, w, h);
   }
   
+<<<<<<< HEAD
   public boolean checkCollisionTop(Character ch, int bound) {
     if ((ch.position.x + ch.w > this.x && ch.position.x < this.x + this.w) && (this.getType().equals("Platform"))){
       int chBound = int(ch.position.y + ch.h)/bound;
       int blBound = int(this.y)/bound;
       chBound *= bound;
       blBound *= bound;
+=======
+  
+  public boolean checkCollisionTop(Character ch) {
+    if (ch.position.x >= this.x && ch.position.x+ch.w <= this.x+this.w) {
+      int chBound = int(ch.position.y + ch.h)/10;
+      int blBound = int(this.y)/10;
+      chBound *= 10;
+      blBound *= 10;
+>>>>>>> maps
       if (chBound == blBound) {
         return true;
       }
@@ -72,5 +82,4 @@ public class Block{
   public String getType(){
     return type; 
   }
-  
 }

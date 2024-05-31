@@ -2,7 +2,7 @@ public class Button extends Block{
   Platform attached;
   
   public Button(float BstartX, float BstartY, float PstartX, float PstartY, float Pw, float Ph, color Color){
-    super(BstartX, BstartY, 20, 5, Color, "button");
+    super(BstartX, BstartY, 20, 5, Color, "Button");
     attached = new Platform(PstartX, PstartY, Pw, Ph, Color);
   }
   
@@ -14,7 +14,10 @@ public class Button extends Block{
   }
   
   public Platform getPlatform(){
-    return attached;  
+    return attached;
   }
   
+  public boolean buttonCollision(Character c){
+    return(c.position.y + c.h < this.y && c.position.y + c.h > this.y);
+  }
 }

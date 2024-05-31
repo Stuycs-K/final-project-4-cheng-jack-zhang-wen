@@ -1,5 +1,6 @@
 ArrayList<Character> charList;
 ArrayList<Block> blocks;
+ArrayList<Block> buttonBlocks;
 int mapNumber = 1;
 Map map;
 static double G = 60000;
@@ -9,6 +10,7 @@ void setup() {
   clearMap();
   map = new Map();
   blocks = map.MapThreeBlocks();
+
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
@@ -26,10 +28,24 @@ void draw() {
     c.move();
     c.display();
     for (Block b : blocks) {
+<<<<<<< HEAD
       if (b.checkCollisionTop(c, 20)) {
         c.acceleration.y = 0;
         c.velocity.y = 0;
+=======
+      if (b.getType().equals("Platform") && b.checkCollisionTop(c)) {
+>>>>>>> maps
         c.position.y = b.y - c.h;
+      }
+      if(b.getType().equals("Button")){
+         Button button = (Button) b;
+         Platform attachedPlatform = button.getPlatform();
+         if(button.buttonCollision(c)){
+           System.out.println("Collided");
+           buttonBlocks.add(attachedPlatform);
+         } else {
+           buttonBlocks.remove(attachedPlatform);
+         }
       }
     }
 
@@ -47,7 +63,10 @@ void draw() {
     
     for (Block b : blocks) {
       b.display();
-
+    }
+    
+    for(Block b : buttonBlocks){
+      b.display(); 
     }
   }
 }
