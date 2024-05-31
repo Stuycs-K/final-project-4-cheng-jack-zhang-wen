@@ -18,12 +18,12 @@ public class Character {
       }
       if (b.checkCollisionLeft(this)) {
         this.velocity.x = 0;
-        this.position.x = b.x - this.w;
+        //this.position.x = b.x - this.w;
         break;
       }
       if (b.checkCollisionRight(this)) {
         this.velocity.x = 0;
-        this.position.x = b.x + b.w;
+        //this.position.x = b.x + b.w;
         break;
       }
       if (b.checkCollisionBottom(this)) {

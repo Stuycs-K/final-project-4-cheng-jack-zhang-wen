@@ -32,10 +32,10 @@ public class Block{
   
   public boolean checkCollisionLeft(Character ch) {
     if (ch.position.y + ch.h >= this.y && ch.position.y <= this.y + this.h) {
-      int chBoundLeft = int(ch.position.x + ch.w)/10;
-      int blBoundLeft = int(this.x)/10;
-      chBoundLeft *= 10;
-      blBoundLeft *= 10;
+      int chBoundLeft = int(ch.position.x + ch.w)/5;
+      int blBoundLeft = int(this.x)/5;
+      chBoundLeft *= 5;
+      blBoundLeft *= 5;
       if (chBoundLeft == blBoundLeft) {
         return true;
       }
@@ -45,10 +45,10 @@ public class Block{
   
   public boolean checkCollisionRight(Character ch) {
     if (ch.position.y + ch.h >= this.y && ch.position.y <= this.y + this.h) {
-      int chBoundRight = int(ch.position.x)/10;
-      int blBoundRight = int(this.x + this.w)/10;
-      chBoundRight *= 10;
-      blBoundRight *= 10;
+      int chBoundRight = int(ch.position.x)/5;
+      int blBoundRight = int(this.x + this.w)/5;
+      chBoundRight *= 5;
+      blBoundRight *= 5;
       if (chBoundRight == blBoundRight) {
         return true;
       }
