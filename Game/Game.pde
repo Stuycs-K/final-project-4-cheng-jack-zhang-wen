@@ -9,6 +9,7 @@ void setup() {
   clearMap();
   map = new Map();
   blocks = map.MapThreeBlocks();
+  frameRate(60);
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();

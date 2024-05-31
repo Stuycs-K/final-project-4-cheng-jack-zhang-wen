@@ -3,19 +3,23 @@ public class Character {
   int h, w;
   color c;
   String type;
+  boolean dropL = false;
+  boolean dropR = false;
+  boolean dropB = false;
+
 
   void move() {
     velocity.add(acceleration);
     position.add(velocity);
     acceleration = new PVector();
     applyForce();
-    boolean dropL = false;
-    boolean dropR = false;
-    boolean dropB = false;
     
+    if (frameCount % 20 == 0) {
+      dropL = false;
+      dropR = false;
+      dropB = false;
+    }
     for (Block b : blocks) {
-      
-      
       if (b.checkCollisionTop(this, 20)) {
         this.acceleration.y = 0;
         this.velocity.y = 0;
