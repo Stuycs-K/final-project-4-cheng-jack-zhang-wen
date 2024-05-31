@@ -31,8 +31,17 @@ void draw() {
     c.move();
     c.display();
     for (Block b : blocks) {
-      if (b.checkCollisionTop(c)) {
+      if (b.getType().equals("Platform") && b.checkCollisionTop(c)) {
         c.position.y = b.y - c.h;
+      }
+      if(b.getType().equals("Button")){
+         Button button = (Button) b;
+         if(button.buttonCollision(c)){
+           Platform attachedPlatform = button.getPlatform();
+           attachedPlatform.display();
+         } else {
+            
+         }
       }
     }
 

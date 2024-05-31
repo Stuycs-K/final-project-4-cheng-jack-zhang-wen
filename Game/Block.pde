@@ -63,5 +63,4 @@ public class Block{
   public String getType(){
     return type; 
   }
-  
 }
