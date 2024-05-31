@@ -9,25 +9,32 @@ public class Character {
     position.add(velocity);
     acceleration = new PVector();
     applyForce();
+    boolean dropL = false;
+    boolean dropR = false;
+    boolean dropB = false;
     
     for (Block b : blocks) {
-      if (b.checkCollisionTop(this)) {
+      
+      
+      if (b.checkCollisionTop(this, 20)) {
         this.acceleration.y = 0;
         this.velocity.y = 0;
         this.position.y = b.y - this.h;
       }
-      if (b.checkCollisionLeft(this)) {
+      if (b.checkCollisionLeft(this, 10) && !dropL) {
         this.velocity.x = 0;
-        //this.position.x = b.x - this.w;
-        break;
+        this.position.x = b.x - this.w;
+        dropL = true;
       }
-      if (b.checkCollisionRight(this)) {
+      if (b.checkCollisionRight(this, 10) && !dropR) {
         this.velocity.x = 0;
-        //this.position.x = b.x + b.w;
-        break;
+        this.position.x = b.x + b.w;
+        dropR = true;
       }
-      if (b.checkCollisionBottom(this)) {
+      if (b.checkCollisionBottom(this, 20) && !dropB) {
+        this.position.y = b.y + b.h;
         this.velocity.y = 0;
+        dropB = true;
       }
     }
 

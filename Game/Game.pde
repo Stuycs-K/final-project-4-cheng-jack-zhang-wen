@@ -26,7 +26,7 @@ void draw() {
     c.move();
     c.display();
     for (Block b : blocks) {
-      if (b.checkCollisionTop(c)) {
+      if (b.checkCollisionTop(c, 20)) {
         c.acceleration.y = 0;
         c.velocity.y = 0;
         c.position.y = b.y - c.h;
