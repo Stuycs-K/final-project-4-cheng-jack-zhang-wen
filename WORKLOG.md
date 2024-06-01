@@ -77,7 +77,7 @@ Make demo branch
 
 Return type on collision
 
-
+Collisions on borders nice EXCEPT on the right edge of block objects (rounding is weird -- look at it)
 
 ## Wen Zhang
 
