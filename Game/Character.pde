@@ -21,7 +21,7 @@ public class Character {
     }
     
     for (Block b : blocks) {
-      if (b.checkCollisionTop(this, 15)) {
+      if (b.checkCollisionTop(this, 20)) {
         this.acceleration.y = 0;
         this.velocity.y = 0;
         this.position.y = b.y - this.h;
@@ -32,10 +32,12 @@ public class Character {
           this.position.x = b.x - this.w;
           dropL = true;
         }
+        /*
         if (this.velocity.x > 0) {
           this.velocity.x = 0;
           this.position.x = b.x - this.w;
         }
+        */
       }
       if (b.checkCollisionRight(this, 5)) {
         if (!dropR) {
