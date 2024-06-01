@@ -28,14 +28,9 @@ void draw() {
     c.move();
     c.display();
     for (Block b : blocks) {
-<<<<<<< HEAD
       if (b.checkCollisionTop(c, 20)) {
         c.acceleration.y = 0;
         c.velocity.y = 0;
-=======
-      if (b.getType().equals("Platform") && b.checkCollisionTop(c)) {
->>>>>>> maps
-        c.position.y = b.y - c.h;
       }
       if(b.getType().equals("Button")){
          Button button = (Button) b;
@@ -64,10 +59,12 @@ void draw() {
     for (Block b : blocks) {
       b.display();
     }
+    /*
     
     for(Block b : buttonBlocks){
       b.display(); 
     }
+    */
   }
 }
 

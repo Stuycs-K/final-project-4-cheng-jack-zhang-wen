@@ -65,6 +65,18 @@ Need to adjust rounding and methodology slightly, but idea works
 
 Collisions mostly work, but updates per frame still interfering
 
+### 05/31/24
+
+Allowed temporary drop/stick mechanics
+
+Much cleaner movement and collisions
+
+Try to fix preventing movement through blocks
+
+Make demo branch
+
+Return type on collision
+
 
 
 ## Wen Zhang
