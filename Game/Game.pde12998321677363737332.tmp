@@ -34,8 +34,49 @@ void draw() {
       }
     }
     
+    
+    //top
+    if (c.position.y <= 0 + blocks.get(0).h) {
+      c.position.y = 0 + blocks.get(0).h;
+      if (c.velocity.y < 0) {
+        c.velocity.y = 0;
+      }
+    }
+    
+    //left
+    if (c.position.x <= 0 + blocks.get(1).w) {
+      c.position.x = 0 + blocks.get(1).w;
+      if (c.velocity.x < 0) {
+        c.velocity.x = 0;
+      }
+    }
+    
+    //bottom
+    if (c.position.y >= height - blocks.get(2).h + c.h) {
+      c.position.y = height - blocks.get(2).h + c.h;
+      if (c.velocity.y > 0) {
+        c.velocity.y = 0;
+      }
+    }
+    
+    //right
+    if (c.position.x <= width - blocks.get(1).w) {
+      c.position.x = 0 + blocks.get(1).w;
+      if (c.velocity.x < 0) {
+        c.velocity.x = 0;
+      }
+    }
+    
+    if (c.velocity.x >= 10) {
+      c.velocity.x = 10;
+    }
+    if (c.velocity.x <= -10) {
+      c.velocity.x = -10;
+    }
+    
     for (Block b : blocks) {
       b.display();
+
     }
   }
 }
@@ -50,7 +91,7 @@ void keyPressed() {
         charList.get(0).velocity = (new PVector(0, -20));
       }
       if (key == 'a') {
-        if (charList.get(0).velocity.x > -5) {
+        if (charList.get(0).velocity.x < 5) {
           (charList.get(0)).position.add(new PVector(-2, 0));
           (charList.get(0)).velocity.add(new PVector(-1, 0));
         }
@@ -70,7 +111,7 @@ void keyPressed() {
           charList.get(1).velocity = (new PVector(0, -20));
         }
         if (keyCode == LEFT) {
-          if (charList.get(1).velocity.x > -5) {
+          if (charList.get(1).velocity.x < 5) {
             (charList.get(1)).position.add(new PVector(-2, 0));
             (charList.get(1)).velocity.add(new PVector(-1, 0));
           }

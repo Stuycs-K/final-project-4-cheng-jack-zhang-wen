@@ -21,25 +21,43 @@ public class Character {
     }
     
     for (Block b : blocks) {
-      if (b.checkCollisionTop(this, 20)) {
+      if (b.checkCollisionTop(this, 15)) {
         this.acceleration.y = 0;
         this.velocity.y = 0;
         this.position.y = b.y - this.h;
       }
-      if (b.checkCollisionLeft(this, 10) && !dropL) {
-        this.velocity.x = 0;
-        this.position.x = b.x - this.w;
-        dropL = true;
+      if (b.checkCollisionLeft(this, 5)) {
+        if (!dropL) {
+          this.velocity.x = 0;
+          this.position.x = b.x - this.w;
+          dropL = true;
+        }
+        if (this.velocity.x > 0) {
+          this.velocity.x = 0;
+          this.position.x = b.x - this.w;
+        }
       }
-      if (b.checkCollisionRight(this, 10) && !dropR) {
-        this.velocity.x = 0;
-        this.position.x = b.x + b.w;
-        dropR = true;
+      if (b.checkCollisionRight(this, 5)) {
+        if (!dropR) {
+          this.velocity.x = 0;
+          this.position.x = b.x + b.w;
+          dropR = true;
+        }
+        if (this.velocity.x < 0) {
+          this.velocity.x = 0;
+          this.position.x = b.x + b.w;
+        }
       }
-      if (b.checkCollisionBottom(this, 20) && !dropB) {
-        this.position.y = b.y + b.h;
-        this.velocity.y = 0;
-        dropB = true;
+      if (b.checkCollisionBottom(this, 15)) {
+        if (!dropB) {
+          this.position.y = b.y + b.h;
+          this.velocity.y = 0;
+          dropB = true;
+        }
+        if (this.velocity.y < 0) {
+          this.velocity.y = 0;
+          this.position.y = b.y + b.h;
+        }
       }
     }
 

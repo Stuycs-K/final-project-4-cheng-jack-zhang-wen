@@ -31,7 +31,7 @@ public class Block{
   }
   
   public boolean checkCollisionLeft(Character ch, int bound) {
-    if ((ch.position.y + ch.h >= this.y && ch.position.y <= this.y + this.h) && (this.getType().equals("Platform"))) {
+    if ((ch.position.y + ch.h > this.y && ch.position.y < this.y + this.h) && (this.getType().equals("Platform"))) {
       int chBoundLeft = int(ch.position.x + ch.w)/bound;
       int blBoundLeft = int(this.x)/bound;
       chBoundLeft *= bound;
@@ -44,7 +44,7 @@ public class Block{
   }
   
   public boolean checkCollisionRight(Character ch, int bound) {
-    if ((ch.position.y + ch.h >= this.y && ch.position.y <= this.y + this.h) && (this.getType().equals("Platform"))) {
+    if ((ch.position.y + ch.h > this.y && ch.position.y < this.y + this.h) && (this.getType().equals("Platform"))) {
       int chBoundRight = int(ch.position.x)/bound;
       int blBoundRight = int(this.x + this.w)/bound;
       chBoundRight *= bound;
