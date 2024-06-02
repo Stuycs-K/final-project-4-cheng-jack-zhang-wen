@@ -1,6 +1,5 @@
 ArrayList<Character> charList;
 ArrayList<Block> blocks;
-ArrayList<Block> buttonBlocks;
 int mapNumber = 1;
 Map map;
 static double G = 60000;
@@ -11,7 +10,6 @@ void setup() {
   map = new Map();
   blocks = map.MapThreeBlocks();
   frameRate(60);
-
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
@@ -32,28 +30,54 @@ void draw() {
       if (b.checkCollisionTop(c, 20)) {
         c.acceleration.y = 0;
         c.velocity.y = 0;
+        c.position.y = b.y - c.h;
       }
-      if(b.getType().equals("Button")){
-         Button button = (Button) b;
-         Platform attachedPlatform = button.getPlatform();
-         if(button.buttonCollision(c)){
-           System.out.println("Collided");
-           buttonBlocks.add(attachedPlatform);
-         } else {
-           buttonBlocks.remove(attachedPlatform);
-         }
+    }
+    
+    
+    //top
+    if (c.position.y <= 0 + blocks.get(0).h) {
+      c.position.y = 0 + blocks.get(0).h;
+      if (c.velocity.y < 0) {
+        c.velocity.y = 0;
       }
+    }
+    
+    //left
+    if (c.position.x <= 0 + blocks.get(1).w) {
+      c.position.x = 0 + blocks.get(1).w;
+      if (c.velocity.x < 0) {
+        c.velocity.x = 0;
+      }
+    }
+    
+    //bottom
+    if (c.position.y >= height - blocks.get(2).h + c.h) {
+      c.position.y = height - blocks.get(2).h + c.h;
+      if (c.velocity.y > 0) {
+        c.velocity.y = 0;
+      }
+    }
+    
+    //right
+    if (c.position.x <= width - blocks.get(1).w) {
+      c.position.x = 0 + blocks.get(1).w;
+      if (c.velocity.x < 0) {
+        c.velocity.x = 0;
+      }
+    }
+    
+    if (c.velocity.x >= 10) {
+      c.velocity.x = 10;
+    }
+    if (c.velocity.x <= -10) {
+      c.velocity.x = -10;
     }
     
     for (Block b : blocks) {
       b.display();
+
     }
-    /*
-    
-    for(Block b : buttonBlocks){
-      b.display(); 
-    }
-    */
   }
 }
 
@@ -64,10 +88,10 @@ void keyPressed() {
     changeMap(mapNumber);
   }
       if (key == 'w') {
-        charList.get(0).velocity.add(new PVector(0, -20));
+        charList.get(0).velocity = (new PVector(0, -20));
       }
       if (key == 'a') {
-        if (charList.get(0).velocity.x > -5) {
+        if (charList.get(0).velocity.x < 5) {
           (charList.get(0)).position.add(new PVector(-2, 0));
           (charList.get(0)).velocity.add(new PVector(-1, 0));
         }
@@ -84,10 +108,10 @@ void keyPressed() {
     
       if (key == CODED) {
         if (keyCode == UP) {
-          charList.get(1).velocity.add(new PVector(0, -20));
+          charList.get(1).velocity = (new PVector(0, -20));
         }
         if (keyCode == LEFT) {
-          if (charList.get(1).velocity.x > -5) {
+          if (charList.get(1).velocity.x < 5) {
             (charList.get(1)).position.add(new PVector(-2, 0));
             (charList.get(1)).velocity.add(new PVector(-1, 0));
           }

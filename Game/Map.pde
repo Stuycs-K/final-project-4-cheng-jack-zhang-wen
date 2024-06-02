@@ -18,10 +18,10 @@ public class Map{
     public ArrayList<Block> MapOneBlocks(){
       clearMap();
       // Border
-      blocks.add(new Platform(0, 0, width, 30, brown));
-      blocks.add(new Platform(0, 0, 30, height, brown));
-      blocks.add(new Platform(0, 870, width, 30, brown));
-      blocks.add(new Platform(1170, 0, 30, height, brown));
+      blocks.add(new Platform(0, 0, width, 30, brown)); //top
+      blocks.add(new Platform(0, 0, 30, height, brown)); //left
+      blocks.add(new Platform(0, 870, width, 30, brown)); //bottom
+      blocks.add(new Platform(1170, 0, 30, height, brown)); //right
       
       // First Layer
       blocks.add(new Platform(20, 750, 400, 30, brown));
