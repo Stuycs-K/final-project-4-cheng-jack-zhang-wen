@@ -67,6 +67,16 @@ public class Character {
           iterator.remove(); 
           b = iterator.next();
         }
+        
+        if(b.getType().equals("Lava") && this.type.equals("Water")){
+          changeMap(mapNumber); 
+        } 
+        if(b.getType().equals("Pool") && this.type.equals("Fire")){
+          changeMap(mapNumber); 
+        }
+        if(b.getType().equals("Toxic")){
+          changeMap(mapNumber); 
+        }
       }
       
       // Left
@@ -99,6 +109,17 @@ public class Character {
           iterator.remove(); 
           b = iterator.next();
         }
+        
+        if(b.getType().equals("Lava") && this.type.equals("Water")){
+          changeMap(mapNumber); 
+        } 
+        if(b.getType().equals("Pool") && this.type.equals("Fire")){
+          changeMap(mapNumber); 
+        }
+        if(b.getType().equals("Toxic")){
+          changeMap(mapNumber); 
+        }
+        
       }
       
       // Right
@@ -131,6 +152,16 @@ public class Character {
           iterator.remove(); 
           b = iterator.next();
         }
+        
+        if(b.getType().equals("Lava") && this.type.equals("Water")){
+          changeMap(mapNumber); 
+        } 
+        if(b.getType().equals("Pool") && this.type.equals("Fire")){
+          changeMap(mapNumber); 
+        }
+        if(b.getType().equals("Toxic")){
+          changeMap(mapNumber); 
+        }
       }
       
       // Bottom
@@ -154,6 +185,16 @@ public class Character {
         if(b.getType().equals("redGem") && this.type.equals("Fire")){
           iterator.remove(); 
           b = iterator.next();
+        }
+        
+        if(b.getType().equals("Lava") && this.type.equals("Water")){
+          changeMap(mapNumber); 
+        } 
+        if(b.getType().equals("Pool") && this.type.equals("Fire")){
+          changeMap(mapNumber); 
+        }
+        if(b.getType().equals("Toxic")){
+          changeMap(mapNumber); 
         }
       }
       /*

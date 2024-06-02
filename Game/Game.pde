@@ -3,7 +3,7 @@ ArrayList<Block> blocks;
 ArrayList<Block> buttonBlocks;
 public static boolean blueOnDoor = false;
 public static boolean redOnDoor = false;
-int mapNumber = 0;
+public static int mapNumber = 0;
 Map map;
 static double G = 60000;
 
@@ -108,7 +108,7 @@ void keyPressed() {
       }
 }
 
-void changeMap(int mapNum){
+public void changeMap(int mapNum){
    clearMap();
    if(mapNum == 0){
      buttonBlocks = new ArrayList<Block>();
