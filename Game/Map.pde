@@ -15,7 +15,7 @@ public class Map{
       blocks = new ArrayList<Block>();
     }
     
-    public ArrayList<Block> MapOneBlocks(){
+    public ArrayList<Block> MapOneBlocks(ArrayList<Block> buttonBlocks){
       clearMap();
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown)); //top
@@ -72,11 +72,15 @@ public class Map{
       blocks.add(new Gem(45, 210, "blueGem"));
       
       //Buttons
-      blocks.add(new Button(450, 482, 0, 0, 100, 20, BLUE));
-      blocks.add(new Button(920, 342, 0, 0, 100, 20, BLUE));
+      Platform blue = new Platform(1080, 370, 90, 30, BLUE);
+      blocks.add(new Button(450, 482, blue, BLUE, true));
+      blocks.add(new Button(920, 342, blue, BLUE, true));
+      buttonBlocks.add(blue);
       
-      blocks.add(new Button(200, 612, 0, 0, 100, 20, purple));
-      blocks.add(new Button(280, 482, 0, 0, 100, 20, purple));
+      Platform p = new Platform(30, 490, 120, 30, purple);
+      blocks.add(new Button(200, 612, p, purple, true));
+      blocks.add(new Button(280, 482, p, purple, true));
+      buttonBlocks.add(p);
       
       return blocks;
     }
@@ -84,7 +88,7 @@ public class Map{
     
     
     // Map #2
-    public ArrayList<Block> MapTwoBlocks(){
+    public ArrayList<Block> MapTwoBlocks(ArrayList<Block> buttonBlocks){
       clearMap();
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown));
@@ -153,7 +157,7 @@ public class Map{
       return blocks;
     }
     
-    public ArrayList<Block> MapThreeBlocks(){
+    public ArrayList<Block> MapThreeBlocks(ArrayList<Block> buttonBlocks){
       clearMap(); 
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown));

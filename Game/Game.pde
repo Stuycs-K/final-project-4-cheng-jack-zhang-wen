@@ -1,7 +1,9 @@
 ArrayList<Character> charList;
 ArrayList<Block> blocks;
 ArrayList<Block> buttonBlocks;
-int mapNumber = 1;
+public static boolean blueOnDoor = false;
+public static boolean redOnDoor = false;
+int mapNumber = 0;
 Map map;
 static double G = 60000;
 
@@ -9,14 +11,15 @@ void setup() {
   size(1200, 900);
   clearMap();
   map = new Map();
-  blocks = map.MapThreeBlocks();
+  buttonBlocks = new ArrayList<Block>();
+  blocks = map.MapOneBlocks(buttonBlocks);
   frameRate(60);
 
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(100, 100, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(100, 100, 35, 35, color(0, 0, 255), "Water"));
+  charList.add(new Character(900, 50, 35, 35, color(255, 0, 0), "Fire"));
+  charList.add(new Character(900, 50, 35, 35, color(0, 0, 255), "Water"));
 }
 
 void clearMap(){
@@ -26,34 +29,35 @@ void clearMap(){
 void draw() {
   background(255);
   for (Character c : charList) {
-    c.move();
+    c.move(buttonBlocks);
     c.display();
     for (Block b : blocks) {
       if (b.checkCollisionTop(c, 20)) {
         c.acceleration.y = 0;
         c.velocity.y = 0;
       }
-      if(b.getType().equals("Button")){
-         Button button = (Button) b;
-         Platform attachedPlatform = button.getPlatform();
-         if(button.buttonCollision(c)){
-           System.out.println("Collided");
-           buttonBlocks.add(attachedPlatform);
-         } else {
-           buttonBlocks.remove(attachedPlatform);
-         }
-      }
+      
     }
     
     for (Block b : blocks) {
       b.display();
     }
-    /*
+    
     
     for(Block b : buttonBlocks){
       b.display(); 
     }
-    */
+    
+  }
+  
+  
+  
+  if(redOnDoor && blueOnDoor){
+    mapNumber = (mapNumber + 1) % 3;
+    System.out.println(mapNumber);
+    changeMap(mapNumber);
+    redOnDoor = false;
+    blueOnDoor = false;
   }
 }
 
@@ -107,10 +111,13 @@ void keyPressed() {
 void changeMap(int mapNum){
    clearMap();
    if(mapNum == 0){
-     blocks = map.MapOneBlocks();
+     buttonBlocks = new ArrayList<Block>();
+     blocks = map.MapOneBlocks(buttonBlocks);
    } else if(mapNum == 1){
-     blocks = map.MapTwoBlocks(); 
+     buttonBlocks = new ArrayList<Block>();
+     blocks = map.MapTwoBlocks(buttonBlocks); 
    } else if(mapNum == 2){
-     blocks = map.MapThreeBlocks(); 
+     buttonBlocks = new ArrayList<Block>();
+     blocks = map.MapThreeBlocks(buttonBlocks); 
    }
 }
