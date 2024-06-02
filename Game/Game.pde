@@ -67,22 +67,22 @@ void keyPressed() {
     mapNumber = (mapNumber + 1) % 3;
     changeMap(mapNumber);
   }
-      if (key == 'w') {
+      if (key == 'w' || key == 'W') {
         charList.get(0).velocity.add(new PVector(0, -20));
       }
-      if (key == 'a') {
+      if (key == 'a' || key == 'A') {
         if (charList.get(0).velocity.x > -5) {
           (charList.get(0)).position.add(new PVector(-2, 0));
           (charList.get(0)).velocity.add(new PVector(-1, 0));
         }
       }
-      if (key == 'd') {
+      if (key == 'd' || key == 'D') {
         if (charList.get(0).velocity.x < 5) {
           (charList.get(0)).position.add(new PVector(2, 0));
           (charList.get(0)).velocity.add(new PVector(1, 0));
         }
       }
-      if (key == 's') {
+      if (key == 's' || key == 'S') {
         (charList.get(0)).velocity.x = 0;
       }
     
