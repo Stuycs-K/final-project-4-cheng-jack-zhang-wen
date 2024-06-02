@@ -1,3 +1,5 @@
+import java.util.Iterator;
+
 public class Character {
   PVector position, velocity, acceleration;
   int h, w;
@@ -22,8 +24,11 @@ public class Character {
     
     buttonSteppedOn = new ArrayList<Button>();
     
-    for (Block b : blocks) {
+    for (Iterator<Block> iterator = blocks.iterator(); iterator.hasNext(); ) {
+      Block b = iterator.next();
+      // Top
       if (b.checkCollisionTop(this, 20)) {
+        // Button
         if(b.getType().equals("Button")){
           Button button = (Button) b;
           Platform attachedPlatform = button.getPlatform();
@@ -53,7 +58,18 @@ public class Character {
             blueOnDoor = true; 
           }
         }
+        
+        if(b.getType().equals("blueGem") && this.type.equals("Water")){
+          iterator.remove();
+          b = iterator.next();
+        } 
+        if(b.getType().equals("redGem") && this.type.equals("Fire")){
+          iterator.remove(); 
+          b = iterator.next();
+        }
       }
+      
+      // Left
       if (b.checkCollisionLeft(this, 5)) {
         if(b.getType().equals("fireDoor")){
           if(this.type.equals("Fire")){
@@ -74,7 +90,18 @@ public class Character {
           this.position.x = b.x - this.w;
         }
         */
+        
+        if(b.getType().equals("blueGem") && this.type.equals("Water")){
+          iterator.remove();
+          b = iterator.next();
+        } 
+        if(b.getType().equals("redGem") && this.type.equals("Fire")){
+          iterator.remove(); 
+          b = iterator.next();
+        }
       }
+      
+      // Right
       if (b.checkCollisionRight(this, 5)) {
         if(b.getType().equals("fireDoor")){
           if(this.type.equals("Fire")){
@@ -95,16 +122,38 @@ public class Character {
             this.position.x = b.x + b.w;
           }
         }
-      }
-      if (b.checkCollisionBottom(this, 15)) {
-        if (!dropB) {
-          this.position.y = b.y + b.h;
-          this.velocity.y = 0;
-          dropB = true;
+        
+        if(b.getType().equals("blueGem") && this.type.equals("Water")){
+          iterator.remove();
+          b = iterator.next();
+        } 
+        if(b.getType().equals("redGem") && this.type.equals("Fire")){
+          iterator.remove(); 
+          b = iterator.next();
         }
-        if (this.velocity.y < 0) {
-          this.velocity.y = 0;
-          this.position.y = b.y + b.h;
+      }
+      
+      // Bottom
+      if (b.checkCollisionBottom(this, 15)) {
+        if(b.getType().equals("Platform")){
+          if (!dropB) {
+            this.position.y = b.y + b.h;
+            this.velocity.y = 0;
+            dropB = true;
+          }
+          if (this.velocity.y < 0) {
+            this.velocity.y = 0;
+            this.position.y = b.y + b.h;
+          }
+        }
+        
+        if(b.getType().equals("blueGem") && this.type.equals("Water")){
+          iterator.remove();
+          b = iterator.next();
+        } 
+        if(b.getType().equals("redGem") && this.type.equals("Fire")){
+          iterator.remove(); 
+          b = iterator.next();
         }
       }
       /*
@@ -155,5 +204,11 @@ public class Character {
     if (position.y > height-h)
       velocity.y = 0;
       //position.y = height-radius;
+  }
+  
+  public void setXY(float X, float Y){
+     position = new PVector(X, Y);
+     velocity = new PVector(0, 0);
+     acceleration = new PVector(0, 0);
   }
 }

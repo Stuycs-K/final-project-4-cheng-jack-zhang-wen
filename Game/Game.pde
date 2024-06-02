@@ -18,8 +18,8 @@ void setup() {
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(900, 50, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(900, 50, 35, 35, color(0, 0, 255), "Water"));
+  charList.add(new Character(100, 800, 35, 35, color(255, 0, 0), "Fire"));
+  charList.add(new Character(100, 700, 35, 35, color(0, 0, 255), "Water"));
 }
 
 void clearMap(){
@@ -113,11 +113,17 @@ void changeMap(int mapNum){
    if(mapNum == 0){
      buttonBlocks = new ArrayList<Block>();
      blocks = map.MapOneBlocks(buttonBlocks);
+     charList.get(0).setXY(100, 800);
+     charList.get(1).setXY(100, 700);
    } else if(mapNum == 1){
      buttonBlocks = new ArrayList<Block>();
      blocks = map.MapTwoBlocks(buttonBlocks); 
+     charList.get(0).setXY(70, 800);
+     charList.get(1).setXY(130, 800);
    } else if(mapNum == 2){
      buttonBlocks = new ArrayList<Block>();
      blocks = map.MapThreeBlocks(buttonBlocks); 
+     charList.get(0).setXY(100, 800);
+     charList.get(1).setXY(1050, 800);
    }
 }
