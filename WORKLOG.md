@@ -126,3 +126,13 @@ Need to create a button and wind class
 Added a button class and started to add to map1
 
 Almost finished with button collision
+
+### 5/31/2024 - 6/2/2024
+
+Added logic for dying, collecting gems, buttons, and going the the next level
+
+Buttons do not work exactly as expected however so that needs to be changed
+
+Also need to add other stuff like wind and maybe rocks
+
+Also need to clean up code, make similar codes into a function
