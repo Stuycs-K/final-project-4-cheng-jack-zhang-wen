@@ -72,51 +72,6 @@ void keyPressed() {
     admin = !admin;
   }
     
-    if (!admin) {
-      if (key == 'w' || key == 'W') {
-        if (charList.get(0).velocity.y == 0) {
-            charList.get(0).velocity.add(new PVector(0, -20));
-          }
-      }
-      if (key == 'a' || key == 'A') {
-        if (charList.get(0).velocity.x > -5) {
-          (charList.get(0)).position.add(new PVector(-2, 0));
-          (charList.get(0)).velocity.add(new PVector(-1, 0));
-        }
-      }
-      if (key == 'd' || key == 'D') {
-        if (charList.get(0).velocity.x < 5) {
-          (charList.get(0)).position.add(new PVector(2, 0));
-          (charList.get(0)).velocity.add(new PVector(1, 0));
-        }
-      }
-      if (key == 's' || key == 'S') {
-        (charList.get(0)).velocity.x = 0;
-      }
-    
-      if (key == CODED) {
-        if (keyCode == UP) {
-          if (charList.get(1).velocity.y == 0) {
-            charList.get(1).velocity.add(new PVector(0, -20));
-          }
-        }
-        if (keyCode == LEFT) {
-          if (charList.get(1).velocity.x > -5) {
-            (charList.get(1)).position.add(new PVector(-2, 0));
-            (charList.get(1)).velocity.add(new PVector(-1, 0));
-          }
-        }
-        if (keyCode == RIGHT) {
-          if (charList.get(1).velocity.x < 5) {
-            (charList.get(1)).position.add(new PVector(2, 0));
-            (charList.get(1)).velocity.add(new PVector(1, 0));
-          }
-        }
-        if (keyCode == DOWN) {
-          (charList.get(1)).velocity.x = 0;
-        }
-      }
-    }
     if (admin) {
       if (key == 'w' || key == 'W') {
         charList.get(0).velocity.add(new PVector(0, -20));
@@ -158,6 +113,60 @@ void keyPressed() {
         }
       }
     }
+    if (!admin) {
+      if (key == 'a' || key == 'A') {
+        if (charList.get(0).velocity.x > -5) {
+          (charList.get(0)).position.add(new PVector(-2, 0));
+          (charList.get(0)).velocity.add(new PVector(-1, 0));
+        }
+      }
+      if (key == 'd' || key == 'D') {
+        if (charList.get(0).velocity.x < 5) {
+          (charList.get(0)).position.add(new PVector(2, 0));
+          (charList.get(0)).velocity.add(new PVector(1, 0));
+        }
+      }
+      if (key == 's' || key == 'S') {
+        (charList.get(0)).velocity.x = 0;
+      }
+    
+      if (key == CODED) {
+        if (keyCode == LEFT) {
+          if (charList.get(1).velocity.x > -5) {
+            (charList.get(1)).position.add(new PVector(-2, 0));
+            (charList.get(1)).velocity.add(new PVector(-1, 0));
+          }
+        }
+        if (keyCode == RIGHT) {
+          if (charList.get(1).velocity.x < 5) {
+            (charList.get(1)).position.add(new PVector(2, 0));
+            (charList.get(1)).velocity.add(new PVector(1, 0));
+          }
+        }
+        if (keyCode == DOWN) {
+          (charList.get(1)).velocity.x = 0;
+        }
+      }
+    }
+}
+
+void keyReleased() {
+    if (!admin) {
+      if (key == 'w' || key == 'W') {
+        if (charList.get(0).velocity.y == 0) {
+            charList.get(0).velocity.add(new PVector(0, -20));
+          }
+      }
+    
+      if (key == CODED) {
+        if (keyCode == UP) {
+          if (charList.get(1).velocity.y == 0) {
+            charList.get(1).velocity.add(new PVector(0, -20));
+          }
+        }   
+      }
+    }
+
 }
 
 public void changeMap(int mapNum){
