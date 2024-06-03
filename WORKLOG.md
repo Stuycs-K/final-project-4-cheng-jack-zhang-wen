@@ -89,6 +89,8 @@ Fixed right collision with a stupid simple + 1 factor to adjust from round-down 
 
 No more jumping mid-air -- this prevents additive velocity and vertical phase thru of blocks
 
+Admin key ('=') in Demo branch
+
 
 ## Wen Zhang
 
