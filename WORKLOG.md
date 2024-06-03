@@ -65,6 +65,33 @@ Need to adjust rounding and methodology slightly, but idea works
 
 Collisions mostly work, but updates per frame still interfering
 
+### 05/31/24
+
+Allowed temporary drop/stick mechanics
+
+Much cleaner movement and collisions
+
+Try to fix preventing movement through blocks
+
+Make demo branch
+
+Return type on collision
+
+Collisions on borders nice EXCEPT on the right edge of block objects (rounding is weird -- look at it)
+
+### 06/01/24
+
+Spent the day debugging right collision to prevent phase thru
+
+### 06/02/24
+
+Fixed right collision with a stupid simple + 1 factor to adjust from round-down int value
+
+No more jumping mid-air -- this prevents additive velocity and vertical phase thru of blocks (jump is now on keyReleased())
+
+Admin key ('=') in Demo branch
+
+More bug fixes overall
 
 
 ## Wen Zhang
@@ -114,3 +141,13 @@ Need to create a button and wind class
 Added a button class and started to add to map1
 
 Almost finished with button collision
+
+### 5/31/2024 - 6/2/2024
+
+Added logic for dying, collecting gems, buttons, and going the the next level
+
+Buttons do not work exactly as expected however so that needs to be changed
+
+Also need to add other stuff like wind and maybe rocks
+
+Also need to clean up code, make similar codes into a function

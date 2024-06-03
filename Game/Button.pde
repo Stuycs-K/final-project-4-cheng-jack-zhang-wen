@@ -1,9 +1,11 @@
 public class Button extends Block{
   Platform attached;
+  Boolean isActivated;
   
-  public Button(float BstartX, float BstartY, float PstartX, float PstartY, float Pw, float Ph, color Color){
+  public Button(float BstartX, float BstartY, Platform platform, color Color, Boolean Activated){
     super(BstartX, BstartY, 20, 5, Color, "Button");
-    attached = new Platform(PstartX, PstartY, Pw, Ph, Color);
+    attached = platform;
+    isActivated = Activated;
   }
   
   void display(){
@@ -17,7 +19,11 @@ public class Button extends Block{
     return attached;
   }
   
-  public boolean buttonCollision(Character c){
-    return(c.position.y + c.h < this.y && c.position.y + c.h > this.y);
+  public boolean getActivated(){
+    return isActivated;
+  }
+  
+  public void setActivated(Boolean b){
+    isActivated = b; 
   }
 }
