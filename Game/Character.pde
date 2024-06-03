@@ -94,12 +94,17 @@ public class Character {
           this.position.x = b.x - this.w;
           dropL = true;
         }
+        if (this.position.x < b.x + b.w && this.position.x + this.w > b.x && !b.getType().equals("Door")) {
+            this.velocity.x = 0;
+            this.position.x = b.x - this.w;
+          }
         /*
-        if (this.velocity.x > 0) {
+        if (this.velocity.x > 0 && !b.getType().equals("Door")) {
           this.velocity.x = 0;
           this.position.x = b.x - this.w;
         }
         */
+        
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
           iterator.remove();
@@ -138,10 +143,16 @@ public class Character {
             this.position.x = b.x + b.w;
             dropR = true;
           }
-          if (this.velocity.x < 0) {
+          if (this.position.x < b.x + b.w && this.position.x + this.w > b.x && !b.getType().equals("Door")) {
             this.velocity.x = 0;
             this.position.x = b.x + b.w;
           }
+          /*
+          if (this.velocity.x < 0 && !b.getType().equals("Door")) {
+            this.velocity.x = 0;
+            this.position.x = b.x + b.w;
+          }
+          */
         }
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
@@ -149,8 +160,7 @@ public class Character {
           b = iterator.next();
         } 
         if(b.getType().equals("redGem") && this.type.equals("Fire")){
-          iterator.remove(); 
-          b = iterator.next();
+          iterator.remove();
         }
         
         if(b.getType().equals("Lava") && this.type.equals("Water")){
