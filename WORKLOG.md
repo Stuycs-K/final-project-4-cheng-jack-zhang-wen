@@ -87,7 +87,7 @@ Spent the day debugging right collision to prevent phase thru
 
 Fixed right collision with a stupid simple + 1 factor to adjust from round-down int value
 
-Still occiasional phasing thru top/bottom because so many vector additions -- can adjust to jump once and will be fine
+No more jumping mid-air -- this prevents additive velocity and vertical phase thru of blocks
 
 
 ## Wen Zhang
