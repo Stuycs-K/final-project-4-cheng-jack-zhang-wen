@@ -68,7 +68,9 @@ void keyPressed() {
     changeMap(mapNumber);
   }
       if (key == 'w' || key == 'W') {
-        charList.get(0).velocity.add(new PVector(0, -20));
+        if (charList.get(0).velocity.y == 0) {
+            charList.get(0).velocity.add(new PVector(0, -20));
+          }
       }
       if (key == 'a' || key == 'A') {
         if (charList.get(0).velocity.x > -5) {
@@ -88,7 +90,9 @@ void keyPressed() {
     
       if (key == CODED) {
         if (keyCode == UP) {
-          charList.get(1).velocity.add(new PVector(0, -20));
+          if (charList.get(1).velocity.y == 0) {
+            charList.get(1).velocity.add(new PVector(0, -20));
+          }
         }
         if (keyCode == LEFT) {
           if (charList.get(1).velocity.x > -5) {
