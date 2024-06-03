@@ -242,6 +242,15 @@ public class Character {
     noStroke();
     rect(position.x, position.y, h, w);
   }
+  
+  void jump(boolean adm) {
+    if (adm) {
+      
+    }
+    else {
+      
+    }
+  }
 
 
   public void bounce() {
