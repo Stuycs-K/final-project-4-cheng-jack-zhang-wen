@@ -175,7 +175,7 @@ public class Character {
       }
       
       // Bottom
-      if (b.checkCollisionBottom(this, 15)) {
+      if (b.checkCollisionBottom(this, 20)) {
         if(b.getType().equals("Platform")){
           if (!dropB) {
             this.position.y = b.y + b.h;
