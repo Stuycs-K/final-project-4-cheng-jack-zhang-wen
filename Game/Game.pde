@@ -3,9 +3,10 @@ ArrayList<Block> blocks;
 ArrayList<Block> buttonBlocks;
 public static boolean blueOnDoor = false;
 public static boolean redOnDoor = false;
+public static boolean admin = false;
 public static int mapNumber = 0;
+
 Map map;
-static double G = 60000;
 
 void setup() {
   size(1200, 900);
@@ -63,10 +64,15 @@ void draw() {
 
 
 void keyPressed() {
-  if(key == 'b'){
+  if (key == 'b'){
     mapNumber = (mapNumber + 1) % 3;
     changeMap(mapNumber);
   }
+  if (key == '='){
+    admin = !admin;
+  }
+    
+    if (!admin) {
       if (key == 'w' || key == 'W') {
         if (charList.get(0).velocity.y == 0) {
             charList.get(0).velocity.add(new PVector(0, -20));
@@ -110,6 +116,48 @@ void keyPressed() {
           (charList.get(1)).velocity.x = 0;
         }
       }
+    }
+    if (admin) {
+      if (key == 'w' || key == 'W') {
+        charList.get(0).velocity.add(new PVector(0, -20));
+      }
+      if (key == 'a' || key == 'A') {
+        if (charList.get(0).velocity.x > -5) {
+          (charList.get(0)).position.add(new PVector(-2, 0));
+          (charList.get(0)).velocity.add(new PVector(-1, 0));
+        }
+      }
+      if (key == 'd' || key == 'D') {
+        if (charList.get(0).velocity.x < 5) {
+          (charList.get(0)).position.add(new PVector(2, 0));
+          (charList.get(0)).velocity.add(new PVector(1, 0));
+        }
+      }
+      if (key == 's' || key == 'S') {
+        (charList.get(0)).velocity.x = 0;
+      }
+    
+      if (key == CODED) {
+        if (keyCode == UP) {
+          charList.get(1).velocity.add(new PVector(0, -20));
+        }
+        if (keyCode == LEFT) {
+          if (charList.get(1).velocity.x > -5) {
+            (charList.get(1)).position.add(new PVector(-2, 0));
+            (charList.get(1)).velocity.add(new PVector(-1, 0));
+          }
+        }
+        if (keyCode == RIGHT) {
+          if (charList.get(1).velocity.x < 5) {
+            (charList.get(1)).position.add(new PVector(2, 0));
+            (charList.get(1)).velocity.add(new PVector(1, 0));
+          }
+        }
+        if (keyCode == DOWN) {
+          (charList.get(1)).velocity.x = 0;
+        }
+      }
+    }
 }
 
 public void changeMap(int mapNum){
