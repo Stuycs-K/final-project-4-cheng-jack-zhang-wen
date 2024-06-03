@@ -79,6 +79,17 @@ Return type on collision
 
 Collisions on borders nice EXCEPT on the right edge of block objects (rounding is weird -- look at it)
 
+### 06/01/24
+
+Spent the day debugging right collision to prevent phase thru
+
+### 06/02/24
+
+Fixed right collision with a stupid simple + 1 factor to adjust from round-down int value
+
+Still occiasional phasing thru top/bottom because so many vector additions -- can adjust to jump once and will be fine
+
+
 ## Wen Zhang
 
 ### 5/23/2024 
