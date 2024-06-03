@@ -55,7 +55,7 @@ void draw() {
   
   if(redOnDoor && blueOnDoor){
     mapNumber = (mapNumber + 1) % 3;
-    System.out.println(mapNumber);
+    //System.out.println(mapNumber);
     changeMap(mapNumber);
     redOnDoor = false;
     blueOnDoor = false;
