@@ -91,6 +91,8 @@ No more jumping mid-air -- this prevents additive velocity and vertical phase th
 
 Admin key ('=') in Demo branch
 
+More bug fixes overall
+
 
 ## Wen Zhang
 
