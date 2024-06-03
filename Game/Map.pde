@@ -17,6 +17,17 @@ public class Map{
     
     public ArrayList<Block> MapOneBlocks(ArrayList<Block> buttonBlocks){
       clearMap();
+            
+      //Red Gems
+      blocks.add(new Gem(725, 800, "redGem"));
+      blocks.add(new Gem(200, 420, "redGem"));
+      blocks.add(new Gem(250, 80, "redGem"));
+      
+      //Blue Gems
+      blocks.add(new Gem(710, 460, "blueGem"));
+      blocks.add(new Gem(700, 130, "blueGem"));
+      blocks.add(new Gem(45, 210, "blueGem"));
+      
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown)); //top
       blocks.add(new Platform(0, 0, 30, height, brown)); //left
@@ -60,16 +71,7 @@ public class Map{
       
       //Toxic
       blocks.add(new Toxic(800, 720, 100, 15));
-      
-      //Red Gems
-      blocks.add(new Gem(725, 800, "redGem"));
-      blocks.add(new Gem(200, 420, "redGem"));
-      blocks.add(new Gem(250, 80, "redGem"));
-      
-      //Blue Gems
-      blocks.add(new Gem(710, 460, "blueGem"));
-      blocks.add(new Gem(700, 130, "blueGem"));
-      blocks.add(new Gem(45, 210, "blueGem"));
+
       
       //Buttons
       Platform blue = new Platform(1080, 370, 90, 30, BLUE);
@@ -90,6 +92,23 @@ public class Map{
     // Map #2
     public ArrayList<Block> MapTwoBlocks(ArrayList<Block> buttonBlocks){
       clearMap();
+      
+      //redGems
+      blocks.add(new Gem(290, 835, "redGem"));
+      blocks.add(new Gem(390, 835, "redGem"));
+      blocks.add(new Gem(740, 725, "redGem"));
+      blocks.add(new Gem(840, 725, "redGem"));
+      blocks.add(new Gem(560, 390, "redGem"));
+      blocks.add(new Gem(560, 115, "redGem"));
+      
+      //blueGems
+      blocks.add(new Gem(290, 725, "blueGem"));
+      blocks.add(new Gem(390, 725, "blueGem"));
+      blocks.add(new Gem(740, 835, "blueGem"));
+      blocks.add(new Gem(840, 835, "blueGem"));
+      blocks.add(new Gem(630, 390, "blueGem"));
+      blocks.add(new Gem(630, 115, "blueGem"));
+      
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown));
       blocks.add(new Platform(0, 0, 30, height, brown));
@@ -138,27 +157,36 @@ public class Map{
       blocks.add(new Door(35, 90, 60, 80, RED, "fireDoor"));
       blocks.add(new Door(110, 90, 60, 80, BLUE, "waterDoor"));
       
-      //redGems
-      blocks.add(new Gem(290, 835, "redGem"));
-      blocks.add(new Gem(390, 835, "redGem"));
-      blocks.add(new Gem(740, 725, "redGem"));
-      blocks.add(new Gem(840, 725, "redGem"));
-      blocks.add(new Gem(560, 390, "redGem"));
-      blocks.add(new Gem(560, 115, "redGem"));
-      
-      //blueGems
-      blocks.add(new Gem(290, 725, "blueGem"));
-      blocks.add(new Gem(390, 725, "blueGem"));
-      blocks.add(new Gem(740, 835, "blueGem"));
-      blocks.add(new Gem(840, 835, "blueGem"));
-      blocks.add(new Gem(630, 390, "blueGem"));
-      blocks.add(new Gem(630, 115, "blueGem"));
       
       return blocks;
     }
     
     public ArrayList<Block> MapThreeBlocks(ArrayList<Block> buttonBlocks){
       clearMap(); 
+      // blueGems
+      blocks.add(new Gem(830, 830, "blueGem"));
+      blocks.add(new Gem(760, 780, "blueGem"));
+      blocks.add(new Gem(230, 645, "blueGem"));
+      blocks.add(new Gem(330, 645, "blueGem"));
+      blocks.add(new Gem(50, 330, "blueGem"));
+      blocks.add(new Gem(50, 230, "blueGem"));
+      blocks.add(new Gem(50, 130, "blueGem"));
+      blocks.add(new Gem(840, 345, "blueGem"));
+      blocks.add(new Gem(500, 250, "blueGem"));
+      blocks.add(new Gem(350, 60, "blueGem"));
+      
+      // redGems
+      blocks.add(new Gem(335, 830, "redGem"));
+      blocks.add(new Gem(405, 780, "redGem"));
+      blocks.add(new Gem(830, 645, "redGem"));
+      blocks.add(new Gem(930, 645, "redGem"));
+      blocks.add(new Gem(1120, 330, "redGem"));
+      blocks.add(new Gem(1120, 230, "redGem"));
+      blocks.add(new Gem(1120, 130, "redGem"));
+      blocks.add(new Gem(330, 345, "redGem"));
+      blocks.add(new Gem(665, 250, "redGem"));
+      blocks.add(new Gem(815, 60, "redGem"));
+      
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown));
       blocks.add(new Platform(0, 0, 30, height, brown));
@@ -206,29 +234,7 @@ public class Map{
       blocks.add(new Door(350, 460, 60, 80, RED, "fireDoor"));
       blocks.add(new Door(790, 460, 60, 80, BLUE, "waterDoor"));
       
-      // blueGems
-      blocks.add(new Gem(830, 830, "blueGem"));
-      blocks.add(new Gem(760, 780, "blueGem"));
-      blocks.add(new Gem(230, 645, "blueGem"));
-      blocks.add(new Gem(330, 645, "blueGem"));
-      blocks.add(new Gem(50, 330, "blueGem"));
-      blocks.add(new Gem(50, 230, "blueGem"));
-      blocks.add(new Gem(50, 130, "blueGem"));
-      blocks.add(new Gem(840, 345, "blueGem"));
-      blocks.add(new Gem(500, 250, "blueGem"));
-      blocks.add(new Gem(350, 60, "blueGem"));
       
-      // redGems
-      blocks.add(new Gem(335, 830, "redGem"));
-      blocks.add(new Gem(405, 780, "redGem"));
-      blocks.add(new Gem(830, 645, "redGem"));
-      blocks.add(new Gem(930, 645, "redGem"));
-      blocks.add(new Gem(1120, 330, "redGem"));
-      blocks.add(new Gem(1120, 230, "redGem"));
-      blocks.add(new Gem(1120, 130, "redGem"));
-      blocks.add(new Gem(330, 345, "redGem"));
-      blocks.add(new Gem(665, 250, "redGem"));
-      blocks.add(new Gem(815, 60, "redGem"));
       return blocks;
     }
  }
