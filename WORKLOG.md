@@ -87,7 +87,7 @@ Spent the day debugging right collision to prevent phase thru
 
 Fixed right collision with a stupid simple + 1 factor to adjust from round-down int value
 
-No more jumping mid-air -- this prevents additive velocity and vertical phase thru of blocks
+No more jumping mid-air -- this prevents additive velocity and vertical phase thru of blocks (jump is now on keyReleased())
 
 Admin key ('=') in Demo branch
 

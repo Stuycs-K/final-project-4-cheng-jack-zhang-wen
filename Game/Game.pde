@@ -63,15 +63,18 @@ void draw() {
 
 
 void keyPressed() {
+
   if(key == 'b'){
     mapNumber = (mapNumber + 1) % 3;
     changeMap(mapNumber);
   }
+      /*
       if (key == 'w' || key == 'W') {
         if (charList.get(0).velocity.y == 0) {
             charList.get(0).velocity.add(new PVector(0, -20));
           }
       }
+      */
       if (key == 'a' || key == 'A') {
         if (charList.get(0).velocity.x > -5) {
           (charList.get(0)).position.add(new PVector(-2, 0));
@@ -89,11 +92,13 @@ void keyPressed() {
       }
     
       if (key == CODED) {
+        /*
         if (keyCode == UP) {
           if (charList.get(1).velocity.y == 0) {
             charList.get(1).velocity.add(new PVector(0, -20));
           }
         }
+        */
         if (keyCode == LEFT) {
           if (charList.get(1).velocity.x > -5) {
             (charList.get(1)).position.add(new PVector(-2, 0));
@@ -110,6 +115,21 @@ void keyPressed() {
           (charList.get(1)).velocity.x = 0;
         }
       }
+}
+
+void keyReleased() {
+  if (key == 'w' || key == 'W') {
+    if (charList.get(0).velocity.y == 0) {
+      charList.get(0).velocity.add(new PVector(0, -20));
+    }
+  }
+  if (key == CODED) {
+    if (keyCode == UP) {
+      if (charList.get(1).velocity.y == 0) {
+        charList.get(1).velocity.add(new PVector(0, -20));
+      }
+    }
+  }
 }
 
 public void changeMap(int mapNum){
