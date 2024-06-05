@@ -162,3 +162,7 @@ Buttons do not work exactly as expected however so that needs to be changed
 Also need to add other stuff like wind and maybe rocks
 
 Also need to clean up code, make similar codes into a function
+
+### 6/3/2024 - 6/4/2024
+
+Started on a map4 and cleaned up the code a bit by making functions for collision logic with different types of blocks
