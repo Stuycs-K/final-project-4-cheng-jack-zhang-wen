@@ -1,6 +1,7 @@
 ArrayList<Character> charList;
 ArrayList<Block> blocks;
 ArrayList<Block> buttonBlocks;
+public static ArrayList<Button> buttons;
 public static boolean blueOnDoor = false;
 public static boolean redOnDoor = false;
 public static int mapNumber = 0;

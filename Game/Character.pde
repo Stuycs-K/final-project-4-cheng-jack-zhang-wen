@@ -32,6 +32,8 @@ public class Character {
         if(b.getType().equals("Button")){
           Button button = (Button) b;
           Platform attachedPlatform = button.getPlatform();
+          button.cycleActivated();
+          
           buttonSteppedOn.add(button);
           if(button.getActivated()){
             buttonBlocks.remove(attachedPlatform);
@@ -208,6 +210,54 @@ public class Character {
         }
       }
       
+      for (Button bu : buttons) {
+        Block associated = bu.attached;
+        if (bu.getActivated()) {
+          // Top
+          if (associated.checkCollisionTop(this, 20)) {
+            this.acceleration.y = 0;
+            this.velocity.y = 0;
+            this.position.y = associated.y - this.h;
+          }
+          
+          // Left
+          if (associated.checkCollisionLeft(this, 5)) {
+            if (!dropL) {
+              this.velocity.x = 0;
+              this.position.x = associated.x - this.w;
+              dropL = true;
+            }
+          }
+          
+          // Right
+          if (associated.checkCollisionRight(this, 5)) {
+            if (!dropR) {
+              this.velocity.x = 0;
+              this.position.x = associated.x + associated.w;
+              dropR = true;
+            }
+          }
+          
+          // Bottom
+          if (associated.checkCollisionBottom(this, 20)) {
+            if (!dropB) {
+              this.position.y = associated.y + associated.h;
+              this.velocity.y = 0;
+              dropB = true;
+            }
+            if (this.velocity.y < 0) {
+              this.velocity.y = 0;
+              this.position.y = associated.y + associated.h;
+            }
+          }
+            
+          }
+          else {
+            //hide
+        }
+      }
+      /*
+      
       for (Block bB : buttonBlocks) {
         // Top
         if (bB.checkCollisionTop(this, 20)) {
@@ -246,6 +296,7 @@ public class Character {
             this.position.y = bB.y + bB.h;
           }
         }
+        */
       }
       /*
       for(Button button : buttonSteppedOn){
@@ -256,8 +307,9 @@ public class Character {
             buttonBlocks.remove(attachedPlatform);
           }
       }
-      */
+      
     }
+    */
 
     bounce();
   }

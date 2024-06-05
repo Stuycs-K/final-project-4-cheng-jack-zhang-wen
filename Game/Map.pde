@@ -77,6 +77,9 @@ public class Map{
       Platform blue = new Platform(1080, 370, 90, 30, BLUE);
       blocks.add(new Button(450, 482, blue, BLUE, true));
       blocks.add(new Button(920, 342, blue, BLUE, true));
+      
+      buttons.add(new Button(450, 482, blue, BLUE, true));
+      buttons.add(new Button(920, 342, blue, BLUE, true));
       buttonBlocks.add(blue);
       
       Platform p = new Platform(30, 490, 120, 30, purple);

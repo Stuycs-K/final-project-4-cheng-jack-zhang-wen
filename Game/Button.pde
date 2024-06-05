@@ -23,7 +23,7 @@ public class Button extends Block{
     return isActivated;
   }
   
-  public void setActivated(Boolean b){
-    isActivated = b; 
+  public void cycleActivated(){
+    isActivated = !isActivated; 
   }
 }
