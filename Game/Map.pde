@@ -231,4 +231,8 @@ public class Map{
       blocks.add(new Gem(815, 60, "redGem"));
       return blocks;
     }
+    
+    public ArrayList<Block> MapFourBlocks(){
+      
+    }
  }

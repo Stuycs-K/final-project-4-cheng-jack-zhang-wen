@@ -42,7 +42,21 @@ public class Character {
     }
   }
 
+  private void lavaCollision(){
+    if(this.type.equals("Water")){
+      changeMap(mapNumber); 
+    }
+  }
   
+  private void poolCollision(){
+    if(this.type.equals("Fire")){
+      changeMap(mapNumber);
+    } 
+  }
+  
+  private void toxicCollision(){
+    changeMap(mapNumber); 
+  }
 
   void move(ArrayList<Block> buttonBlocks) {
     velocity.add(acceleration);
@@ -64,11 +78,10 @@ public class Character {
       Block b = iterator.next();
       // Top
       if (b.checkCollisionTop(this, 20)) {
-        // Button
         if(b.getType().equals("Button")){
           buttonCollision(b);
         } 
-        
+       
         if(b.getType().equals("Platform")){
           platformCollision(b);
         }
@@ -86,28 +99,24 @@ public class Character {
           b = iterator.next();
         }
         
-        if(b.getType().equals("Lava") && this.type.equals("Water")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Lava")){
+          lavaCollision();
         } 
-        if(b.getType().equals("Pool") && this.type.equals("Fire")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Pool")){
+          poolCollision();
         }
         if(b.getType().equals("Toxic")){
-          changeMap(mapNumber); 
+          toxicCollision();
         }
       }
       
       // Left
       if (b.checkCollisionLeft(this, 5)) {
-        if(b.getType().equals("fireDoor")){
-          if(this.type.equals("Fire")){
-            redOnDoor = true; 
-          }
-        } else if(b.getType().equals("waterDoor")){
-          if(this.type.equals("Water")){
-            blueOnDoor = true; 
-          }
-        } else if (!dropL && b.getType().equals("Platform")) {
+        if(b.getType().contains("Door")){
+          doorCollision(b);
+        }
+        
+        if (!dropL && b.getType().equals("Platform")) {
           this.velocity.x = 0;
           this.position.x = b.x - this.w;
           dropL = true;
@@ -133,14 +142,14 @@ public class Character {
           b = iterator.next();
         }
         
-        if(b.getType().equals("Lava") && this.type.equals("Water")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Lava")){
+          lavaCollision();
         } 
-        if(b.getType().equals("Pool") && this.type.equals("Fire")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Pool")){
+          poolCollision();
         }
         if(b.getType().equals("Toxic")){
-          changeMap(mapNumber); 
+          toxicCollision();
         }
         
       }
@@ -181,14 +190,14 @@ public class Character {
           iterator.remove();
         }
         
-        if(b.getType().equals("Lava") && this.type.equals("Water")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Lava")){
+          lavaCollision();
         } 
-        if(b.getType().equals("Pool") && this.type.equals("Fire")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Pool")){
+          poolCollision();
         }
         if(b.getType().equals("Toxic")){
-          changeMap(mapNumber); 
+          toxicCollision();
         }
       }
       
@@ -215,14 +224,14 @@ public class Character {
           b = iterator.next();
         }
         
-        if(b.getType().equals("Lava") && this.type.equals("Water")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Lava")){
+          lavaCollision();
         } 
-        if(b.getType().equals("Pool") && this.type.equals("Fire")){
-          changeMap(mapNumber); 
+        if(b.getType().equals("Pool")){
+          poolCollision();
         }
         if(b.getType().equals("Toxic")){
-          changeMap(mapNumber); 
+          toxicCollision();
         }
       }
       /*
