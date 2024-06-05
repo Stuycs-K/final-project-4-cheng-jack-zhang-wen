@@ -10,6 +10,40 @@ public class Character {
   boolean dropB = false;
   ArrayList<Button> buttonSteppedOn;
 
+  private void buttonCollision(Block b){
+    Button button = (Button) b;
+    Platform attachedPlatform = button.getPlatform();
+    buttonSteppedOn.add(button);
+    if(button.getActivated()){
+      buttonBlocks.remove(attachedPlatform);
+    } else {
+      buttonBlocks.add(attachedPlatform);
+    }
+    this.acceleration.y = 0;
+    this.velocity.y = 0;
+    this.position.y = b.y - this.h;
+  }
+
+  private void platformCollision(Block b){
+    this.acceleration.y = 0;
+    this.velocity.y = 0;
+    this.position.y = b.y - this.h;
+  }
+
+  private void doorCollision(Block b){
+    if(b.getType().equals("fireDoor")){
+      if(this.type.equals("Fire")){
+        redOnDoor = true; 
+      }
+    } else if(b.getType().equals("waterDoor")){
+      if(this.type.equals("Water")){
+        blueOnDoor = true; 
+      }
+    }
+  }
+
+  
+
   void move(ArrayList<Block> buttonBlocks) {
     velocity.add(acceleration);
     position.add(velocity);
@@ -22,6 +56,8 @@ public class Character {
       dropB = false;
     }
     
+    
+    
     buttonSteppedOn = new ArrayList<Button>();
     
     for (Iterator<Block> iterator = blocks.iterator(); iterator.hasNext(); ) {
@@ -30,33 +66,15 @@ public class Character {
       if (b.checkCollisionTop(this, 20)) {
         // Button
         if(b.getType().equals("Button")){
-          Button button = (Button) b;
-          Platform attachedPlatform = button.getPlatform();
-          buttonSteppedOn.add(button);
-          if(button.getActivated()){
-            buttonBlocks.remove(attachedPlatform);
-          } else {
-            buttonBlocks.add(attachedPlatform);
-          }
-          this.acceleration.y = 0;
-          this.velocity.y = 0;
-          this.position.y = b.y - this.h;
+          buttonCollision(b);
         } 
         
         if(b.getType().equals("Platform")){
-          this.acceleration.y = 0;
-          this.velocity.y = 0;
-          this.position.y = b.y - this.h;
+          platformCollision(b);
         }
         
-        if(b.getType().equals("fireDoor")){
-          if(this.type.equals("Fire")){
-            redOnDoor = true; 
-          }
-        } else if(b.getType().equals("waterDoor")){
-          if(this.type.equals("Water")){
-            blueOnDoor = true; 
-          }
+        if(b.getType().contains("Door")){
+          doorCollision(b);
         }
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
