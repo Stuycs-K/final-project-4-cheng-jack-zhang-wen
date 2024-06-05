@@ -19,7 +19,7 @@ void setup() {
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
   charList.add(new Character(100, 800, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(100, 700, 35, 35, color(0, 0, 255), "Water"));
+  charList.add(new Character(100, 600, 35, 35, color(0, 0, 255), "Water"));
 }
 
 void clearMap(){

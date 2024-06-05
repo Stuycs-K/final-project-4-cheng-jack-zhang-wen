@@ -207,6 +207,46 @@ public class Character {
           changeMap(mapNumber); 
         }
       }
+      
+      for (Block bB : buttonBlocks) {
+        // Top
+        if (bB.checkCollisionTop(this, 20)) {
+          this.acceleration.y = 0;
+          this.velocity.y = 0;
+          this.position.y = bB.y - this.h;
+        }
+        
+        // Left
+        if (bB.checkCollisionLeft(this, 5)) {
+          if (!dropL) {
+            this.velocity.x = 0;
+            this.position.x = bB.x - this.w;
+            dropL = true;
+          }
+        }
+        
+        // Right
+        if (bB.checkCollisionRight(this, 5)) {
+          if (!dropR) {
+            this.velocity.x = 0;
+            this.position.x = bB.x + bB.w;
+            dropR = true;
+          }
+        }
+        
+        // Bottom
+        if (bB.checkCollisionBottom(this, 20)) {
+          if (!dropB) {
+            this.position.y = bB.y + bB.h;
+            this.velocity.y = 0;
+            dropB = true;
+          }
+          if (this.velocity.y < 0) {
+            this.velocity.y = 0;
+            this.position.y = bB.y + bB.h;
+          }
+        }
+      }
       /*
       for(Button button : buttonSteppedOn){
         Platform attachedPlatform = button.getPlatform();
