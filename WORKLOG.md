@@ -98,6 +98,12 @@ More bug fixes overall
 
 Starting new branch to check collision on buttonBlocks (associated block list to buttons)
 
+### 06/04/24
+
+Fixed buttonBlock collisions to act as normal blocks
+
+Next: create static boolean variable to toggle on and off everytime we step on associated button
+
 
 ## Wen Zhang
 
