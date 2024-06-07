@@ -104,6 +104,22 @@ Fixed buttonBlock collisions to act as normal blocks
 
 Next: create static boolean variable to toggle on and off everytime we step on associated button
 
+### 06/05/24
+
+Reassembled button mechanic and their associated blocks -- the toggle relies on activation, and need a way to hide the associated block if not active
+
+Not compiling
+
+### 06/06/24
+
+Mostly debugging -- compiles
+
+Have to start with collisions of associated blocks off -- why?
+
+Hiding the associated block is hard -- can only really change color to indicate collisions off
+
+Toggle does work, but collisions now work weird
+
 
 ## Wen Zhang
 
