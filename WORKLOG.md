@@ -120,6 +120,12 @@ Hiding the associated block is hard -- can only really change color to indicate 
 
 Toggle does work, but collisions now work weird
 
+### 06/07/24
+
+Fixed button block interactions -- start as collide
+
+Toggle works, and black implies go through
+
 
 ## Wen Zhang
 
