@@ -290,4 +290,62 @@ public class Map{
       return blocks;
     }
     
+    public ArrayList<Block> MapFiveBlocks(ArrayList<Block> buttonBlocks){
+      clearMap();
+      
+      blocks.add(new Platform(0, 0, 1200, 30, brown));
+      blocks.add(new Platform(0, 0, 30, 900, brown));
+      blocks.add(new Platform(0, 870, 1200, 30, brown));
+      blocks.add(new Platform(1170, 0, 30, 900, brown));
+    
+      blocks.add(new Platform(30, 700, 200, 30, brown));
+      blocks.add(new Platform(30, 570, 300, 30, brown));
+      blocks.add(new Platform(330, 570, 25, 100, brown));
+      blocks.add(new Platform(330, 670, 250, 30, brown));
+      blocks.add(new Platform(730, 740, 100, 100, brown));
+      
+      blocks.add(new Platform(150, 440, 500, 30, brown));
+      blocks.add(new Platform(620, 470, 500, 30, brown));
+      blocks.add(new Platform(970, 470, 130, 65, brown));
+      blocks.add(new Platform(1070, 470, 110, 110, brown));
+      
+      blocks.add(new Platform(650, 265, 230, 75, brown));
+      blocks.add(new Platform(880, 300, 200, 75, brown));
+      blocks.add(new Platform(150, 310, 500, 30, brown));
+      blocks.add(new Platform(20, 210, 130, 130, brown));
+      
+      blocks.add(new Platform(200, 80, 170, 30, brown));
+      blocks.add(new Platform(270, 110, 130, 30, brown));
+      blocks.add(new Platform(330, 140, 180, 80, brown));
+      blocks.add(new Platform(510, 140, 690, 40, brown));
+    
+      blocks.add(new Pool(870, 770, 100, 15));
+      
+      blocks.add(new Lava(690, 770, 100, 15));
+      
+      blocks.add(new Toxic(800, 620, 100, 15));
+    
+      blocks.add(new Gem(725, 700, "redGem"));
+      blocks.add(new Gem(200, 320, "redGem"));
+      blocks.add(new Gem(250, -20, "redGem"));
+    
+      blocks.add(new Gem(710, 360, "blueGem"));
+      blocks.add(new Gem(700, 30, "blueGem"));
+      blocks.add(new Gem(45, 110, "blueGem"));
+    
+      blocks.add(new Door(0, 640, 60, 80, RED, "fireDoor"));
+      blocks.add(new Door(1130, 800, 60, 80, BLUE, "waterDoor"));
+    
+      Platform blue = new Platform(1080, 320, 90, 30, BLUE);
+      blocks.add(new Button(450, 432, blue, BLUE, true));
+      blocks.add(new Button(920, 292, blue, BLUE, true));
+      buttonBlocks.add(blue);
+      
+      Platform p = new Platform(30, 440, 120, 30, purple);
+      blocks.add(new Button(200, 562, p, purple, true));
+      blocks.add(new Button(280, 432, p, purple, true));
+      buttonBlocks.add(p);
+    
+      return blocks;
+    }
  }
