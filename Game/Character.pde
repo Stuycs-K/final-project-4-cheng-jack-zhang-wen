@@ -8,6 +8,8 @@ public class Character {
   boolean dropL = false;
   boolean dropR = false;
   boolean dropB = false;
+  int lastT = 0;
+  boolean actBu = true;
   ArrayList<Button> buttonSteppedOn;
 
   private void buttonCollision(Block b){
@@ -63,11 +65,15 @@ public class Character {
     position.add(velocity);
     acceleration = new PVector();
     applyForce();
+    lastT ++;
     
     if (frameCount % 20 == 0) {
       dropL = false;
       dropR = false;
       dropB = false;
+    }
+    if (lastT % 120 == 0) {
+      actBu = true;
     }
     
     
@@ -78,10 +84,6 @@ public class Character {
       Block b = iterator.next();
       // Top
       if (b.checkCollisionTop(this, 20)) {
-        if(b.getType().equals("Button")){
-          buttonCollision(b);
-        } 
-       
         if(b.getType().equals("Platform")){
           platformCollision(b);
         }
@@ -234,6 +236,112 @@ public class Character {
           toxicCollision();
         }
       }
+      
+      for (Button bu : buttons) {
+        if (bu.checkCollisionTop(this, 20)) {
+          if (actBu) {
+            bu.cycleActivated();
+            actBu = false;
+            lastT = 0;
+            this.acceleration.y = 0;
+            this.velocity.y = 0;
+            this.position.y = bu.y - this.h;
+            //System.out.println("cycled" + bu.isActivated);
+          }
+        }
+        
+        
+        Block associated = bu.attached;
+        associated.c = bu.OGColor;
+        if (bu.getActivated()) { //HIDE
+          associated.c = color(0);
+          //System.out.println("hide");
+          //associated.c = (255);         
+        }
+        else {
+          // Top
+
+          if (associated.checkCollisionTop(this, 20)) {
+            this.acceleration.y = 0;
+            this.velocity.y = 0;
+            this.position.y = associated.y - this.h;
+          }
+          
+          // Left
+          if (associated.checkCollisionLeft(this, 5)) {
+            if (!dropL) {
+              this.velocity.x = 0;
+              this.position.x = associated.x - this.w;
+              dropL = true;
+            }
+          }
+          
+          // Right
+          if (associated.checkCollisionRight(this, 5)) {
+            if (!dropR) {
+              this.velocity.x = 0;
+              this.position.x = associated.x + associated.w;
+              dropR = true;
+            }
+          }
+          
+          // Bottom
+          if (associated.checkCollisionBottom(this, 20)) {
+            if (!dropB) {
+              this.position.y = associated.y + associated.h;
+              this.velocity.y = 0;
+              dropB = true;
+            }
+            if (this.velocity.y < 0) {
+              this.velocity.y = 0;
+              this.position.y = associated.y + associated.h;
+            }
+          }
+          
+        }
+      }
+      /*
+      
+      for (Block bB : buttonBlocks) {
+        // Top
+        if (bB.checkCollisionTop(this, 20)) {
+          this.acceleration.y = 0;
+          this.velocity.y = 0;
+          this.position.y = bB.y - this.h;
+        }
+        
+        // Left
+        if (bB.checkCollisionLeft(this, 5)) {
+          if (!dropL) {
+            this.velocity.x = 0;
+            this.position.x = bB.x - this.w;
+            dropL = true;
+          }
+        }
+        
+        // Right
+        if (bB.checkCollisionRight(this, 5)) {
+          if (!dropR) {
+            this.velocity.x = 0;
+            this.position.x = bB.x + bB.w;
+            dropR = true;
+          }
+        }
+        
+        // Bottom
+        if (bB.checkCollisionBottom(this, 20)) {
+          if (!dropB) {
+            this.position.y = bB.y + bB.h;
+            this.velocity.y = 0;
+            dropB = true;
+          }
+          if (this.velocity.y < 0) {
+            this.velocity.y = 0;
+            this.position.y = bB.y + bB.h;
+          }
+        }
+        */
+      }
       /*
       for(Button button : buttonSteppedOn){
         Platform attachedPlatform = button.getPlatform();
@@ -243,8 +351,9 @@ public class Character {
             buttonBlocks.remove(attachedPlatform);
           }
       }
-      */
+      
     }
+    */
 
     bounce();
   }
