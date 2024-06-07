@@ -12,7 +12,7 @@ void setup() {
   clearMap();
   map = new Map();
   buttonBlocks = new ArrayList<Block>();
-  blocks = map.MapOneBlocks(buttonBlocks);
+  blocks = map.MapFourBlocks(buttonBlocks);
   frameRate(60);
 
 

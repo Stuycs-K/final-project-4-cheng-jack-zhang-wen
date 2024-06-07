@@ -233,6 +233,61 @@ public class Map{
     }
     
     public ArrayList<Block> MapFourBlocks(){
-      
+      clearMap();
+      // Border
+      blocks.add(new Platform(0, 0, width, 30, brown)); // top
+      blocks.add(new Platform(0, 0, 30, height, brown)); // left
+      blocks.add(new Platform(0, 870, width, 30, brown)); // bottom
+      blocks.add(new Platform(1170, 0, 30, height, brown)); // right
+    
+      // First Layer
+      blocks.add(new Platform(50, 800, 250, 30, brown));
+      blocks.add(new Platform(370, 800, 100, 30, brown));
+      blocks.add(new Platform(570, 800, 100, 30, brown));
+      blocks.add(new Platform(770, 800, 100, 30, brown));
+      blocks.add(new Platform(980, 800, 100, 30, brown));
+    
+      // Second Layer
+      blocks.add(new Platform(100, 680, 250, 30, brown));
+      blocks.add(new Platform(500, 680, 150, 30, brown));
+      blocks.add(new Platform(800, 680, 150, 30, brown));
+    
+      // Third Layer
+      blocks.add(new Platform(200, 560, 250, 30, brown));
+      blocks.add(new Platform(550, 560, 150, 30, brown));
+      blocks.add(new Platform(850, 560, 150, 30, brown));
+    
+      // Fourth Layer
+      blocks.add(new Platform(300, 440, 250, 30, brown));
+      blocks.add(new Platform(600, 440, 150, 30, brown));
+      blocks.add(new Platform(900, 440, 150, 30, brown));
+    
+      // Pools
+      blocks.add(new Pool(220, 800, 50, 15));
+      blocks.add(new Pool(720, 800, 50, 15));
+    
+      // Lavas
+      blocks.add(new Lava(170, 800, 50, 15));
+      blocks.add(new Lava(670, 800, 50, 15));
+    
+      // Toxic
+      blocks.add(new Toxic(350, 680, 100, 15));
+      blocks.add(new Toxic(650, 680, 100, 15));
+    
+      // Red Gems
+      blocks.add(new Gem(100, 770, "redGem"));
+      blocks.add(new Gem(400, 770, "redGem"));
+      blocks.add(new Gem(700, 770, "redGem"));
+    
+      // Blue Gems
+      blocks.add(new Gem(1000, 770, "blueGem"));
+      blocks.add(new Gem(300, 650, "blueGem"));
+      blocks.add(new Gem(600, 650, "blueGem"));
+    
+      // Doors
+      blocks.add(new Door(1100, 60, 60, 80, RED, "fireDoor"));
+      blocks.add(new Door(1100, 160, 60, 80, BLUE, "waterDoor"));
+      return blocks;
     }
+    
  }
