@@ -12,14 +12,14 @@ void setup() {
   clearMap();
   map = new Map();
   buttonBlocks = new ArrayList<Block>();
-  blocks = map.MapFourBlocks(buttonBlocks);
+  blocks = map.MapFourBlocks();
   frameRate(60);
 
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(100, 800, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(100, 700, 35, 35, color(0, 0, 255), "Water"));
+  charList.add(new Character(600, 800, 35, 35, color(255, 0, 0), "Fire"));
+  charList.add(new Character(600, 700, 35, 35, color(0, 0, 255), "Water"));
 }
 
 void clearMap(){
@@ -149,5 +149,10 @@ public void changeMap(int mapNum){
      blocks = map.MapThreeBlocks(buttonBlocks); 
      charList.get(0).setXY(100, 800);
      charList.get(1).setXY(1050, 800);
+   } else if(mapNum == 3){
+     buttonBlocks = new ArrayList<Block>();
+     blocks = map.MapFourBlocks(); 
+     charList.get(0).setXY(600, 800);
+     charList.get(1).setXY(600, 800);
    }
 }
