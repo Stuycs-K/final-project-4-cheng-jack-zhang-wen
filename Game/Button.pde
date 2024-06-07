@@ -1,10 +1,12 @@
 public class Button extends Block{
   Platform attached;
   Boolean isActivated;
+  color OGColor;
   
-  public Button(float BstartX, float BstartY, Platform platform, color Color, Boolean Activated){
+  public Button(float BstartX, float BstartY, Platform platform, color Color, color OG, Boolean Activated){
     super(BstartX, BstartY, 20, 5, Color, "Button");
     attached = platform;
+    OGColor = OG;
     isActivated = Activated;
   }
   
@@ -23,7 +25,7 @@ public class Button extends Block{
     return isActivated;
   }
   
-  public void setActivated(Boolean b){
-    isActivated = b; 
+  public void cycleActivated(){
+    isActivated = !isActivated; 
   }
 }

@@ -1,25 +1,28 @@
 ArrayList<Character> charList;
 ArrayList<Block> blocks;
 ArrayList<Block> buttonBlocks;
+ArrayList<Button> buttons;
 public static boolean blueOnDoor = false;
 public static boolean redOnDoor = false;
 public static int mapNumber = 0;
+
 Map map;
-static double G = 60000;
 
 void setup() {
   size(1200, 900);
   clearMap();
   map = new Map();
   buttonBlocks = new ArrayList<Block>();
-  blocks = map.MapFourBlocks(buttonBlocks);
+
+  buttons = new ArrayList<Button>();
+  blocks = map.MapOneBlocks(buttonBlocks, buttons);
   frameRate(60);
 
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
   charList.add(new Character(100, 800, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(100, 700, 35, 35, color(0, 0, 255), "Water"));
+  charList.add(new Character(100, 600, 35, 35, color(0, 0, 255), "Water"));
 }
 
 void clearMap(){
@@ -44,8 +47,8 @@ void draw() {
     }
     
     
-    for(Block b : buttonBlocks){
-      b.display(); 
+    for(Button bu : buttons){
+      bu.attached.display(); 
     }
     
   }
@@ -63,18 +66,10 @@ void draw() {
 
 
 void keyPressed() {
-
   if(key == 'b'){
     mapNumber = (mapNumber + 1) % 3;
     changeMap(mapNumber);
   }
-      /*
-      if (key == 'w' || key == 'W') {
-        if (charList.get(0).velocity.y == 0) {
-            charList.get(0).velocity.add(new PVector(0, -20));
-          }
-      }
-      */
       if (key == 'a' || key == 'A') {
         if (charList.get(0).velocity.x > -5) {
           (charList.get(0)).position.add(new PVector(-2, 0));
@@ -92,13 +87,6 @@ void keyPressed() {
       }
     
       if (key == CODED) {
-        /*
-        if (keyCode == UP) {
-          if (charList.get(1).velocity.y == 0) {
-            charList.get(1).velocity.add(new PVector(0, -20));
-          }
-        }
-        */
         if (keyCode == LEFT) {
           if (charList.get(1).velocity.x > -5) {
             (charList.get(1)).position.add(new PVector(-2, 0));
@@ -116,6 +104,7 @@ void keyPressed() {
         }
       }
 }
+
 
 void keyReleased() {
   if (key == 'w' || key == 'W') {
@@ -136,7 +125,7 @@ public void changeMap(int mapNum){
    clearMap();
    if(mapNum == 0){
      buttonBlocks = new ArrayList<Block>();
-     blocks = map.MapOneBlocks(buttonBlocks);
+     blocks = map.MapOneBlocks(buttonBlocks, buttons);
      charList.get(0).setXY(100, 800);
      charList.get(1).setXY(100, 700);
    } else if(mapNum == 1){
