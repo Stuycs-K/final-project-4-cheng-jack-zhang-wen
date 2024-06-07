@@ -237,64 +237,67 @@ public class Character {
         }
       }
       
-      for (Button bu : buttons) {
-        if (bu.checkCollisionTop(this, 20)) {
-          if (actBu) {
-            bu.cycleActivated();
-            actBu = false;
-            lastT = 0;
-            this.acceleration.y = 0;
-            this.velocity.y = 0;
-            this.position.y = bu.y - this.h;
-            //System.out.println("cycled" + bu.isActivated);
-          }
-        }
+      if (mapNumber == 0) {
         
-        
-        Block associated = bu.attached;
-        associated.c = bu.OGColor;
-        if (bu.getActivated()) { //HIDE
-          associated.c = color(0);
-          //System.out.println("hide");
-          //associated.c = (255);         
-        }
-        else {
-          // Top
-
-          if (associated.checkCollisionTop(this, 20)) {
-            this.acceleration.y = 0;
-            this.velocity.y = 0;
-            this.position.y = associated.y - this.h;
-          }
-          
-          // Left
-          if (associated.checkCollisionLeft(this, 5)) {
-            if (!dropL) {
-              this.velocity.x = 0;
-              this.position.x = associated.x - this.w;
-              dropL = true;
-            }
-          }
-          
-          // Right
-          if (associated.checkCollisionRight(this, 5)) {
-            if (!dropR) {
-              this.velocity.x = 0;
-              this.position.x = associated.x + associated.w;
-              dropR = true;
-            }
-          }
-          
-          // Bottom
-          if (associated.checkCollisionBottom(this, 20)) {
-            if (!dropB) {
-              this.position.y = associated.y + associated.h;
+        for (Button bu : buttons) {
+          if (bu.checkCollisionTop(this, 20)) {
+            if (actBu) {
+              bu.cycleActivated();
+              actBu = false;
+              lastT = 0;
+              this.acceleration.y = 0;
               this.velocity.y = 0;
-              dropB = true;
+              this.position.y = bu.y - this.h;
+              //System.out.println("cycled" + bu.isActivated);
             }
-            if (this.velocity.y < 0) {
+          }
+          
+          
+          Block associated = bu.attached;
+          associated.c = bu.OGColor;
+          if (bu.getActivated()) { //HIDE
+            associated.c = color(0);
+            //System.out.println("hide");
+            //associated.c = (255);         
+          }
+          else {
+            // Top
+  
+            if (associated.checkCollisionTop(this, 20)) {
+              this.acceleration.y = 0;
               this.velocity.y = 0;
-              this.position.y = associated.y + associated.h;
+              this.position.y = associated.y - this.h;
+            }
+            
+            // Left
+            if (associated.checkCollisionLeft(this, 5)) {
+              if (!dropL) {
+                this.velocity.x = 0;
+                this.position.x = associated.x - this.w;
+                dropL = true;
+              }
+            }
+            
+            // Right
+            if (associated.checkCollisionRight(this, 5)) {
+              if (!dropR) {
+                this.velocity.x = 0;
+                this.position.x = associated.x + associated.w;
+                dropR = true;
+              }
+            }
+            
+            // Bottom
+            if (associated.checkCollisionBottom(this, 20)) {
+              if (!dropB) {
+                this.position.y = associated.y + associated.h;
+                this.velocity.y = 0;
+                dropB = true;
+              }
+              if (this.velocity.y < 0) {
+                this.velocity.y = 0;
+                this.position.y = associated.y + associated.h;
+              }
             }
           }
           
@@ -359,7 +362,7 @@ public class Character {
   }
   
   void applyForce() {
-    acceleration = acceleration.add(new PVector(0, 1));
+    acceleration = acceleration.add(new PVector(0, 0.5));
   }
 
   public Character(float x, float y, int ht, int wi, color color_, String type_) {

@@ -48,7 +48,9 @@ void draw() {
     
     
     for(Button bu : buttons){
-      bu.attached.display(); 
+      if (mapNumber == 0) {
+        bu.attached.display(); 
+      }
     }
     
   }
@@ -109,13 +111,13 @@ void keyPressed() {
 void keyReleased() {
   if (key == 'w' || key == 'W') {
     if (charList.get(0).velocity.y == 0) {
-      charList.get(0).velocity.add(new PVector(0, -20));
+      charList.get(0).velocity.add(new PVector(0, -15));
     }
   }
   if (key == CODED) {
     if (keyCode == UP) {
       if (charList.get(1).velocity.y == 0) {
-        charList.get(1).velocity.add(new PVector(0, -20));
+        charList.get(1).velocity.add(new PVector(0, -15));
       }
     }
   }
