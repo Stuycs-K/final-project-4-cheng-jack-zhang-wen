@@ -8,6 +8,8 @@ public class Character {
   boolean dropL = false;
   boolean dropR = false;
   boolean dropB = false;
+  int lastT = 0;
+  boolean actBu = true;
   ArrayList<Button> buttonSteppedOn;
 
   void move(ArrayList<Block> buttonBlocks) {
@@ -15,11 +17,15 @@ public class Character {
     position.add(velocity);
     acceleration = new PVector();
     applyForce();
+    lastT ++;
     
     if (frameCount % 20 == 0) {
       dropL = false;
       dropR = false;
       dropB = false;
+    }
+    if (lastT % 120 == 0) {
+      actBu = true;
     }
     
     buttonSteppedOn = new ArrayList<Button>();
@@ -28,23 +34,6 @@ public class Character {
       Block b = iterator.next();
       // Top
       if (b.checkCollisionTop(this, 20)) {
-        // Button
-        if(b.getType().equals("Button")){
-          Button button = (Button) b;
-          Platform attachedPlatform = button.getPlatform();
-          button.cycleActivated();
-          
-          buttonSteppedOn.add(button);
-          if(button.getActivated()){
-            buttonBlocks.remove(attachedPlatform);
-          } else {
-            buttonBlocks.add(attachedPlatform);
-          }
-          this.acceleration.y = 0;
-          this.velocity.y = 0;
-          this.position.y = b.y - this.h;
-        } 
-        
         if(b.getType().equals("Platform")){
           this.acceleration.y = 0;
           this.velocity.y = 0;
@@ -211,8 +200,24 @@ public class Character {
       }
       
       for (Button bu : buttons) {
+        if (bu.checkCollisionTop(this, 20)) {
+          if (actBu) {
+            bu.cycleActivated();
+            actBu = false;
+            lastT = 0;
+            this.acceleration.y = 0;
+            this.velocity.y = 0;
+            this.position.y = bu.y - this.h;
+            //System.out.println("cycled" + bu.isActivated);
+          }
+        }
+        
         Block associated = bu.attached;
-        if (bu.getActivated()) {
+        if (bu.getActivated()) { //HIDE
+          //System.out.println("hide");
+          //associated.c = (255);         
+        }
+        else {
           // Top
           if (associated.checkCollisionTop(this, 20)) {
             this.acceleration.y = 0;
@@ -250,10 +255,7 @@ public class Character {
               this.position.y = associated.y + associated.h;
             }
           }
-            
-          }
-          else {
-            //hide
+          
         }
       }
       /*

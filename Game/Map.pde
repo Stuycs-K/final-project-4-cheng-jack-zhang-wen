@@ -1,10 +1,10 @@
 public class Map{
     ArrayList<Block> blocks;
-    color RED = color(255, 0, 0);
-    color GREEN = color(0, 255, 0);
-    color BLUE = color(0, 0, 255);
-    color brown = color(114,104,52);
-    color purple = color(138,43,226);
+    public color RED = color(255, 0, 0);
+    public color GREEN = color(0, 255, 0);
+    public color BLUE = color(0, 0, 255);
+    public color brown = color(114,104,52);
+    public color purple = color(138,43,226);
     
     
     public Map(){
@@ -15,7 +15,7 @@ public class Map{
       blocks = new ArrayList<Block>();
     }
     
-    public ArrayList<Block> MapOneBlocks(ArrayList<Block> buttonBlocks){
+    public ArrayList<Block> MapOneBlocks(ArrayList<Block> buttonBlocks, ArrayList<Button> buttons){
       clearMap();
             
       //Red Gems
@@ -75,16 +75,22 @@ public class Map{
       
       //Buttons
       Platform blue = new Platform(1080, 370, 90, 30, BLUE);
-      blocks.add(new Button(450, 482, blue, BLUE, true));
-      blocks.add(new Button(920, 342, blue, BLUE, true));
+      blocks.add(new Button(450, 482, blue, BLUE, false));
+      blocks.add(new Button(920, 342, blue, BLUE, false));
+      //blocks.add(blue);
       
-      buttons.add(new Button(450, 482, blue, BLUE, true));
-      buttons.add(new Button(920, 342, blue, BLUE, true));
+      buttons.add(new Button(450, 482, blue, BLUE, false));
+      buttons.add(new Button(920, 342, blue, BLUE, false));
       buttonBlocks.add(blue);
       
       Platform p = new Platform(30, 490, 120, 30, purple);
       blocks.add(new Button(200, 612, p, purple, true));
       blocks.add(new Button(280, 482, p, purple, true));
+      //blocks.add(p);
+      
+      buttons.add(new Button(200, 612, p, purple, true));
+      buttons.add(new Button(280, 482, p, purple, true));
+      
       buttonBlocks.add(p);
       
       return blocks;

@@ -1,7 +1,7 @@
 ArrayList<Character> charList;
 ArrayList<Block> blocks;
 ArrayList<Block> buttonBlocks;
-public static ArrayList<Button> buttons;
+ArrayList<Button> buttons;
 public static boolean blueOnDoor = false;
 public static boolean redOnDoor = false;
 public static int mapNumber = 0;
@@ -13,7 +13,8 @@ void setup() {
   clearMap();
   map = new Map();
   buttonBlocks = new ArrayList<Block>();
-  blocks = map.MapOneBlocks(buttonBlocks);
+  buttons = new ArrayList<Button>();
+  blocks = map.MapOneBlocks(buttonBlocks, buttons);
   frameRate(60);
 
 
@@ -45,8 +46,8 @@ void draw() {
     }
     
     
-    for(Block b : buttonBlocks){
-      b.display(); 
+    for(Button bu : buttons){
+      bu.attached.display(); 
     }
     
   }
@@ -123,7 +124,7 @@ public void changeMap(int mapNum){
    clearMap();
    if(mapNum == 0){
      buttonBlocks = new ArrayList<Block>();
-     blocks = map.MapOneBlocks(buttonBlocks);
+     blocks = map.MapOneBlocks(buttonBlocks, buttons);
      charList.get(0).setXY(100, 800);
      charList.get(1).setXY(100, 700);
    } else if(mapNum == 1){
