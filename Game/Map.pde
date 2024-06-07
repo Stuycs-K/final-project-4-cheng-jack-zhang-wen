@@ -75,21 +75,21 @@ public class Map{
       
       //Buttons
       Platform blue = new Platform(1080, 370, 90, 30, BLUE);
-      blocks.add(new Button(450, 482, blue, BLUE, false));
-      blocks.add(new Button(920, 342, blue, BLUE, false));
+      blocks.add(new Button(450, 482, blue, BLUE, BLUE, false));
+      //blocks.add(new Button(920, 342, blue, BLUE, BLUE, true));
       //blocks.add(blue);
       
-      buttons.add(new Button(450, 482, blue, BLUE, false));
-      buttons.add(new Button(920, 342, blue, BLUE, false));
+      buttons.add(new Button(450, 482, blue, BLUE, BLUE, false));
+      //buttons.add(new Button(920, 342, blue, BLUE, BLUE, true));
       buttonBlocks.add(blue);
       
       Platform p = new Platform(30, 490, 120, 30, purple);
-      blocks.add(new Button(200, 612, p, purple, true));
-      blocks.add(new Button(280, 482, p, purple, true));
+      blocks.add(new Button(200, 612, p, purple, purple, false));
+      //blocks.add(new Button(280, 482, p, purple, purple, true));
       //blocks.add(p);
       
-      buttons.add(new Button(200, 612, p, purple, true));
-      buttons.add(new Button(280, 482, p, purple, true));
+      buttons.add(new Button(200, 612, p, purple, purple, false));
+      //buttons.add(new Button(280, 482, p, purple, purple, true));
       
       buttonBlocks.add(p);
       

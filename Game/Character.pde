@@ -212,13 +212,17 @@ public class Character {
           }
         }
         
+        
         Block associated = bu.attached;
+        associated.c = bu.OGColor;
         if (bu.getActivated()) { //HIDE
+          associated.c = color(0);
           //System.out.println("hide");
           //associated.c = (255);         
         }
         else {
           // Top
+
           if (associated.checkCollisionTop(this, 20)) {
             this.acceleration.y = 0;
             this.velocity.y = 0;
