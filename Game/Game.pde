@@ -16,16 +16,15 @@ void setup() {
 
 
   buttons = new ArrayList<Button>();
-  blocks = map.MapOneBlocks(buttonBlocks, buttons);
+  //blocks = map.MapOneBlocks(buttonBlocks, buttons);
   blocks = map.MapFourBlocks();
-
   frameRate(60);
 
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(600, 800, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(600, 700, 35, 35, color(0, 0, 255), "Water"));
+  charList.add(new Character(100, 800, 35, 35, color(255, 0, 0), "Fire"));
+  charList.add(new Character(100, 700, 35, 35, color(0, 0, 255), "Water"));
 
 }
 
@@ -36,6 +35,10 @@ void clearMap(){
 void draw() {
   background(255);
   for (Character c : charList) {
+    for (Block b : blocks) {
+      b.display();
+    }
+    
     c.move(buttonBlocks);
     c.display();
     for (Block b : blocks) {
@@ -44,10 +47,6 @@ void draw() {
         c.velocity.y = 0;
       }
       
-    }
-    
-    for (Block b : blocks) {
-      b.display();
     }
     
     
@@ -62,7 +61,7 @@ void draw() {
   
   
   if(redOnDoor && blueOnDoor){
-    mapNumber = (mapNumber + 1) % 3;
+    mapNumber = (mapNumber + 1) % 4;
     //System.out.println(mapNumber);
     changeMap(mapNumber);
     redOnDoor = false;
@@ -73,7 +72,7 @@ void draw() {
 
 void keyPressed() {
   if(key == 'b'){
-    mapNumber = (mapNumber + 1) % 3;
+    mapNumber = (mapNumber + 1) % 4;
     changeMap(mapNumber);
   }
       if (key == 'a' || key == 'A') {
@@ -147,7 +146,7 @@ public void changeMap(int mapNum){
    } else if(mapNum == 3){
      buttonBlocks = new ArrayList<Block>();
      blocks = map.MapFourBlocks(); 
-     charList.get(0).setXY(600, 800);
-     charList.get(1).setXY(600, 800);
-   }
+     charList.get(0).setXY(50, 50);
+     charList.get(1).setXY(1120, 50);
+   } 
 }

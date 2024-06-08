@@ -253,6 +253,29 @@ public class Map{
     
     public ArrayList<Block> MapFourBlocks(){
       clearMap();
+      // Gems
+      blocks.add(new Gem(245, 200, "redGem"));
+      blocks.add(new Gem(445, 200, "redGem"));
+      blocks.add(new Gem(680, 380, "redGem"));      
+      blocks.add(new Gem(850, 420, "redGem"));
+      blocks.add(new Gem(1120, 370, "redGem"));
+      blocks.add(new Gem(1020, 550, "redGem"));
+      blocks.add(new Gem(930, 800, "redGem"));
+      blocks.add(new Gem(460, 660, "redGem"));
+      blocks.add(new Gem(680, 660, "redGem"));
+      blocks.add(new Gem(570, 640, "redGem"));
+      
+      blocks.add(new Gem(935, 200, "blueGem"));
+      blocks.add(new Gem(735, 200, "blueGem"));
+      blocks.add(new Gem(500, 380, "blueGem"));
+      blocks.add(new Gem(330, 420, "blueGem"));
+      blocks.add(new Gem(60, 370, "blueGem"));
+      blocks.add(new Gem(160, 550, "blueGem"));
+      blocks.add(new Gem(250, 800, "blueGem"));
+      blocks.add(new Gem(720, 660, "blueGem"));
+      blocks.add(new Gem(500, 660, "blueGem"));
+      blocks.add(new Gem(610, 640, "blueGem"));
+      
       // Border
       blocks.add(new Platform(0, 0, width, 30, brown));
       blocks.add(new Platform(0, 0, 30, height, brown)); 
@@ -260,87 +283,65 @@ public class Map{
       blocks.add(new Platform(1170, 0, 30, height, brown)); 
     
       // First Layer
-      blocks.add(new Platform(350, 830, 140, 40, brown));
-      blocks.add(new Platform(710, 830, 140, 40, brown));
-      blocks.add(new Platform(420, 790, 70, 40, brown));
-      blocks.add(new Platform(710, 790, 70, 40, brown));
-      blocks.add(new Platform(520, 720, 40, 15, brown));
-      blocks.add(new Platform(640, 720, 40, 15, brown));
+      blocks.add(new Platform(300, 830, 140, 40, brown));
+      blocks.add(new Platform(760, 830, 140, 40, brown));
+      blocks.add(new Platform(370, 790, 70, 40, brown));
+      blocks.add(new Platform(760, 790, 70, 40, brown));
+      blocks.add(new Platform(470, 720, 40, 15, brown));
+      blocks.add(new Platform(690, 720, 40, 15, brown));
+      blocks.add(new Platform(580, 680, 40, 15, brown));
      
      // Second Layer
-     blocks.add(new Platform(100, 760, 70, 30, brown));
-     blocks.add(new Platform(150, 730, 40, 30, brown));
-     blocks.add(new Platform(180, 700, 40, 30, brown));
-     blocks.add(new Platform(150, 730, 40, 30, brown));
+     // Left
+     blocks.add(new Platform(100, 750, 70, 40, brown));
+     blocks.add(new Platform(150, 660, 90, 90, brown));
+     blocks.add(new Platform(220, 570, 90, 90, brown));
+     blocks.add(new Platform(220, 540, 190, 40, brown));
+     blocks.add(new Platform(30, 580, 40, 30, brown));
+     blocks.add(new Platform(180, 660, 90, 90, brown));
+     blocks.add(new Platform(210, 500, 60, 40, brown));
+     blocks.add(new Platform(150, 460, 90, 40, brown));
+     blocks.add(new Platform(110, 420, 40, 80, brown));
+     blocks.add(new Platform(380, 500, 80, 40, brown));
      
+     // right
+     blocks.add(new Platform(1030, 750, 70, 40, brown));
+     blocks.add(new Platform(960, 660, 90, 90, brown));
+     blocks.add(new Platform(890, 570, 90, 90, brown));
+     blocks.add(new Platform(790, 540, 190, 40, brown));
+     blocks.add(new Platform(1130, 580, 40, 30, brown));
+     blocks.add(new Platform(930, 660, 90, 90, brown));
+     blocks.add(new Platform(930, 500, 60, 40, brown));
+     blocks.add(new Platform(960, 460, 90, 40, brown));
+     blocks.add(new Platform(1050, 420, 40, 80, brown));
+     blocks.add(new Platform(740, 500, 80, 40, brown));
+      
+     blocks.add(new Platform(450, 460, 300, 40, brown));
+     
+     //top
+     blocks.add(new Platform(30, 200, 100, 40, brown));
+     blocks.add(new Platform(120, 240, 100, 40, brown));
+     blocks.add(new Platform(210, 280, 100, 40, brown));
+     blocks.add(new Platform(300, 240, 100, 40, brown));
+     blocks.add(new Platform(390, 280, 100, 40, brown));
+     
+     blocks.add(new Platform(1070, 200, 100, 40, brown));
+     blocks.add(new Platform(980, 240, 100, 40, brown));
+     blocks.add(new Platform(890, 280, 100, 40, brown));
+     blocks.add(new Platform(800, 240, 100, 40, brown));
+     blocks.add(new Platform(710, 280, 100, 40, brown));
      
      
      //Doors
      blocks.add(new Door(50, 790, 60, 80, RED, "fireDoor"));
      blocks.add(new Door(1090, 790, 60, 80, BLUE, "waterDoor"));
      
-     
+     //Pool, Toxic, Lava
+     blocks.add(new Toxic(440, 845, 320, 25));
+     blocks.add(new Lava(270, 520, 110, 20));
+     blocks.add(new Pool(820, 520, 110, 20));
      
      
      return blocks;
-    }
-    
-    public ArrayList<Block> MapFiveBlocks(ArrayList<Block> buttonBlocks){
-      clearMap();
-      
-      blocks.add(new Platform(0, 0, 1200, 30, brown));
-      blocks.add(new Platform(0, 0, 30, 900, brown));
-      blocks.add(new Platform(0, 870, 1200, 30, brown));
-      blocks.add(new Platform(1170, 0, 30, 900, brown));
-    
-      blocks.add(new Platform(30, 700, 200, 30, brown));
-      blocks.add(new Platform(30, 570, 300, 30, brown));
-      blocks.add(new Platform(330, 570, 25, 100, brown));
-      blocks.add(new Platform(330, 670, 250, 30, brown));
-      blocks.add(new Platform(730, 740, 100, 100, brown));
-      
-      blocks.add(new Platform(150, 440, 500, 30, brown));
-      blocks.add(new Platform(620, 470, 500, 30, brown));
-      blocks.add(new Platform(970, 470, 130, 65, brown));
-      blocks.add(new Platform(1070, 470, 110, 110, brown));
-      
-      blocks.add(new Platform(650, 265, 230, 75, brown));
-      blocks.add(new Platform(880, 300, 200, 75, brown));
-      blocks.add(new Platform(150, 310, 500, 30, brown));
-      blocks.add(new Platform(20, 210, 130, 130, brown));
-      
-      blocks.add(new Platform(200, 80, 170, 30, brown));
-      blocks.add(new Platform(270, 110, 130, 30, brown));
-      blocks.add(new Platform(330, 140, 180, 80, brown));
-      blocks.add(new Platform(510, 140, 690, 40, brown));
-    
-      blocks.add(new Pool(870, 770, 100, 15));
-      
-      blocks.add(new Lava(690, 770, 100, 15));
-      
-      blocks.add(new Toxic(800, 620, 100, 15));
-    
-      blocks.add(new Gem(725, 700, "redGem"));
-      blocks.add(new Gem(200, 320, "redGem"));
-      blocks.add(new Gem(250, -20, "redGem"));
-    
-      blocks.add(new Gem(710, 360, "blueGem"));
-      blocks.add(new Gem(700, 30, "blueGem"));
-      blocks.add(new Gem(45, 110, "blueGem"));
-    
-      blocks.add(new Door(0, 640, 60, 80, RED, "fireDoor"));
-      blocks.add(new Door(1130, 800, 60, 80, BLUE, "waterDoor"));
-      
-      
-      Platform blue = new Platform(1080, 320, 90, 30, BLUE);
-      blocks.add(new Button(450, 432, blue, BLUE, BLUE, true));
-      buttonBlocks.add(blue);
-      
-      Platform p = new Platform(30, 440, 120, 30, purple);
-      blocks.add(new Button(200, 562, p, purple, purple, true));
-      buttonBlocks.add(p);
-      
-    
-      return blocks;
     }
  }
