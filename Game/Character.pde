@@ -11,7 +11,8 @@ public class Character {
   int lastT = 0;
   boolean actBu = true;
   ArrayList<Button> buttonSteppedOn;
-
+  
+/*
   private void buttonCollision(Block b){
     Button button = (Button) b;
     Platform attachedPlatform = button.getPlatform();
@@ -25,6 +26,7 @@ public class Character {
     this.velocity.y = 0;
     this.position.y = b.y - this.h;
   }
+*/
 
   private void platformCollision(Block b){
     this.acceleration.y = 0;
@@ -43,6 +45,7 @@ public class Character {
       }
     }
   }
+
 
   private void lavaCollision(){
     if(this.type.equals("Water")){
@@ -67,7 +70,7 @@ public class Character {
     applyForce();
     lastT ++;
     
-    if (frameCount % 20 == 0) {
+    if (frameCount % 50 == 0) {
       dropL = false;
       dropR = false;
       dropB = false;
@@ -113,7 +116,7 @@ public class Character {
       }
       
       // Left
-      if (b.checkCollisionLeft(this, 5)) {
+      if (b.checkCollisionLeft(this, 7)) {
         if(b.getType().contains("Door")){
           doorCollision(b);
         }
@@ -157,7 +160,7 @@ public class Character {
       }
       
       // Right
-      if (b.checkCollisionRight(this, 5)) {
+      if (b.checkCollisionRight(this, 7)) {
         if(b.getType().equals("fireDoor")){
           if(this.type.equals("Fire")){
             redOnDoor = true; 

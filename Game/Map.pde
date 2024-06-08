@@ -70,7 +70,7 @@ public class Map{
       blocks.add(new Lava(690, 870, 100, 15));
       
       //Toxic
-      blocks.add(new Toxic(800, 720, 100, 15));
+      blocks.add(new Toxic(800, 720, 70, 15));
 
       
       //Buttons
