@@ -1,8 +1,5 @@
-/*
 public class Jumppad extends Block{
-  public Jumppad(){
-    super(1, 1, 1, 1, color(255, 0, 0), "Jumppad");
-  }
-  
+   public Jumppad(float startX, float startY, float W, float H, color Color, String Type){
+    super(startX, startY, W, H, Color, Type);
+ }
 }
-*/

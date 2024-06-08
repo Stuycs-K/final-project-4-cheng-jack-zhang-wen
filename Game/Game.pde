@@ -52,7 +52,9 @@ void draw() {
     
     
     for(Button bu : buttons){
-      bu.attached.display(); 
+      if (mapNumber == 0) {
+        bu.attached.display(); 
+      }
     }
     
   }
@@ -75,13 +77,13 @@ void keyPressed() {
     changeMap(mapNumber);
   }
       if (key == 'a' || key == 'A') {
-        if (charList.get(0).velocity.x > -5) {
+        if (charList.get(0).velocity.x > -7) {
           (charList.get(0)).position.add(new PVector(-2, 0));
           (charList.get(0)).velocity.add(new PVector(-1, 0));
         }
       }
       if (key == 'd' || key == 'D') {
-        if (charList.get(0).velocity.x < 5) {
+        if (charList.get(0).velocity.x < 7) {
           (charList.get(0)).position.add(new PVector(2, 0));
           (charList.get(0)).velocity.add(new PVector(1, 0));
         }
@@ -92,13 +94,13 @@ void keyPressed() {
     
       if (key == CODED) {
         if (keyCode == LEFT) {
-          if (charList.get(1).velocity.x > -5) {
+          if (charList.get(1).velocity.x > -7) {
             (charList.get(1)).position.add(new PVector(-2, 0));
             (charList.get(1)).velocity.add(new PVector(-1, 0));
           }
         }
         if (keyCode == RIGHT) {
-          if (charList.get(1).velocity.x < 5) {
+          if (charList.get(1).velocity.x < 7) {
             (charList.get(1)).position.add(new PVector(2, 0));
             (charList.get(1)).velocity.add(new PVector(1, 0));
           }
@@ -113,13 +115,13 @@ void keyPressed() {
 void keyReleased() {
   if (key == 'w' || key == 'W') {
     if (charList.get(0).velocity.y == 0) {
-      charList.get(0).velocity.add(new PVector(0, -20));
+      charList.get(0).velocity.add(new PVector(0, -15));
     }
   }
   if (key == CODED) {
     if (keyCode == UP) {
       if (charList.get(1).velocity.y == 0) {
-        charList.get(1).velocity.add(new PVector(0, -20));
+        charList.get(1).velocity.add(new PVector(0, -15));
       }
     }
   }
@@ -128,7 +130,7 @@ void keyReleased() {
 public void changeMap(int mapNum){
    clearMap();
    if(mapNum == 0){
-     buttonBlocks = new ArrayList<Block>();
+     buttons = new ArrayList<Button>();
      blocks = map.MapOneBlocks(buttonBlocks, buttons);
      charList.get(0).setXY(100, 800);
      charList.get(1).setXY(100, 700);
