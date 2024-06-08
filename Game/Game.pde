@@ -17,6 +17,7 @@ void setup() {
 
   buttons = new ArrayList<Button>();
   blocks = map.MapOneBlocks(buttonBlocks, buttons);
+  blocks = map.MapFourBlocks();
 
   frameRate(60);
 
@@ -133,12 +134,12 @@ public void changeMap(int mapNum){
      charList.get(1).setXY(100, 700);
    } else if(mapNum == 1){
      buttonBlocks = new ArrayList<Block>();
-     blocks = map.MapTwoBlocks(buttonBlocks); 
+     blocks = map.MapTwoBlocks(); 
      charList.get(0).setXY(70, 800);
      charList.get(1).setXY(130, 800);
    } else if(mapNum == 2){
      buttonBlocks = new ArrayList<Block>();
-     blocks = map.MapThreeBlocks(buttonBlocks); 
+     blocks = map.MapThreeBlocks(); 
      charList.get(0).setXY(100, 800);
      charList.get(1).setXY(1050, 800);
    } else if(mapNum == 3){

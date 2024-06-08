@@ -99,7 +99,7 @@ public class Map{
     
     
     // Map #2
-    public ArrayList<Block> MapTwoBlocks(ArrayList<Block> buttonBlocks){
+    public ArrayList<Block> MapTwoBlocks(){
       clearMap();
       
       //redGems
@@ -170,7 +170,7 @@ public class Map{
       return blocks;
     }
     
-    public ArrayList<Block> MapThreeBlocks(ArrayList<Block> buttonBlocks){
+    public ArrayList<Block> MapThreeBlocks(){
       clearMap(); 
       // blueGems
       blocks.add(new Gem(830, 830, "blueGem"));
@@ -264,7 +264,11 @@ public class Map{
       blocks.add(new Platform(640, 720, 40, 15, brown));
      
      // Second Layer
-     blocks.add(new Platform(100, 770, 50, 20, brown));
+     blocks.add(new Platform(100, 760, 70, 30, brown));
+     blocks.add(new Platform(150, 730, 40, 30, brown));
+     blocks.add(new Platform(180, 700, 40, 30, brown));
+     blocks.add(new Platform(150, 730, 40, 30, brown));
+     
      
      
      //Doors
