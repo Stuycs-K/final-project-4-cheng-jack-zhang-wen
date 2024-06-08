@@ -126,6 +126,11 @@ Fixed button block interactions -- start as collide
 
 Toggle works, and black implies go through
 
+### 06/08/24
+
+Reworked gravity and buttons (working after death)
+
+Started jumppad/wind mechanic, which has its own block, but not yet working
 
 ## Wen Zhang
 
