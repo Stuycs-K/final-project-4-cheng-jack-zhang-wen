@@ -113,6 +113,10 @@ public class Character {
         if(b.getType().equals("Toxic")){
           toxicCollision();
         }
+        if(b.getType().equals("platform")) {
+          System.out.println("JUMP");
+          this.velocity.add(new PVector(0, -30));
+        }
       }
       
       // Left

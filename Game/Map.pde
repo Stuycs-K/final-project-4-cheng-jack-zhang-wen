@@ -243,6 +243,10 @@ public class Map{
       blocks.add(new Door(350, 460, 60, 80, RED, "fireDoor"));
       blocks.add(new Door(790, 460, 60, 80, BLUE, "waterDoor"));
       
+      //Jumppads
+      blocks.add(new Jumppad(37, 410, 60, 10, color(0, 255, 255), "jumppad"));
+      blocks.add(new Jumppad(1103, 410, 60, 10, color(0, 255, 255), "jumppad"));
+      
       
       return blocks;
     }
