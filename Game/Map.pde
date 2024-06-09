@@ -293,24 +293,16 @@ public class Map{
      
      // Second Layer
      // Left
-     blocks.add(new Platform(100, 750, 70, 40, brown));
-     blocks.add(new Platform(150, 660, 90, 90, brown));
-     blocks.add(new Platform(220, 570, 90, 90, brown));
+     blocks.add(new Platform(30, 660, 190, 70, brown));
      blocks.add(new Platform(220, 540, 190, 40, brown));
-     blocks.add(new Platform(30, 580, 40, 30, brown));
-     blocks.add(new Platform(180, 660, 90, 90, brown));
      blocks.add(new Platform(210, 500, 60, 40, brown));
      blocks.add(new Platform(150, 460, 90, 40, brown));
      blocks.add(new Platform(110, 420, 40, 80, brown));
      blocks.add(new Platform(380, 500, 80, 40, brown));
      
      // right
-     blocks.add(new Platform(1030, 750, 70, 40, brown));
-     blocks.add(new Platform(960, 660, 90, 90, brown));
-     blocks.add(new Platform(890, 570, 90, 90, brown));
+     blocks.add(new Platform(1000, 660, 190, 70, brown));
      blocks.add(new Platform(790, 540, 190, 40, brown));
-     blocks.add(new Platform(1130, 580, 40, 30, brown));
-     blocks.add(new Platform(930, 660, 90, 90, brown));
      blocks.add(new Platform(930, 500, 60, 40, brown));
      blocks.add(new Platform(960, 460, 90, 40, brown));
      blocks.add(new Platform(1050, 420, 40, 80, brown));
