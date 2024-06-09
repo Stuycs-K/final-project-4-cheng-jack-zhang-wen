@@ -21,8 +21,8 @@ void setup() {
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(100, 800, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(100, 600, 35, 35, color(0, 0, 255), "Water"));
+  charList.add(new Character(200, 100, 35, 35, color(255, 0, 0), "Fire"));
+  charList.add(new Character(200, 100, 35, 35, color(0, 0, 255), "Water"));
 }
 
 void clearMap(){
@@ -32,7 +32,7 @@ void clearMap(){
 void draw() {
   background(255);
   for (Character c : charList) {
-    c.move(buttonBlocks);
+    c.move();
     c.display();
     for (Block b : blocks) {
       if (b.checkCollisionTop(c, 20)) {
@@ -125,6 +125,8 @@ void keyReleased() {
 
 public void changeMap(int mapNum){
    clearMap();
+   redOnDoor = false;
+   blueOnDoor = false;
    if(mapNum == 0){
      buttons = new ArrayList<Button>();
      blocks = map.MapOneBlocks(buttonBlocks, buttons);

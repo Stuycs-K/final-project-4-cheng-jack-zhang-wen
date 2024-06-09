@@ -38,10 +38,12 @@ public class Character {
     if(b.getType().equals("fireDoor")){
       if(this.type.equals("Fire")){
         redOnDoor = true; 
+        this.position = new PVector(2000, 2000);
       }
     } else if(b.getType().equals("waterDoor")){
       if(this.type.equals("Water")){
         blueOnDoor = true; 
+        this.position = new PVector(2000, 2000);
       }
     }
   }
@@ -63,7 +65,7 @@ public class Character {
     changeMap(mapNumber); 
   }
 
-  void move(ArrayList<Block> buttonBlocks) {
+  void move() {
     velocity.add(acceleration);
     position.add(velocity);
     acceleration = new PVector();
@@ -87,13 +89,14 @@ public class Character {
       Block b = iterator.next();
       // Top
       if (b.checkCollisionTop(this, 20)) {
-        if(b.getType().equals("Platform")){
-          platformCollision(b);
-        }
-        
         if(b.getType().contains("Door")){
           doorCollision(b);
         }
+        
+        else if(b.getType().equals("Platform")){
+          platformCollision(b);
+        }
+
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
           iterator.remove();
@@ -115,7 +118,7 @@ public class Character {
         }
         if(b.getType().equals("platform")) {
           System.out.println("JUMP");
-          this.velocity.add(new PVector(0, -30));
+          this.velocity = (new PVector(0, -30));
         }
       }
       
@@ -125,15 +128,23 @@ public class Character {
           doorCollision(b);
         }
         
-        if (!dropL && b.getType().equals("Platform")) {
-          this.velocity.x = 0;
-          this.position.x = b.x - this.w;
-          dropL = true;
+        if (b.getType().equals("Platform")) {
+          if (!dropL) {
+            this.velocity.x = 0;
+            this.position.x = b.x - this.w;
+            dropL = true;
+          }
+          if (this.position.x < b.x + b.w && this.position.x + this.w > b.x) {
+            this.velocity.x = 0;
+            this.position.x = b.x - this.w;
+          }
         }
+        /*
         if (this.position.x < b.x + b.w && this.position.x + this.w > b.x && !b.getType().equals("Door")) {
             this.velocity.x = 0;
             this.position.x = b.x - this.w;
           }
+          */
         /*
         if (this.velocity.x > 0 && !b.getType().equals("Door")) {
           this.velocity.x = 0;
@@ -165,24 +176,20 @@ public class Character {
       
       // Right
       if (b.checkCollisionRight(this, 7)) {
-        if(b.getType().equals("fireDoor")){
-          if(this.type.equals("Fire")){
-            redOnDoor = true; 
-          }
-        } else if(b.getType().equals("waterDoor")){
-          if(this.type.equals("Water")){
-            blueOnDoor = true; 
-          }
-        } else if(b.getType().equals("Platform")){
+        if(b.getType().contains("Door")){
+          doorCollision(b);
+        }
+        if(b.getType().equals("Platform")){
           if (!dropR) {
             this.velocity.x = 0;
             this.position.x = b.x + b.w;
             dropR = true;
           }
-          if (this.position.x < b.x + b.w && this.position.x + this.w > b.x && !b.getType().equals("Door")) {
+          if (this.position.x < b.x + b.w && this.position.x + this.w > b.x) {
             this.velocity.x = 0;
             this.position.x = b.x + b.w;
           }
+          
           /*
           if (this.velocity.x < 0 && !b.getType().equals("Door")) {
             this.velocity.x = 0;
