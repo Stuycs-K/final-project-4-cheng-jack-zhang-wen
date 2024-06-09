@@ -15,10 +15,19 @@ You must avoid the pools that correspond to the opposite character (i.e. avoid w
 
 ## Instructions
 
-WASD for fireboy (red block)
-Arrow keys for watergirl (blue block)
+Fireboy (red block):
+- W: jump
+- A: move left (with momentum)
+- D: move right (with momentum)
+- S: stop all horizontal momentum
+
+Watergirl (blue block):
+- UP: jump
+- LEFT: move left (with momentum)
+- RIGHT: move right (with momentum)
+- DOWN: stop all horizontal momentum
 
 Shortcuts:
-z for endscreen menu
-b to go to next map
-= to gain admin powers (infinite jump)
+- z for endscreen menu
+- b to go to next map
+- = to gain admin powers (infinite jump)
