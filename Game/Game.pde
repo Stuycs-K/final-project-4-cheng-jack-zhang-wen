@@ -236,13 +236,13 @@ void keyPressed() {
         charList.get(0).velocity.add(new PVector(0, -20));
       }
       if (key == 'a' || key == 'A') {
-        if (charList.get(0).velocity.x > -5) {
+        if (charList.get(0).velocity.x > -7) {
           (charList.get(0)).position.add(new PVector(-2, 0));
           (charList.get(0)).velocity.add(new PVector(-1, 0));
         }
       }
       if (key == 'd' || key == 'D') {
-        if (charList.get(0).velocity.x < 5) {
+        if (charList.get(0).velocity.x < 7) {
           (charList.get(0)).position.add(new PVector(2, 0));
           (charList.get(0)).velocity.add(new PVector(1, 0));
         }
@@ -256,13 +256,13 @@ void keyPressed() {
           charList.get(1).velocity.add(new PVector(0, -20));
         }
         if (keyCode == LEFT) {
-          if (charList.get(1).velocity.x > -5) {
+          if (charList.get(1).velocity.x > -7) {
             (charList.get(1)).position.add(new PVector(-2, 0));
             (charList.get(1)).velocity.add(new PVector(-1, 0));
           }
         }
         if (keyCode == RIGHT) {
-          if (charList.get(1).velocity.x < 5) {
+          if (charList.get(1).velocity.x < 7) {
             (charList.get(1)).position.add(new PVector(2, 0));
             (charList.get(1)).velocity.add(new PVector(1, 0));
           }
@@ -274,13 +274,13 @@ void keyPressed() {
     }
     if (!admin) {
       if (key == 'a' || key == 'A') {
-        if (charList.get(0).velocity.x > -5) {
+        if (charList.get(0).velocity.x > -7) {
           (charList.get(0)).position.add(new PVector(-2, 0));
           (charList.get(0)).velocity.add(new PVector(-1, 0));
         }
       }
       if (key == 'd' || key == 'D') {
-        if (charList.get(0).velocity.x < 5) {
+        if (charList.get(0).velocity.x < 7) {
           (charList.get(0)).position.add(new PVector(2, 0));
           (charList.get(0)).velocity.add(new PVector(1, 0));
         }
@@ -291,13 +291,13 @@ void keyPressed() {
     
       if (key == CODED) {
         if (keyCode == LEFT) {
-          if (charList.get(1).velocity.x > -5) {
+          if (charList.get(1).velocity.x > -7) {
             (charList.get(1)).position.add(new PVector(-2, 0));
             (charList.get(1)).velocity.add(new PVector(-1, 0));
           }
         }
         if (keyCode == RIGHT) {
-          if (charList.get(1).velocity.x < 5) {
+          if (charList.get(1).velocity.x < 7) {
             (charList.get(1)).position.add(new PVector(2, 0));
             (charList.get(1)).velocity.add(new PVector(1, 0));
           }

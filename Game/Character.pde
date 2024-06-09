@@ -130,7 +130,7 @@ public class Character {
       }
       
       // Left
-      if (b.checkCollisionLeft(this, 7)) {
+      if (b.checkCollisionLeft(this, 10)) {
         if(b.getType().contains("Door")){
           doorCollision(b);
         }
@@ -171,7 +171,7 @@ public class Character {
       }
       
       // Right
-      if (b.checkCollisionRight(this, 7)) {
+      if (b.checkCollisionRight(this, 10)) {
         if(b.getType().contains("Door")){
           doorCollision(b);
         }
