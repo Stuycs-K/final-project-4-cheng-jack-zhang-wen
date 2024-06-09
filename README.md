@@ -2,5 +2,8 @@
 # APCS2 Final Project
 THIS DOCUMENT IS REQUIRED
 ## Group Info
+Names: Jack Cheng, Wen Zhang
+
+Group Name: Debug Thugs
 ## Overview
 ## Instructions
