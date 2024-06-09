@@ -15,6 +15,8 @@ boolean showChooseMenu = false;
 public static int redGemsCollected = 0;
 public static int blueGemsCollected = 0;
 
+public static boolean admin = false;
+
 Map map;
 
 void setup() {
@@ -215,63 +217,113 @@ void mousePressed(){
 }
 
 void keyPressed() {
-  if(key == 'b'){
-    mapNumber = (mapNumber + 1) % 4;
+  if (key == 'b'){
+    mapNumber = (mapNumber + 1) % 3;
     changeMap(mapNumber);
   }
+  if (key == '='){
+    admin = !admin;
+  }
+
   if(key == 'z'){
     blueOnDoor =true;
     redOnDoor = true;
   }
   
   if(!redOnDoor || !blueOnDoor){
-    if (key == 'a' || key == 'A') {
-      if (charList.get(0).velocity.x > -7) {
-        (charList.get(0)).position.add(new PVector(-2, 0));
-        (charList.get(0)).velocity.add(new PVector(-1, 0));
+    if (admin) {
+      if (key == 'w' || key == 'W') {
+        charList.get(0).velocity.add(new PVector(0, -20));
       }
-    }
-    if (key == 'd' || key == 'D') {
-      if (charList.get(0).velocity.x < 7) {
-        (charList.get(0)).position.add(new PVector(2, 0));
-        (charList.get(0)).velocity.add(new PVector(1, 0));
-      }
-    }
-    if (key == 's' || key == 'S') {
-      (charList.get(0)).velocity.x = 0;
-    }
-  
-    if (key == CODED) {
-      if (keyCode == LEFT) {
-        if (charList.get(1).velocity.x > -7) {
-          (charList.get(1)).position.add(new PVector(-2, 0));
-          (charList.get(1)).velocity.add(new PVector(-1, 0));
+      if (key == 'a' || key == 'A') {
+        if (charList.get(0).velocity.x > -5) {
+          (charList.get(0)).position.add(new PVector(-2, 0));
+          (charList.get(0)).velocity.add(new PVector(-1, 0));
         }
       }
-      if (keyCode == RIGHT) {
-        if (charList.get(1).velocity.x < 7) {
-          (charList.get(1)).position.add(new PVector(2, 0));
-          (charList.get(1)).velocity.add(new PVector(1, 0));
+      if (key == 'd' || key == 'D') {
+        if (charList.get(0).velocity.x < 5) {
+          (charList.get(0)).position.add(new PVector(2, 0));
+          (charList.get(0)).velocity.add(new PVector(1, 0));
         }
       }
-      if (keyCode == DOWN) {
-        (charList.get(1)).velocity.x = 0;
+      if (key == 's' || key == 'S') {
+        (charList.get(0)).velocity.x = 0;
+      }
+    
+      if (key == CODED) {
+        if (keyCode == UP) {
+          charList.get(1).velocity.add(new PVector(0, -20));
+        }
+        if (keyCode == LEFT) {
+          if (charList.get(1).velocity.x > -5) {
+            (charList.get(1)).position.add(new PVector(-2, 0));
+            (charList.get(1)).velocity.add(new PVector(-1, 0));
+          }
+        }
+        if (keyCode == RIGHT) {
+          if (charList.get(1).velocity.x < 5) {
+            (charList.get(1)).position.add(new PVector(2, 0));
+            (charList.get(1)).velocity.add(new PVector(1, 0));
+          }
+        }
+        if (keyCode == DOWN) {
+          (charList.get(1)).velocity.x = 0;
+        }
       }
     }
+    if (!admin) {
+      if (key == 'a' || key == 'A') {
+        if (charList.get(0).velocity.x > -5) {
+          (charList.get(0)).position.add(new PVector(-2, 0));
+          (charList.get(0)).velocity.add(new PVector(-1, 0));
+        }
+      }
+      if (key == 'd' || key == 'D') {
+        if (charList.get(0).velocity.x < 5) {
+          (charList.get(0)).position.add(new PVector(2, 0));
+          (charList.get(0)).velocity.add(new PVector(1, 0));
+        }
+      }
+      if (key == 's' || key == 'S') {
+        (charList.get(0)).velocity.x = 0;
+      }
+    
+      if (key == CODED) {
+        if (keyCode == LEFT) {
+          if (charList.get(1).velocity.x > -5) {
+            (charList.get(1)).position.add(new PVector(-2, 0));
+            (charList.get(1)).velocity.add(new PVector(-1, 0));
+          }
+        }
+        if (keyCode == RIGHT) {
+          if (charList.get(1).velocity.x < 5) {
+            (charList.get(1)).position.add(new PVector(2, 0));
+            (charList.get(1)).velocity.add(new PVector(1, 0));
+          }
+        }
+        if (keyCode == DOWN) {
+          (charList.get(1)).velocity.x = 0;
+        }
+      }
+    }
+
   }
 }
 
 
 void keyReleased() {
-  if (key == 'w' || key == 'W') {
-    if (charList.get(0).velocity.y == 0) {
-      charList.get(0).velocity.add(new PVector(0, -15));
+  if (!admin) {
+    if (key == 'w' || key == 'W') {
+      if (charList.get(0).velocity.y == 0) {
+        charList.get(0).velocity.add(new PVector(0, -15));
+      }
     }
-  }
-  if (key == CODED) {
-    if (keyCode == UP) {
-      if (charList.get(1).velocity.y == 0) {
-        charList.get(1).velocity.add(new PVector(0, -15));
+    if (key == CODED) {
+      if (keyCode == UP) {
+        if (charList.get(1).velocity.y == 0) {
+          charList.get(1).velocity.add(new PVector(0, -15));
+        }
       }
     }
   }
