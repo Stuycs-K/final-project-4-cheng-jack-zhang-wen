@@ -8,6 +8,7 @@ public class Character {
   boolean dropL = false;
   boolean dropR = false;
   boolean dropB = false;
+  boolean dropT = false;
   boolean stick = false;
   int lastT = 0;
   boolean actBu = true;
@@ -83,6 +84,7 @@ public class Character {
       dropL = false;
       dropR = false;
       dropB = false;
+      dropT = false;
     }
     if (frameCount % 20 == 0) {
       stick = false;
@@ -91,10 +93,6 @@ public class Character {
       actBu = true;
     }
     
-    
-    
-    buttonSteppedOn = new ArrayList<Button>();
-    
     for (Iterator<Block> iterator = blocks.iterator(); iterator.hasNext(); ) {
       Block b = iterator.next();
       // Top
@@ -102,9 +100,18 @@ public class Character {
         if(b.getType().contains("Door")){
           doorCollision(b);
         }
-
+        
+        /*
         if(b.getType().equals("Platform")){
           platformCollision(b);
+        }
+        */
+        if (b.getType().equals("Platform")) {
+          platformCollision(b);
+          if (this.position.y < b.y + b.h && this.position.y + this.h > b.y) {
+            this.velocity.y = 0;
+            this.position.y = b.y - this.h;
+          }
         }
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
