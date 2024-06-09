@@ -93,21 +93,22 @@ public class Character {
       Block b = iterator.next();
       // Top
       if (b.checkCollisionTop(this, 20)) {
+        if(b.getType().contains("Door")){
+          doorCollision(b);
+        }
         if(b.getType().equals("Platform")){
           platformCollision(b);
         }
         
-        if(b.getType().contains("Door")){
-          doorCollision(b);
-        }
+        
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
-          iterator.remove();
+          //iterator.remove();
           b = iterator.next();
           blueGemsCollected++;
         } 
         if(b.getType().equals("redGem") && this.type.equals("Fire")){
-          iterator.remove(); 
+          //iterator.remove();
           b = iterator.next();
           redGemsCollected++;
         }
@@ -121,7 +122,7 @@ public class Character {
         if(b.getType().equals("Toxic")){
           toxicCollision();
         }
-        if(b.getType().equals("platform")) {
+        if(b.getType().equals("jumppad")) {
           System.out.println("JUMP");
           this.velocity.add(new PVector(0, -30));
         }
