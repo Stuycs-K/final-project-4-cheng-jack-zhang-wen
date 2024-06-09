@@ -49,18 +49,24 @@ public class Character {
 
   private void lavaCollision(){
     if(this.type.equals("Water")){
-      changeMap(mapNumber); 
+      changeMap(mapNumber);
+      redOnDoor = false;
+      blueOnDoor = false;
     }
   }
   
   private void poolCollision(){
     if(this.type.equals("Fire")){
       changeMap(mapNumber);
+      redOnDoor = false;
+      blueOnDoor = false;
     } 
   }
   
   private void toxicCollision(){
     changeMap(mapNumber); 
+    redOnDoor = false;
+    blueOnDoor = false;
   }
 
   void move(ArrayList<Block> buttonBlocks) {
@@ -98,10 +104,12 @@ public class Character {
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
           iterator.remove();
           b = iterator.next();
+          blueGemsCollected++;
         } 
         if(b.getType().equals("redGem") && this.type.equals("Fire")){
           iterator.remove(); 
           b = iterator.next();
+          redGemsCollected++;
         }
         
         if(b.getType().equals("Lava")){
