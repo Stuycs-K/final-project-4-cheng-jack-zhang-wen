@@ -38,9 +38,8 @@ void setup() {
 
   //DO NOT CHANGE THIS:
   charList = new ArrayList<Character>();
-  charList.add(new Character(950, 100, 35, 35, color(255, 0, 0), "Fire"));
-  charList.add(new Character(1050, 100, 35, 35, color(0, 0, 255), "Water"));
-
+  charList.add(new Character(100, 800, 35, 35, color(255, 0, 0), "Fire"));
+  charList.add(new Character(100, 700, 35, 35, color(0, 0, 255), "Water"));
 }
 
 void clearMap(){
@@ -50,28 +49,24 @@ void clearMap(){
 void draw() {
   if(!redOnDoor || !blueOnDoor){
     background(255);
+    for (Block b : blocks) {
+      b.display();
+    }
     for (Character c : charList) {
-      for (Block b : blocks) {
-        b.display();
-      }
-      
-      c.move(buttonBlocks);
+      c.move();
       c.display();
       for (Block b : blocks) {
         if (b.checkCollisionTop(c, 20)) {
           c.acceleration.y = 0;
           c.velocity.y = 0;
         }
-        
       }
-      
-      
-      for(Button bu : buttons){
-        if (mapNumber == 0) {
-          bu.attached.display(); 
+        for(Button bu : buttons){
+          if (mapNumber == 0) {
+            bu.attached.display(); 
+          }
         }
       }
-    }
     if (millis() - lastMillis >= 1000) { 
       time++; 
       lastMillis = millis(); 

@@ -64,13 +64,13 @@ public class Map{
       blocks.add(new Door(1080, 110, 60, 80, BLUE, "waterDoor"));
       
       //Pools
-      blocks.add(new Pool(870, 870, 80, 15));
+      blocks.add(new Pool(870, 870, 80, 10));
       
       //Lavas
-      blocks.add(new Lava(690, 870, 80, 15));
+      blocks.add(new Lava(690, 870, 80, 10));
       
       //Toxic
-      blocks.add(new Toxic(700, 705, 50, 15));
+      blocks.add(new Toxic(700, 705, 50, 10));
 
       
       //Buttons
@@ -244,8 +244,8 @@ public class Map{
       blocks.add(new Door(790, 460, 60, 80, BLUE, "waterDoor"));
       
       //Jumppads
-      blocks.add(new Jumppad(37, 410, 60, 10, color(0, 255, 255), "jumppad"));
-      blocks.add(new Jumppad(1103, 410, 60, 10, color(0, 255, 255), "jumppad"));
+      blocks.add(new Jumppad(37, 410, 80, 10, color(0, 255, 255), "jumppad"));
+      blocks.add(new Jumppad(1083, 410, 80, 10, color(0, 255, 255), "jumppad"));
       
       
       return blocks;

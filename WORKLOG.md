@@ -130,7 +130,9 @@ Toggle works, and black implies go through
 
 Reworked gravity and buttons (working after death)
 
-Started jumppad/wind mechanic, which has its own block, but not yet working
+Jumppads work well
+
+Work on debugging collisions and non-platform collisions from the top
 
 ## Wen Zhang
 

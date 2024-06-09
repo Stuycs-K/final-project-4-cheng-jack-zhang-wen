@@ -8,6 +8,7 @@ public class Character {
   boolean dropL = false;
   boolean dropR = false;
   boolean dropB = false;
+  boolean stick = false;
   int lastT = 0;
   boolean actBu = true;
   ArrayList<Button> buttonSteppedOn;
@@ -38,10 +39,12 @@ public class Character {
     if(b.getType().equals("fireDoor")){
       if(this.type.equals("Fire")){
         redOnDoor = true; 
+        this.position = new PVector(2000, 2000);
       }
     } else if(b.getType().equals("waterDoor")){
       if(this.type.equals("Water")){
         blueOnDoor = true; 
+        this.position = new PVector(2000, 2000);
       }
     }
   }
@@ -59,11 +62,17 @@ public class Character {
     } 
   }
   
+  private void jumpCollision() {
+    System.out.println("JUMP");
+    this.position.add(new PVector(0, -20));
+    this.velocity.add(new PVector(0, -20));
+  }
+  
   private void toxicCollision(){
     changeMap(mapNumber); 
   }
 
-  void move(ArrayList<Block> buttonBlocks) {
+  void move() {
     velocity.add(acceleration);
     position.add(velocity);
     acceleration = new PVector();
@@ -74,6 +83,9 @@ public class Character {
       dropL = false;
       dropR = false;
       dropB = false;
+    }
+    if (frameCount % 20 == 0) {
+      stick = false;
     }
     if (lastT % 120 == 0) {
       actBu = true;
@@ -87,12 +99,12 @@ public class Character {
       Block b = iterator.next();
       // Top
       if (b.checkCollisionTop(this, 20)) {
-        if(b.getType().equals("Platform")){
-          platformCollision(b);
-        }
-        
         if(b.getType().contains("Door")){
           doorCollision(b);
+        }
+
+        if(b.getType().equals("Platform")){
+          platformCollision(b);
         }
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
@@ -101,7 +113,7 @@ public class Character {
           blueGemsCollected++;
         } 
         if(b.getType().equals("redGem") && this.type.equals("Fire")){
-          iterator.remove(); 
+          iterator.remove();
           b = iterator.next();
           redGemsCollected++;
         }
@@ -115,9 +127,9 @@ public class Character {
         if(b.getType().equals("Toxic")){
           toxicCollision();
         }
-        if(b.getType().equals("platform")) {
-          System.out.println("JUMP");
-          this.velocity.add(new PVector(0, -30));
+        if(b.getType().equals("jumppad") && !stick) {
+          jumpCollision();
+          stick = true;
         }
       }
       
@@ -127,15 +139,23 @@ public class Character {
           doorCollision(b);
         }
         
-        if (!dropL && b.getType().equals("Platform")) {
-          this.velocity.x = 0;
-          this.position.x = b.x - this.w;
-          dropL = true;
+        if (b.getType().equals("Platform")) {
+          if (!dropL) {
+            this.velocity.x = 0;
+            this.position.x = b.x - this.w;
+            dropL = true;
+          }
+          if (this.position.x < b.x + b.w && this.position.x + this.w > b.x) {
+            this.velocity.x = 0;
+            this.position.x = b.x - this.w;
+          }
         }
+        /*
         if (this.position.x < b.x + b.w && this.position.x + this.w > b.x && !b.getType().equals("Door")) {
             this.velocity.x = 0;
             this.position.x = b.x - this.w;
           }
+          */
         /*
         if (this.velocity.x > 0 && !b.getType().equals("Door")) {
           this.velocity.x = 0;
@@ -169,24 +189,20 @@ public class Character {
       
       // Right
       if (b.checkCollisionRight(this, 7)) {
-        if(b.getType().equals("fireDoor")){
-          if(this.type.equals("Fire")){
-            redOnDoor = true; 
-          }
-        } else if(b.getType().equals("waterDoor")){
-          if(this.type.equals("Water")){
-            blueOnDoor = true; 
-          }
-        } else if(b.getType().equals("Platform")){
+        if(b.getType().contains("Door")){
+          doorCollision(b);
+        }
+        if(b.getType().equals("Platform")){
           if (!dropR) {
             this.velocity.x = 0;
             this.position.x = b.x + b.w;
             dropR = true;
           }
-          if (this.position.x < b.x + b.w && this.position.x + this.w > b.x && !b.getType().equals("Door")) {
+          if (this.position.x < b.x + b.w && this.position.x + this.w > b.x) {
             this.velocity.x = 0;
             this.position.x = b.x + b.w;
           }
+          
           /*
           if (this.velocity.x < 0 && !b.getType().equals("Door")) {
             this.velocity.x = 0;
