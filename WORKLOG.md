@@ -198,4 +198,8 @@ Started on a map4 and cleaned up the code a bit by making functions for collisio
 
 ### 6/5/2024 - 6/6/2024
 
-Finished map3 and map5. Also started a jumppad class.
+Finished map4. Also started a jumppad class.
+
+### 6/7/2024 - 6/8/2024
+
+Modified all 4 maps so they are beatable. Added a menu for when you beat the game and also a menu for choosing which map you want to pick. In the win menu, also added a timer and a gem counting system. 
