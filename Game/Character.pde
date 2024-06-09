@@ -8,6 +8,7 @@ public class Character {
   boolean dropL = false;
   boolean dropR = false;
   boolean dropB = false;
+  boolean dropT = false;
   boolean stick = false;
   int lastT = 0;
   boolean actBu = true;
@@ -63,7 +64,6 @@ public class Character {
   }
   
   private void jumpCollision() {
-    System.out.println("JUMP");
     this.position.add(new PVector(0, -20));
     this.velocity.add(new PVector(0, -20));
   }
@@ -83,6 +83,7 @@ public class Character {
       dropL = false;
       dropR = false;
       dropB = false;
+      dropT = false;
     }
     if (frameCount % 20 == 0) {
       stick = false;
@@ -91,10 +92,6 @@ public class Character {
       actBu = true;
     }
     
-    
-    
-    buttonSteppedOn = new ArrayList<Button>();
-    
     for (Iterator<Block> iterator = blocks.iterator(); iterator.hasNext(); ) {
       Block b = iterator.next();
       // Top
@@ -102,8 +99,7 @@ public class Character {
         if(b.getType().contains("Door")){
           doorCollision(b);
         }
-
-        if(b.getType().equals("Platform")){
+        if (b.getType().equals("Platform")) {
           platformCollision(b);
         }
         
@@ -149,20 +145,7 @@ public class Character {
             this.velocity.x = 0;
             this.position.x = b.x - this.w;
           }
-        }
-        /*
-        if (this.position.x < b.x + b.w && this.position.x + this.w > b.x && !b.getType().equals("Door")) {
-            this.velocity.x = 0;
-            this.position.x = b.x - this.w;
-          }
-          */
-        /*
-        if (this.velocity.x > 0 && !b.getType().equals("Door")) {
-          this.velocity.x = 0;
-          this.position.x = b.x - this.w;
-        }
-        */
-        
+        }        
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
           iterator.remove();
@@ -203,12 +186,6 @@ public class Character {
             this.position.x = b.x + b.w;
           }
           
-          /*
-          if (this.velocity.x < 0 && !b.getType().equals("Door")) {
-            this.velocity.x = 0;
-            this.position.x = b.x + b.w;
-          }
-          */
         }
         
         if(b.getType().equals("blueGem") && this.type.equals("Water")){
@@ -280,7 +257,6 @@ public class Character {
               this.acceleration.y = 0;
               this.velocity.y = 0;
               this.position.y = bu.y - this.h;
-              //System.out.println("cycled" + bu.isActivated);
             }
           }
           
@@ -289,8 +265,7 @@ public class Character {
           associated.c = bu.OGColor;
           if (bu.getActivated()) { //HIDE
             associated.c = color(0);
-            //System.out.println("hide");
-            //associated.c = (255);         
+     
           }
           else {
             // Top
@@ -335,61 +310,7 @@ public class Character {
           
         }
       }
-      /*
-      
-      for (Block bB : buttonBlocks) {
-        // Top
-        if (bB.checkCollisionTop(this, 20)) {
-          this.acceleration.y = 0;
-          this.velocity.y = 0;
-          this.position.y = bB.y - this.h;
-        }
-        
-        // Left
-        if (bB.checkCollisionLeft(this, 5)) {
-          if (!dropL) {
-            this.velocity.x = 0;
-            this.position.x = bB.x - this.w;
-            dropL = true;
-          }
-        }
-        
-        // Right
-        if (bB.checkCollisionRight(this, 5)) {
-          if (!dropR) {
-            this.velocity.x = 0;
-            this.position.x = bB.x + bB.w;
-            dropR = true;
-          }
-        }
-        
-        // Bottom
-        if (bB.checkCollisionBottom(this, 20)) {
-          if (!dropB) {
-            this.position.y = bB.y + bB.h;
-            this.velocity.y = 0;
-            dropB = true;
-          }
-          if (this.velocity.y < 0) {
-            this.velocity.y = 0;
-            this.position.y = bB.y + bB.h;
-          }
-        }
-        */
       }
-      /*
-      for(Button button : buttonSteppedOn){
-        Platform attachedPlatform = button.getPlatform();
-         if(button.getActivated()){
-            buttonBlocks.add(attachedPlatform);
-          } else {
-            buttonBlocks.remove(attachedPlatform);
-          }
-      }
-      
-    }
-    */
-
     bounce();
   }
   
