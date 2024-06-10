@@ -12,7 +12,6 @@ This project is an emulation of the platformer game FireBoy and Watergirl, where
 
 You must avoid the pools that correspond to the opposite character (i.e. avoid water for fireboy, lava for watergirl, and poison for both) in order to survive. If you end up dead, you will respawn with the timers and gems reset. When you approach a button, you must step on top of the button to deactivate its associated platform. An associated platform is deactivated when colored black, and active if colored with the same color as its corresponding button. An active platform can be collided with, like any normal platform, but a deactivated platform has its collisions turned off. Certain platforms must be deactivated to open a path towards completion. When you approach a jumppad, just jump on top to apply a large boost to your vertical jump. This makes certain jumps possible, and opens a path towards completion.
 
-
 ## Instructions
 
 Fireboy (red block):
@@ -31,3 +30,11 @@ Shortcuts:
 - z for endscreen menu
 - b to go to next map
 - = to gain admin powers (infinite jump)
+
+## Bugs
+
+Sometimes you can stand on top of the gems/door if you are the opposite color, this shouldn't be a game breaking bug. You can somewhat avoid it if you collect the gem with the same color. 
+
+## Link to Presentation
+
+https://drive.google.com/file/d/1YqX7tjESbJlIJDQsOmD-K5RCZHFLiMJ3/view?usp=sharing 

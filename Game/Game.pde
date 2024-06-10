@@ -218,7 +218,7 @@ void mousePressed(){
 
 void keyPressed() {
   if (key == 'b'){
-    mapNumber = (mapNumber + 1) % 3;
+    mapNumber = (mapNumber + 1) % 4;
     changeMap(mapNumber);
   }
   if (key == '='){
